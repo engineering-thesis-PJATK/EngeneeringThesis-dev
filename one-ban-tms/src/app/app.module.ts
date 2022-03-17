@@ -7,6 +7,10 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchComponent } from './navbar/search/search.component';
+import { CompanyComponent } from './company/company.component';
+import { CompanyFormComponent } from './company/company-form/company-form.component';
+import { CompanyAddressFormComponent } from './company/company-address-form/company-address-form.component';
+import { CompanyDetailsComponent } from './company/company-details/company-details.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +19,11 @@ import { SearchComponent } from './navbar/search/search.component';
     SignInComponent,
     SignUpComponent,
     NavbarComponent,
-    SearchComponent
+    SearchComponent,
+    CompanyComponent,
+    CompanyFormComponent,
+    CompanyAddressFormComponent,
+    CompanyDetailsComponent
   ],
   imports: [
     BrowserModule,
