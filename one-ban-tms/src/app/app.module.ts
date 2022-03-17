@@ -11,6 +11,8 @@ import { CompanyComponent } from './company/company.component';
 import { CompanyFormComponent } from './company/company-form/company-form.component';
 import { CompanyAddressFormComponent } from './company/company-form/company-address-form/company-address-form.component';
 import { CompanyDetailsComponent } from './company/company-details/company-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -23,11 +25,13 @@ import { CompanyDetailsComponent } from './company/company-details/company-detai
     CompanyComponent,
     CompanyFormComponent,
     CompanyAddressFormComponent,
-    CompanyDetailsComponent
+    CompanyDetailsComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
