@@ -9,7 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SearchComponent } from './navbar/search/search.component';
 import { CompanyComponent } from './company/company.component';
 import { CompanyFormComponent } from './company/company-form/company-form.component';
-import { CompanyAddressFormComponent } from './company/company-address-form/company-address-form.component';
+import { CompanyAddressFormComponent } from './company/company-form/company-address-form/company-address-form.component';
 import { CompanyDetailsComponent } from './company/company-details/company-details.component';
 
 @NgModule({
