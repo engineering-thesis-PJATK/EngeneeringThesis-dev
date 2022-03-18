@@ -1,0 +1,86 @@
+<div class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">account_balance</i>
+        <input id="company_name" type="text" />
+        <label for="company_name">Company name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s3">
+        <i class="material-icons prefix">description</i>
+        <input id="nip_prefix" type="text" />
+        <label for="nip_prefix">NIP Prefix</label>
+      </div>
+      <div class="input-field col s9">
+        <i class="material-icons prefix">description</i>
+        <input id="nip" type="text" />
+        <label for="nip">NIP</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">description</i>
+        <input id="regon" type="text" />
+        <label for="regon">REGON</label>
+      </div>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">description</i>
+        <input id="mobile" type="text" />
+        <label for="mobile">KRS</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">phone</i>
+        <input id="phone" type="text" />
+        <label for="phone">Phone number</label>
+      </div>
+    </div>
+    <div class="row border">
+      <div class="col s6">
+          <app-company-address></app-company-address>
+      </div>
+      <div class="col s4 offset-s1">
+          <table class="centered">
+              <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Street</th>
+                    <th>Postal code</th>
+                    <th>Country</th>
+                    <th>Remove</th>
+                </tr>
+              </thead>
+      
+              <tbody>
+                <tr>
+                  <td>x</td>
+                  <td>y</td>
+                  <td>123</td>
+                  <td>pl</td>
+                  <td><i class="material-icons prefix">delete</i></td>
+                </tr>
+                <tr>
+                  <td>s</td>
+                  <td>ss</td>
+                  <td>123123</td>
+                  <td>germany</td>
+                  <td><i class="material-icons prefix">delete</i></td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <button
+          class="waves-effect waves-yellow btn-large btn-submit"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+  

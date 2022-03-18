@@ -11,27 +11,37 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { CreateTicketComponent } from './components/ticket/create-ticket/create-ticket.component';
+import { TicketListComponent } from './components/ticket/ticket-list/ticket-list.component';
 
 const routes: Routes = [
+  //#region singup
   {
     path: 'signup',
     component: AccountComponent,
     children: [{ path: '', component: SignUpComponent }],
   },
+  //#endregion singup
+  //#region login
   {
     path: 'login',
     component: AccountComponent,
     children: [{ path: '', component: SignInComponent }],
   },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  //#endregion login
+  //#region companies
   {
     path: 'companies',
     component: CompanyComponent,
     //children: [{ path: 'add', component: CompanyComponent }],
-  },
+  },  
   { path: 'companies/add', component: CompanyFormComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  //{ path: '', redirectTo: '/login', pathMatch: 'full'},
-  //{ path: '**', redirectTo: '', pathMatch: 'full'}
+  //#endregion companies  
+  //#region tickets 
+  {path: 'tickets', component: TicketListComponent},
+  {path: 'tickets/create', component: CreateTicketComponent}
+  //#endregion tickets 
 ];
 
 @NgModule({
