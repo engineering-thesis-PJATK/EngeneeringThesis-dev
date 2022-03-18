@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './company-form.component.html',
   styleUrls: ['./company-form.component.scss']
 })
+
 export class CompanyFormComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

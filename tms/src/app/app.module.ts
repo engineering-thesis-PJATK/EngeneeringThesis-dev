@@ -16,6 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MaterializeCollapsibleModule } from 'materialize-angular';
 import { CompanyAddressComponent } from './components/company/company-form/company-address/company-address.component';
+import { CreateTicketComponent } from './components/ticket/create-ticket/create-ticket.component';
+import { TicketListComponent } from './components/ticket/ticket-list/ticket-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { CompanyAddressComponent } from './components/company/company-form/compa
     NavbarComponent,
     SearchComponent,
     SidenavComponent,
-    CompanyAddressComponent
+    CompanyAddressComponent,
+    CreateTicketComponent,
+    TicketListComponent
   ],
   imports: [
     BrowserModule,
