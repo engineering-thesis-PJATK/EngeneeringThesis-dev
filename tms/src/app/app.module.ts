@@ -12,6 +12,8 @@ import { CompanyFormComponent } from './components/company/company-form/company-
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/navbar/search/search.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
