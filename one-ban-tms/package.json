@@ -10,14 +10,17 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~13.2.0",
+    "@angular/animations": "^13.2.7",
+    "@angular/cdk": "^13.3.0",
     "@angular/common": "~13.2.0",
     "@angular/compiler": "~13.2.0",
     "@angular/core": "~13.2.0",
     "@angular/forms": "~13.2.0",
+    "@angular/material": "^13.3.0",
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "@mdi/angular-material": "^6.5.95",
     "material-icons": "^1.10.8",
     "materialize-css": "^1.0.0",
     "rxjs": "~7.5.0",
@@ -37,6 +40,7 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "schematics-scss-migrate": "^1.3.14",
     "typescript": "~4.5.2"
   }
 }

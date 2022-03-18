@@ -1,0 +1,19 @@
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">Opcja 1</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">Opcja 2</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">Opcja 3</a></li>
+  </ul>
+  <nav>
+    <div class="nav-wrapper teal">
+      <a  class="brand-logo"><i class="material-icons left ml-2r">assignment</i> Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <!-- <li><a href (click)="search.onSwitchForm()">Search<i class="material-icons right">search</i></a></li> -->
+        <li><a class="btn transparent z-depth-0" (click)="search.onSwitchForm()" >Search</a></li>
+        <li><a href="#!">Notifications</a></li>
+        <li><a class="dropdown-trigger" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+    </div>
+  </nav>
+  <app-search #search></app-search>

@@ -1,0 +1,46 @@
+mat-sidenav-container {
+    height: 100%;
+  
+    mat-sidenav {
+  
+      mat-nav-list {
+  
+        .chevron-button {
+          transition: 300ms ease-in-out;
+          transform: rotate(0deg);
+          right: 0;
+          float: right;
+          position: absolute;
+        }
+  
+        .chevron-button.rotated {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  .btn-block {
+    width: 100%;
+}
+
+ .btn:hover {
+  background-color: #e5f3f2;
+  color: #212121!important;
+  border-left: 5px solid #b2dfdb  ;
+}
+
+.btn.active {
+  background-color: #e0f2f1;
+  color: #004d40!important;
+  border-left: 5px solid #004d40 ;
+}
+
+.btn {
+  background-color: white;
+  color: #212121;
+}
+
+.paddingSidenav {
+  padding: 0 0.7rem 0 0;
+}
