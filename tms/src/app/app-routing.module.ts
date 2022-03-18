@@ -7,10 +7,10 @@ import { SignUpComponent } from './components/account/sign-up/sign-up.component'
 import { CompanyComponent } from './components/company/company.component';
 import { CompanyFormComponent } from './components/company/company-form/company-form.component';
 
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatIconModule} from '@angular/material/icon';
-import {MatListModule} from '@angular/material/list';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 const routes: Routes = [
   {
@@ -23,21 +23,31 @@ const routes: Routes = [
     component: AccountComponent,
     children: [{ path: '', component: SignInComponent }],
   },
-  { path: 'companies', component: CompanyComponent },
-  { path: 'company/add', component: CompanyFormComponent },
+  {
+    path: 'companies',
+    component: CompanyComponent,
+    //children: [{ path: 'add', component: CompanyComponent }],
+  },
+  { path: 'companies/add', component: CompanyFormComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   //{ path: '', redirectTo: '/login', pathMatch: 'full'},
   //{ path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), MatSidenavModule,
+  imports: [
+    RouterModule.forRoot(routes),
+    MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatToolbarModule],
-  exports: [RouterModule, MatSidenavModule,
+    MatToolbarModule,
+  ],
+  exports: [
+    RouterModule,
+    MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatToolbarModule],
+    MatToolbarModule,
+  ],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
