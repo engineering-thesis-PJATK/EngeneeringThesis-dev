@@ -14,6 +14,8 @@ import { SearchComponent } from './components/navbar/search/search.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { MaterializeCollapsibleModule } from 'materialize-angular';
+import { CompanyAddressComponent } from './components/company/company-form/company-address/company-address.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,15 @@ import { FormsModule } from '@angular/forms';
     CompanyFormComponent,
     NavbarComponent,
     SearchComponent,
-    SidenavComponent
+    SidenavComponent,
+    CompanyAddressComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    MaterializeCollapsibleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
