@@ -28,7 +28,7 @@ const routes: Routes = [
     component: AccountComponent,
     children: [{ path: '', component: SignInComponent }],
   },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   //#endregion login
   //#region companies
   {
