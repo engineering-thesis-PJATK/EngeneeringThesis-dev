@@ -7,12 +7,11 @@ import { AccountService } from 'src/app/services/account/account.service';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
 })
-export class SignInComponent implements OnInit {
-  credentials!: Credentials;
+export class SignInComponent {
+  credentials: Partial<Credentials> = {};
 
   constructor(private accountService: AccountService, private router: Router) {}
 
-  ngOnInit(): void {}
 
   SignIn(): void {
     console.log(this.credentials);
@@ -20,8 +19,11 @@ export class SignInComponent implements OnInit {
     //   result => console.log(result),
     //   error => console.error(error)
     // );
-    this.accountService.postApiKey(this.credentials).subscribe({
-      next: (v) => console.log(v),//this.router.navigate(['/','dashboard']),
+    this.accountService.postApiKey(this.credentials as Credentials).subscribe({
+      next: (v) => {
+        console.log(v);
+        this.router.navigate(['/','dashboard']);
+      }, //console.log(v),//this.router.navigate(['/','dashboard']),
       error: (e) => console.error(e),
       complete: () => console.info('complete'),
     });

@@ -15,16 +15,16 @@ export class AccountService {
 
   }
 
-  postApiKey(credentials: Credentials): Observable<string[]> {
-    return this.http.post<string[]>(this.url+'/login', credentials).pipe(tap(console.log));//, catchError(this.handleError));
+  postApiKey(creds: Credentials): Observable<string[]> {
+    return this.http.post<string[]>(this.url+'/login', creds).pipe(tap(console.log));//, catchError(this.handleError));
   }
 
-  registerAccount(account: Account): Observable<string[]> {
-    return this.http.post<string[]>(this.url+'/signup', account).pipe(tap(console.log));
+  registerAccount(acc: Account): Observable<string[]> {
+    return this.http.post<string[]>(this.url+'/signup', acc).pipe(tap(console.log));
   }
 
   getAccountDetails() {
-    
+    //TODO :)
   }
 
   private handleError(error: HttpErrorResponse) {

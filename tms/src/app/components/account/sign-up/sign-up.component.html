@@ -2,38 +2,38 @@
     <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix">person</i>
-        <input id="first_name" type="text" />
+        <input id="first_name" type="text" [(ngModel)]="account.firstName"/>
         <label for="first_name">First name</label>
       </div>
       <div class="input-field col s6">
         <i class="material-icons prefix">person</i>
-        <input id="last_name" type="text" />
+        <input id="last_name" type="text" [(ngModel)]="account.lastName" />
         <label for="last_name">Last name</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">account_box</i>
-        <input id="email" type="email" />
+        <input id="email" type="email" [(ngModel)]="account.email" />
         <label for="email">Email</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">vpn_key</i>
-        <input id="passowrd" type="password" />
+        <input id="passowrd" type="password" [(ngModel)]="account.password" />
         <label for="password">Password</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix">mobile_friendly</i>
-        <input id="mobile" type="text" />
+        <input id="mobile" type="text"  [(ngModel)]="account.mobile" />
         <label for="mobile">Mobile</label>
       </div>
       <div class="input-field col s6">
         <i class="material-icons prefix">account_balance</i>
-        <input id="company" type="text" />
+        <input id="company" type="text"  [(ngModel)]="account.company"/>
         <label for="company">Company</label>
       </div>
     </div>
@@ -42,6 +42,7 @@
         <button
           class="waves-effect waves-yellow btn-large btn-submit"
           type="submit"
+          (click)="SignUp()"
         >
           Submit
         </button>
