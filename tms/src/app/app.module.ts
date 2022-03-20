@@ -19,6 +19,7 @@ import { MaterializeCollapsibleModule } from 'materialize-angular';
 import { CompanyAddressComponent } from './components/company/company-form/company-address/company-address.component';
 import { CreateTicketComponent } from './components/ticket/create-ticket/create-ticket.component';
 import { TicketListComponent } from './components/ticket/ticket-list/ticket-list.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TicketListComponent } from './components/ticket/ticket-list/ticket-list
     SidenavComponent,
     CompanyAddressComponent,
     CreateTicketComponent,
-    TicketListComponent
+    TicketListComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
