@@ -13,8 +13,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CreateTicketComponent } from './components/ticket/create-ticket/create-ticket.component';
 import { TicketListComponent } from './components/ticket/ticket-list/ticket-list.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
+  { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
   //#region singup
   {
     path: 'signup',
@@ -28,7 +31,6 @@ const routes: Routes = [
     component: AccountComponent,
     children: [{ path: '', component: SignInComponent }],
   },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   //#endregion login
   //#region companies
   {
@@ -40,7 +42,9 @@ const routes: Routes = [
   //#endregion companies  
   //#region tickets 
   {path: 'tickets', component: TicketListComponent},
-  {path: 'tickets/create', component: CreateTicketComponent}
+  {path: 'tickets/create', component: CreateTicketComponent},
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent },
   //#endregion tickets 
 ];
 
