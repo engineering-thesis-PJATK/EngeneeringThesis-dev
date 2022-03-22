@@ -21,6 +21,7 @@ import { CreateTicketComponent } from './components/ticket/create-ticket/create-
 import { TicketListComponent } from './components/ticket/ticket-list/ticket-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { CompanyAddressListComponent } from './components/company/company-form/company-address-list/company-address-list.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     CreateTicketComponent,
     TicketListComponent,
     DashboardComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CompanyAddressListComponent,
   ],
   imports: [
     BrowserModule,
