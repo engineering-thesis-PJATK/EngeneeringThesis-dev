@@ -2,47 +2,53 @@
   <div class="row">
     <div class="input-field col s12">
       <i class="material-icons prefix">account_balance</i>
-      <input id="company_name" type="text" />
+      <input id="company_name" type="text" [(ngModel)]="company.companyName" />
       <label for="company_name">Company name</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s3">
       <i class="material-icons prefix">description</i>
-      <input id="nip_prefix" type="text" />
+      <input id="nip_prefix" type="text" [(ngModel)]="company.nipPrefix" />
       <label for="nip_prefix">NIP Prefix</label>
     </div>
     <div class="input-field col s9">
       <i class="material-icons prefix">description</i>
-      <input id="nip" type="text" />
+      <input id="nip" type="text" [(ngModel)]="company.nip" />
       <label for="nip">NIP</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s6">
       <i class="material-icons prefix">description</i>
-      <input id="regon" type="text" />
+      <input id="regon" type="text" [(ngModel)]="company.regon" />
       <label for="regon">REGON</label>
     </div>
     <div class="input-field col s6">
       <i class="material-icons prefix">description</i>
-      <input id="mobile" type="text" />
+      <input id="mobile" type="text" [(ngModel)]="company.krs" />
       <label for="mobile">KRS</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
       <i class="material-icons prefix">phone</i>
-      <input id="phone" type="text" />
+      <input id="phone" type="text" [(ngModel)]="company.landLine" />
       <label for="phone">Phone number</label>
     </div>
   </div>
   <div class="row border">
     <div class="col s6">
-        <app-company-address></app-company-address>
+        <app-company-address (newAddress)="onNewAddress($event)"></app-company-address>
     </div>
     <div class="col s4 offset-s1">
-        <table class="centered">
+      <div *ngIf="company.companyAddresses?.length" class="row">
+        <app-company-address-list
+          (removeAddress)="onDeleteAddress($event)"
+          [addresses]="company.companyAddresses"
+        ></app-company-address-list>
+      </div>
+        <!-- <table class="centered">
             <thead>
               <tr>
                   <th>City</th>
@@ -52,7 +58,7 @@
                   <th>Remove</th>
               </tr>
             </thead>
-    
+
             <tbody>
               <tr>
                 <td>x</td>
@@ -61,15 +67,8 @@
                 <td>pl</td>
                 <td><i class="material-icons prefix">delete</i></td>
               </tr>
-              <tr>
-                <td>s</td>
-                <td>ss</td>
-                <td>123123</td>
-                <td>germany</td>
-                <td><i class="material-icons prefix">delete</i></td>
-              </tr>
             </tbody>
-          </table>
+          </table> -->
     </div>
   </div>
   <div class="row">
