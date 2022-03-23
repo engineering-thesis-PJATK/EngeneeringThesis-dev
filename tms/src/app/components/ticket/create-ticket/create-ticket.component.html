@@ -1,86 +1,64 @@
-<div class="col s12">
-    <div class="row">
-      <div class="input-field col s12">
-        <i class="material-icons prefix">account_balance</i>
-        <input id="company_name" type="text" />
-        <label for="company_name">Company name</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s3">
-        <i class="material-icons prefix">description</i>
-        <input id="nip_prefix" type="text" />
-        <label for="nip_prefix">NIP Prefix</label>
-      </div>
-      <div class="input-field col s9">
-        <i class="material-icons prefix">description</i>
-        <input id="nip" type="text" />
-        <label for="nip">NIP</label>
-      </div>
-    </div>
+<div class="row">
+  <form class="col s12">
     <div class="row">
       <div class="input-field col s6">
-        <i class="material-icons prefix">description</i>
-        <input id="regon" type="text" />
-        <label for="regon">REGON</label>
+        <i class="material-icons prefix">contacts</i>
+        <input id="client_name" type="text" class="validate">
+        <label for="client_name">Client</label>
       </div>
       <div class="input-field col s6">
-        <i class="material-icons prefix">description</i>
-        <input id="mobile" type="text" />
-        <label for="mobile">KRS</label>
+        <i class="material-icons prefix">announcement</i>
+        <input id="ticket_topic" type="text" class="validate" required>
+        <label for="ticket_topic">Topic</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">phone</i>
-        <input id="phone" type="text" />
-        <label for="phone">Phone number</label>
+        <input type="text" class="datepicker" id="M">
+        <label for="datepicker">Due date</label>
       </div>
     </div>
-    <div class="row border">
-      <div class="col s6">
-          <app-company-address></app-company-address>
-      </div>
-      <div class="col s4 offset-s1">
-          <table class="centered">
-              <thead>
-                <tr>
-                    <th>City</th>
-                    <th>Street</th>
-                    <th>Postal code</th>
-                    <th>Country</th>
-                    <th>Remove</th>
-                </tr>
-              </thead>
-      
-              <tbody>
-                <tr>
-                  <td>x</td>
-                  <td>y</td>
-                  <td>123</td>
-                  <td>pl</td>
-                  <td><i class="material-icons prefix">delete</i></td>
-                </tr>
-                <tr>
-                  <td>s</td>
-                  <td>ss</td>
-                  <td>123123</td>
-                  <td>germany</td>
-                  <td><i class="material-icons prefix">delete</i></td>
-                </tr>
-              </tbody>
-            </table>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Input disabled</mat-label>
+        <input matInput [matDatepicker]="dp3" disabled>
+        <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+        <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+      </mat-form-field>
+    </p>
+    
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="password" type="password" class="validate">
+        <label for="password">Password</label>
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s12">
-        <button
-          class="waves-effect waves-yellow btn-large btn-submit"
-          type="submit"
-        >
-          Submit
-        </button>
-      </div>
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
+            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+          </div>
+        </div>
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="input_text" type="text" data-length="10">
+                <label for="input_text">Input text</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                <label for="textarea2">Textarea</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </form>
     </div>
-  </div>
-  
+  </form>
+</div>
