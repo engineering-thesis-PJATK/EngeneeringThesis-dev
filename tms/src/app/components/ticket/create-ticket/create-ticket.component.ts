@@ -15,12 +15,12 @@ export class CreateTicketComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    document.addEventListener('DOMContentLoaded',function(){
+    // document.addEventListener('DOMContentLoaded',function(){
   
-      var elems = document.querySelectorAll('.datepicker');
-      M.Datepicker.init(elems, []);
+    //   var elems = document.querySelectorAll('.datepicker');
+    //   M.Datepicker.init(elems, []);
      
-    });
+    // });
   }
 }
 

@@ -22,6 +22,13 @@ import { TicketListComponent } from './components/ticket/ticket-list/ticket-list
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CompanyAddressListComponent } from './components/company/company-form/company-address-list/company-address-list.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSliderModule } from "@angular/material/slider";
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +55,13 @@ import { CompanyAddressListComponent } from './components/company/company-form/c
     BrowserAnimationsModule,
     FormsModule,
     MaterializeCollapsibleModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSliderModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
