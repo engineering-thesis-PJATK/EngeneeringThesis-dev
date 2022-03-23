@@ -29,6 +29,13 @@ import { EmployeeCardComponent } from './components/employee/employee-card/emplo
 import { CustomerListComponent } from './components/customer/customer-list/customer-list.component';
 import { CustomerListCardComponent } from './components/customer/customer-list/customer-list-card/customer-list-card.component';
 import { CustomerFormComponent } from './components/customer/customer-form/customer-form.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSliderModule } from "@angular/material/slider";
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -62,7 +69,13 @@ import { CustomerFormComponent } from './components/customer/customer-form/custo
     BrowserAnimationsModule,
     FormsModule,
     MaterializeCollapsibleModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSliderModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
