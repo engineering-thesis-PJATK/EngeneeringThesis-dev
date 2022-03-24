@@ -22,6 +22,7 @@ import { TicketListComponent } from './components/ticket/ticket-list/ticket-list
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CompanyAddressListComponent } from './components/company/company-form/company-address-list/company-address-list.component';
+import { CompanyCardComponent } from './components/company/company-card/company-card.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { CompanyAddressListComponent } from './components/company/company-form/c
     DashboardComponent,
     PageNotFoundComponent,
     CompanyAddressListComponent,
+    CompanyCardComponent,
   ],
   imports: [
     BrowserModule,
