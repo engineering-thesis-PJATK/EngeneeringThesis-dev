@@ -1,10 +1,8 @@
 <app-navbar [searcher]="search"></app-navbar>
-<div class="row">
+<div class="grid ml-10px">
   <!-- <div class="col s2 paddingSidenav">
     <app-sidenav></app-sidenav>
   </div> -->
-  <div class="col s12">
     <app-search #search></app-search>
     <router-outlet></router-outlet>
-  </div>
 </div>
