@@ -1,6 +1,11 @@
-<div class="row">
-    
-    <app-company-card></app-company-card>
+<div class="grid">
+  <div class="row">
+    <h1 class="header">Companies</h1>
+  </div>
+  <app-company-card
+    *ngFor="let company of companies | async"
+    [company]="company"
+  ></app-company-card>
 </div>
 <a
   class="btn-floating btn-large waves-effect waves-light pulse absolute"
