@@ -23,6 +23,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CompanyAddressListComponent } from './components/company/company-form/company-address-list/company-address-list.component';
 import { CompanyCardComponent } from './components/company/company-card/company-card.component';
+import { EmployeeComponent } from './components/employee/employee.component';
+import { EmployeeFormComponent } from './components/employee/employee-form/employee-form.component';
+import { EmployeeCardComponent } from './components/employee/employee-card/employee-card.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { CompanyCardComponent } from './components/company/company-card/company-
     PageNotFoundComponent,
     CompanyAddressListComponent,
     CompanyCardComponent,
+    EmployeeComponent,
+    EmployeeFormComponent,
+    EmployeeCardComponent,
   ],
   imports: [
     BrowserModule,
