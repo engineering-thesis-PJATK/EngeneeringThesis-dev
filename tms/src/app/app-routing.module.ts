@@ -21,11 +21,11 @@ import { EmployeeFormComponent } from './components/employee/employee-form/emplo
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
   //#region singup
-  {
-    path: 'signup',
-    component: AccountComponent,
-    children: [{ path: '', component: SignUpComponent }],
-  },
+  // {
+  //   path: 'signup',
+  //   component: AccountComponent,
+  //   children: [{ path: '', component: SignUpComponent }],
+  // },
   //#endregion singup
   //#region login
   {
