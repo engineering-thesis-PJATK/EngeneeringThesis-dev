@@ -3,20 +3,22 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, tap, throwError } from 'rxjs';
 import { Account } from 'src/app/models/account';
 import { Credentials } from 'src/app/models/credentials';
+import { Environment } from '../environment';
+import { ApiPaths } from '../environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
 
-  private url = 'http://localhost:3000';
+  private url = Environment.baseUrl;
 
   constructor(private http: HttpClient) { 
 
   }
 
   postApiKey(creds: Credentials): Observable<string[]> {
-    return this.http.post<string[]>(this.url+'/login', creds).pipe(tap(console.log));//, catchError(this.handleError));
+    return this.http.post<string[]>(this.url+ApiPaths.Login, creds).pipe(tap(console.log));//, catchError(this.handleError));
   }
 
   registerAccount(acc: Account): Observable<string[]> {
