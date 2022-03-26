@@ -2,14 +2,16 @@
   <div class="row">
     <h1 class="header">Companies</h1>
   </div>
+  <div class="row">
   <app-company-card
     *ngFor="let company of companies | async"
     [company]="company"
   ></app-company-card>
 </div>
-<a
+  <a
   class="btn-floating btn-large waves-effect waves-light pulse absolute"
   routerLink="/companies/add"
   routerLinkActive="active"
   ><i class="material-icons">add</i></a
->
+  >
+</div>

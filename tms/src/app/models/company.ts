@@ -8,5 +8,5 @@ export interface Company {
     regon?: string;
     krs?: string;
     landLine: string;
-    companyAddresses: CompanyAddress[];
+    companyAddresses: CompanyAddress;
 }
