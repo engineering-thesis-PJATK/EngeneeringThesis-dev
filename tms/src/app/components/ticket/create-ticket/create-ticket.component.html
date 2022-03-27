@@ -46,23 +46,21 @@
         </select>
         <label>Priority</label>
       </div>
-    
-    <div class="input-field col s6">
-      <i class="material-icons prefix">av_timer</i>
-      <input type="number" name="amount" id="amount" class="validate" min=0 step=0.1>
-      <label for="amount" data-error="Invalid number (eg. 1200)">Estimated time</label>
+
+      <div class="input-field col s6">
+        <i class="material-icons prefix">av_timer</i>
+        <input type="number" name="amount" id="amount" class="validate" min=0 step=0.1>
+        <label for="amount" data-error="Invalid number (eg. 1200)">Estimated time</label>
+      </div>
     </div>
-  </div>
 
     <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix">person</i>
         <select>
-          <option value="" disabled selected>Choose employee</option>
-          <option value="1">Piotr Łojko</option>
-          <option value="2">Krzysztof Jurkowski</option>
-          <option value="3">Jakub Michalak</option>
-          <option value="4">Tomasz Krasieńko</option>
+          <option *ngFor="let employee of employees" [value]="employee.value">
+            {{employee.viewValue}}
+          </option>
         </select>
         <label>Assigned Employee</label>
       </div>
