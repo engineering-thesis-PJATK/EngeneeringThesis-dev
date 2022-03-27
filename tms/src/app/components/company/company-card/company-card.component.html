@@ -7,40 +7,42 @@
           <img src="assets/C.png" alt="" class="circle responsive-img" />
         </div>
         <div class="col s10">
-          <h2 class="header">{{company.companyName}}</h2>
-          <p>{{company.country}}</p>
+          <h2 class="header">{{company.cmpName}}</h2>
+          <!-- <p>{{company.country}}</p> -->
+          <p>Kraj</p>
           <br />
-          <p>{{company.city}}</p>
+          <!-- <p>{{company.city}}</p> -->
+          <p>Miasto</p>
         </div>
       </div>
       <div class="card-action">
         <li
           class="btn btn-block waves-effect waves-light btn-medium z-depth-0"
-          routerLink="/tickets?company={{company.id}}"
+          routerLink="/tickets?company={{company.cmpId}}"
         >
           <i class="medium material-icons">assignment</i>
         </li>
         <li
           class="btn btn-block waves-effect waves-light btn-medium z-depth-0"
-          routerLink="/projects?company={{company.id}}"
+          routerLink="/projects?company={{company.cmpId}}"
         >
           <i class="material-icons">business</i>
         </li>
         <li
           class="btn btn-block waves-effect waves-light btn-medium z-depth-0"
-          routerLink="/attachments?company={{company.id}}"
+          routerLink="/attachments?company={{company.cmpId}}"
         >
           <i class="material-icons">attach_file</i>
         </li>
         <li
           class="btn btn-block waves-effect waves-light btn-medium z-depth-0"
-          routerLink="/employees?company={{company.id}}"
+          routerLink="/employees?company={{company.cmpId}}"
         >
           <i class="material-icons">people</i>
         </li>
         <li
           class="btn btn-block waves-effect waves-light btn-medium z-depth-0"
-          routerLink="/companies/edit?company={{company.id}}"
+          routerLink="/companies/edit?company={{company.cmpId}}"
         >
           <i class="material-icons">edit</i>
         </li>
