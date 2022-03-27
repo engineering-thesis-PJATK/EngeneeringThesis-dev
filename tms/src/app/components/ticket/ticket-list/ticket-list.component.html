@@ -1,41 +1,34 @@
 <p class="right-align">
-    <a class="btn-floating pulse btn-large waves-effect waves-light " routerLink="/tickets/create" routerLinkActive="active">
+    <a class="btn-floating pulse btn-large waves-effect waves-light " routerLink="/tickets/create"
+        routerLinkActive="active">
         <i class="material-icons right">add</i></a>
 </p>
-<ul class="collection">
-    <li class="collection-item avatar">
-        <i class="material-icons circle">folder</i>
-        <span class="title">Please fix it asap!!!!!</span>
-        <p>System is not working propperly <br>
-            Jakub.Michalak@iq200.com.pl
-        </p>
+<ul class="collection" id="ticketList">
+    <li class="collection-item avatar"  *ngFor="let ticket of tickets">
+        <a href="tickets/details/{{ticket.id}}">
+            <i class="material-icons circle">folder</i>
+            <span class="title">{{ticket.topic}}</span>
+        </a>
+        <div style="display: flex; justify-content: space-between;">
+            <p class="left-align">{{ticket.description}}<br>
+                {{ticket.email}}
+            </p>
+            <p class="right-align">{{ticket.company.name}}<br>
+                {{ticket.email}}
+            </p>
+        </div>
+        <hr class="solid">
+        <div class="card-action">
+            <i class="Tiny material-icons iconPadding">phone</i>
+            <i class="Tiny material-icons iconPadding">mail</i>
+            <i class="Tiny material-icons iconPadding">archive</i>
+            <i class="Tiny material-icons iconPadding">delete</i>
+        </div>
         <a href="tickets/create" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-    <li class="collection-item avatar">
-        <i class="material-icons circle">folder</i>
-        <span class="title">Update Report</span>
-        <p>Please update localization occupiance per day report. Please add EAN field <br>
-            Tomasz.Krasienko@iq200.com.pl
-        </p>
-        <a href="/dashboard" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-    <li class="collection-item avatar">
-        <i class="material-icons circle">folder</i>
-        <span class="title">No connection to main server</span>
-        <p>Hello Im Getting error Object Reference not set to instance of an object <br>
-            Rajesh.Marakesh@indiahelp.com
-        </p>
-        <a href="/dashboard" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-    <li class="collection-item avatar">
-        <i class="material-icons circle">folder</i>
-        <span class="title">People are dying here!</span>
-        <p>Hello i have problem with printout 'Obieg ZS' <br>
-            Aneczka.Mangudis@tlen.pl
-        </p>
-        <a href="/dashboard" class="secondary-content"><i class="material-icons">grade</i></a>
+
     </li>
 </ul>
+
 <p class="left-align">
     <button class="btn waves-effect pulse waves-teal" routerLink="/tickets/create" routerLinkActive="active">
         <i class="material-icons right">add</i>

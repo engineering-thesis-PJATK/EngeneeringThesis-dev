@@ -1,5 +1,7 @@
 <script src="/assets/jQuery.min.js"></script>
 <div class="row">
+  <div class="col s1 m1 l1 xl1"></div>
+  <div class="col s10 m10 l10 xl10 ">
   <form class="col s12">
 
     <div class="row">
@@ -23,12 +25,10 @@
       <div class="input-field col s6">
         <i class="material-icons prefix">schedule</i>
         <select>
-          <option value="" disabled selected>Choose aproppriate status</option>
-          <option value="1">In Progress</option>
-          <option value="2">Finished</option>
-          <option value="3">Created</option>
-          <option value="4">Waiting for customer</option>
-          <option value="5">Waiting for third party</option>
+          <option disabled selected>Choose status</option>
+          <option *ngFor="let status of statuses" [value]="status.id">
+            {{status.viewValue}}
+          </option>
         </select>
         <label>Status</label>
       </div>
@@ -38,6 +38,7 @@
       <div class="input-field col s6">
         <i class="material-icons prefix">star</i>
         <select>
+          <option disabled selected>Choose priority</option>
           <option *ngFor="let priority of priorities" [value]="priority.value">
             {{priority.viewValue}}
           </option>
@@ -56,6 +57,7 @@
       <div class="input-field col s6">
         <i class="material-icons prefix">person</i>
         <select>
+          <option disabled selected>Choose employee</option>
           <option *ngFor="let employee of employees" [value]="employee.value">
             {{employee.viewValue}}
           </option>
@@ -65,10 +67,10 @@
       <div class="input-field col s6">
         <i class="material-icons prefix">new_releases</i>
         <select>
-          <option value="" disabled selected>Choose ticket type</option>
-          <option value="1">Budget</option>
-          <option value="2">Analysis</option>
-          <option value="3">Own Cost</option>
+          <option disabled selected>Choose ticket type</option>
+          <option *ngFor="let ticketType of ticketTypes" [value]="ticketType.id">
+            {{ticketType.viewValue}}
+          </option>
         </select>
         <label>Ticket type</label>
       </div>
@@ -88,4 +90,5 @@
     </div>
 
   </form>
+</div>
 </div>
