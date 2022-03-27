@@ -36,7 +36,11 @@
     "@angular/cli": "~13.2.3",
     "@angular/compiler-cli": "~13.2.0",
     "@types/jasmine": "~3.10.0",
+<<<<<<< HEAD
     "@types/jquery": "^3.5.14",
+=======
+    "@types/materialize-css": "^1.0.11",
+>>>>>>> 2be49e55c7dc669acaf6e93e6492f3d2bbae383c
     "@types/node": "^12.11.1",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",

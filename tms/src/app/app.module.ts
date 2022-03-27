@@ -22,13 +22,10 @@ import { TicketListComponent } from './components/ticket/ticket-list/ticket-list
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CompanyAddressListComponent } from './components/company/company-form/company-address-list/company-address-list.component';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatSliderModule } from "@angular/material/slider";
-import {MatIconModule} from '@angular/material/icon';
-
+import { CompanyCardComponent } from './components/company/company-card/company-card.component';
+import { EmployeeComponent } from './components/employee/employee.component';
+import { EmployeeFormComponent } from './components/employee/employee-form/employee-form.component';
+import { EmployeeCardComponent } from './components/employee/employee-card/employee-card.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +45,10 @@ import {MatIconModule} from '@angular/material/icon';
     DashboardComponent,
     PageNotFoundComponent,
     CompanyAddressListComponent,
+    CompanyCardComponent,
+    EmployeeComponent,
+    EmployeeFormComponent,
+    EmployeeCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,13 +56,7 @@ import {MatIconModule} from '@angular/material/icon';
     BrowserAnimationsModule,
     FormsModule,
     MaterializeCollapsibleModule,
-    HttpClientModule,
-    MatSliderModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

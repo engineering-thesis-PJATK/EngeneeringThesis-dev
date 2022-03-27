@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SearchComponent } from './search/search.component';
+import { Dropdown } from 'materialize-css';
+declare const M: any;
 
 @Component({
   selector: 'app-navbar',
@@ -21,3 +23,8 @@ export class NavbarComponent  {
   //     }
 
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.dropdown-trigger');
+  var instances = M.Dropdown.init(elems,{});
+});

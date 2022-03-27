@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Sidenav } from 'materialize-css';
+declare const M: any;
 
 @Component({
   selector: 'app-root',
@@ -8,3 +10,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'tms';
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems, {});
+});
