@@ -38,11 +38,9 @@
       <div class="input-field col s6">
         <i class="material-icons prefix">star</i>
         <select>
-          <option value="" disabled selected>Choose aproppriate priority</option>
-          <option value="1">Urgent</option>
-          <option value="2">Important</option>
-          <option value="3">Basic</option>
-          <option value="4">Not important</option>
+          <option *ngFor="let priority of priorities" [value]="priority.value">
+            {{priority.viewValue}}
+          </option>
         </select>
         <label>Priority</label>
       </div>

@@ -4,7 +4,11 @@ import { Datepicker } from "materialize-css";
 declare const M: any;
 
 interface Employee {
-  value: string;
+  value: number;
+  viewValue: string;
+}
+interface Priority{
+  value: number;
   viewValue: string;
 }
 
@@ -18,13 +22,20 @@ interface Employee {
 
 export class CreateTicketComponent implements OnInit {
   employees: Employee[] = [
-    {value: '0', viewValue: 'Krzysztof Jurkowski'},
-    {value: '1', viewValue: 'Piotr Łojko'},
-    {value: '2', viewValue: 'Tomasz Krasieńko'},
-    {value: '3', viewValue: 'Jakub Michalak'},
-    {value: '4', viewValue: 'Paweł Lenkiewicz'}
+    {value: 0, viewValue: 'Krzysztof Jurkowski'},
+    {value: 1, viewValue: 'Piotr Łojko'},
+    {value: 2, viewValue: 'Tomasz Krasieńko'},
+    {value: 3, viewValue: 'Jakub Michalak'},
+    {value: 4, viewValue: 'Paweł Lenkiewicz'}
   ];
-  
+
+  priorities: Priority[] = [
+    {value: 0, viewValue: "Urgent"},
+    {value: 1, viewValue: "Important"},
+    {value: 2, viewValue: "Basic"},
+    {value: 3, viewValue: "Not Important"},
+  ]
+   
   constructor() {}
   ngOnInit(): void {}
 }
