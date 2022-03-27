@@ -1,7 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-
+import $ from 'jquery'
 import { Datepicker } from "materialize-css";
 declare const M: any;
+
+interface Employee {
+  value: number;
+  viewValue: string;
+}
+interface Priority{
+  value: number;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-create-ticket',
   templateUrl: './create-ticket.component.html',
@@ -11,21 +21,32 @@ declare const M: any;
 
 
 export class CreateTicketComponent implements OnInit {
-  
-  constructor() { }
+  employees: Employee[] = [
+    {value: 0, viewValue: 'Krzysztof Jurkowski'},
+    {value: 1, viewValue: 'Piotr Łojko'},
+    {value: 2, viewValue: 'Tomasz Krasieńko'},
+    {value: 3, viewValue: 'Jakub Michalak'},
+    {value: 4, viewValue: 'Paweł Lenkiewicz'}
+  ];
 
-  ngOnInit(): void {
-    // document.addEventListener('DOMContentLoaded',function(){
-  
-    //   var elems = document.querySelectorAll('.datepicker');
-    //   M.Datepicker.init(elems, []);
-     
-    // });
-  }
+  priorities: Priority[] = [
+    {value: 0, viewValue: "Urgent"},
+    {value: 1, viewValue: "Important"},
+    {value: 2, viewValue: "Basic"},
+    {value: 3, viewValue: "Not Important"},
+  ]
+   
+  constructor() {}
+  ngOnInit(): void {}
 }
 
-// document.addEventListener('DOMContentLoaded',function(){
-  
-//   var elems = document.querySelectorAll('.datepicker');
-//   M.Datepicker.init(elems, []);   
-// });
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems,{});
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.datepicker');
+  var instances = M.Datepicker.init(elems, {});
+});
+

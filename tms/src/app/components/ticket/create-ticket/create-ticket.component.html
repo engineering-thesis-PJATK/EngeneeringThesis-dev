@@ -1,9 +1,11 @@
+<script src="/assets/jQuery.min.js"></script>
 <div class="row">
   <form class="col s12">
+
     <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix">contacts</i>
-        <input id="client_name" type="text" class="validate">
+        <input id="client_name" type="text" class="validate" required>
         <label for="client_name">Client</label>
       </div>
       <div class="input-field col s6">
@@ -14,53 +16,76 @@
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <mat-form-field appearance="fill" color="white">
-          <mat-label>Due date</mat-label>
-          <input matInput [matDatepicker]="picker">
-          <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+        <i class="material-icons prefix">date_range</i>
+        <input type="text" class="datepicker" placeholder="Due date" required>
+      </div>
+
+      <div class="input-field col s6">
+        <i class="material-icons prefix">schedule</i>
+        <select>
+          <option value="" disabled selected>Choose aproppriate status</option>
+          <option value="1">In Progress</option>
+          <option value="2">Finished</option>
+          <option value="3">Created</option>
+          <option value="4">Waiting for customer</option>
+          <option value="5">Waiting for third party</option>
+        </select>
+        <label>Status</label>
       </div>
     </div>
-    
-    
-   
+
     <div class="row">
       <div class="input-field col s6">
-        <input id="password" type="password" class="validate">
-        <label for="password">Password</label>
+        <i class="material-icons prefix">star</i>
+        <select>
+          <option *ngFor="let priority of priorities" [value]="priority.value">
+            {{priority.viewValue}}
+          </option>
+        </select>
+        <label>Priority</label>
+      </div>
+
+      <div class="input-field col s6">
+        <i class="material-icons prefix">av_timer</i>
+        <input type="number" name="amount" id="amount" class="validate" min=0 step=0.1>
+        <label for="amount" data-error="Invalid number (eg. 1200)">Estimated time</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">person</i>
+        <select>
+          <option *ngFor="let employee of employees" [value]="employee.value">
+            {{employee.viewValue}}
+          </option>
+        </select>
+        <label>Assigned Employee</label>
+      </div>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">new_releases</i>
+        <select>
+          <option value="" disabled selected>Choose ticket type</option>
+          <option value="1">Budget</option>
+          <option value="2">Analysis</option>
+          <option value="3">Own Cost</option>
+        </select>
+        <label>Ticket type</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix"> description </i>
+        <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+        <label for="textarea2">Description</label>
       </div>
     </div>
     <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="email" type="email" class="validate">
-            <label for="email">Email</label>
-            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
-          </div>
-        </div>
-        <div class="row">
-          <form class="col s12">
-            <div class="row">
-              <div class="input-field col s6">
-                <input id="input_text" type="text" data-length="10">
-                <label for="input_text">Input text</label>
-              </div>
-            </div>
-            <mat-form-field appearance="fill">
-              <mat-label>Textarea</mat-label>
-              <textarea matInput></textarea>
-            </mat-form-field>
-            <!-- <div class="row">
-              <div class="input-field col s12">
-                <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
-                <label for="textarea2">Textarea</label>
-              </div>
-            </div> -->
-          </form>
-        </div>
-      </form>
+      <div class="input-field col s12">
+        <a class="waves-effect pulse waves-light btn"><i class="material-icons right">attachment</i>Add Attachment</a>
+      </div>
     </div>
+
   </form>
 </div>
