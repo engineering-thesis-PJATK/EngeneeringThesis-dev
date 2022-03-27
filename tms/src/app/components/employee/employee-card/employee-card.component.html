@@ -7,10 +7,10 @@
             <img src="assets/C.png" alt="" class="circle responsive-img" />
           </div>
           <div class="col s10 card-divider-vertical">
-            <h2 class="header">{{employee.name}}</h2>
-            <p>{{employee.phoneNumber}}</p>
+            <h2 class="header">{{employee.empName}}</h2>
+            <p>{{employee.empPhoneNumber}}</p>
             <br />
-            <p>{{employee.email}}</p>
+            <p>{{employee.empEmail}}</p>
           </div>
         </div>
         <div class="card-action">
@@ -21,19 +21,19 @@
           </li>
           <li
             class="btn btn-block waves-effect waves-light btn-medium z-depth-0"
-            routerLink="/attachments?employee={{employee.id}}"
+            routerLink="/attachments?employee={{employee.empId}}"
           >
             <i class="material-icons">mail_outline</i>
           </li>
           <li
             class="btn btn-block waves-effect waves-light btn-medium z-depth-0"
-            routerLink="/employees?employee={{employee.id}}"
+            routerLink="/employees?employee={{employee.empId}}"
           >
             <i class="material-icons">toc</i>
           </li>
           <li
             class="btn btn-block waves-effect waves-light btn-medium z-depth-0"
-            routerLink="/companies/edit?employee={{employee.id}}"
+            routerLink="/companies/edit?employee={{employee.empId}}"
           >
             <i class="material-icons">edit</i>
           </li>
