@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { EmployeePrivilege } from '../../models/employeePrivilege';
 import { EmployeeSimple } from '../../models/employeeSimple';
 import { Environment } from '../environment';
@@ -16,7 +16,13 @@ export class EmployeeService {
   constructor(private http: HttpClient) { }
 
   getEmployees(): Observable<EmployeeSimple[]> {
-    return this.http.get<EmployeeSimple[]>(this.url+ApiPaths.Employee).pipe(tap(console.log));
+    //return this.http.get<EmployeeSimple[]>(this.url+ApiPaths.Employee).pipe(tap(console.log));
+    let cmps: EmployeeSimple[] = [
+      { id: 1, name: 'Jan Kowalski', phoneNumber: '223441425', email: 'Poland' },
+      { id: 2, name: 'Jonh X', phoneNumber: '456456234', email: 'Poland' },
+      { id: 3, name: 'Barbara Squirrel', phoneNumber: '666264362', email: 'Poland' },
+    ];
+    return of(cmps);
   }
 
   getPriveleges(): Observable<EmployeePrivilege[]> {

@@ -1,12 +1,12 @@
 <div class="grid">
-    <div class="row">
-      <h1 class="header">Employees</h1>
-    </div>
+  <div class="row">
+    <h1 class="header">Employees</h1>
+  </div>
+  <div class="row">
     <app-employee-card
       *ngFor="let employee of employees | async"
       [employee]="employee"
     ></app-employee-card>
-    <app-employee-card></app-employee-card>
   </div>
   <a
     class="btn-floating btn-large waves-effect waves-light pulse absolute"
@@ -14,4 +14,4 @@
     routerLinkActive="active"
     ><i class="material-icons">add</i></a
   >
-  
+</div>
