@@ -15,15 +15,17 @@ import { CreateTicketComponent } from './components/ticket/create-ticket/create-
 import { TicketListComponent } from './components/ticket/ticket-list/ticket-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { EmployeeComponent } from './components/employee/employee.component';
+import { EmployeeFormComponent } from './components/employee/employee-form/employee-form.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
   //#region singup
-  {
-    path: 'signup',
-    component: AccountComponent,
-    children: [{ path: '', component: SignUpComponent }],
-  },
+  // {
+  //   path: 'signup',
+  //   component: AccountComponent,
+  //   children: [{ path: '', component: SignUpComponent }],
+  // },
   //#endregion singup
   //#region login
   {
@@ -43,6 +45,10 @@ const routes: Routes = [
   //#region tickets 
   {path: 'tickets', component: TicketListComponent},
   {path: 'tickets/create', component: CreateTicketComponent},
+
+  {path: 'employees', component: EmployeeComponent},
+  {path: 'employees/add', component: EmployeeFormComponent},
+
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
   //#endregion tickets 

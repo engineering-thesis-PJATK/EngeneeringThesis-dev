@@ -1,11 +1,8 @@
-<!-- Dropdown Structure -->
 <app-navbar [searcher]="search"></app-navbar>
-<div class="row">
-  <div class="col s2 paddingSidenav">
+<div class="grid ml-mr-10px">
+  <!-- <div class="col s2 paddingSidenav">
     <app-sidenav></app-sidenav>
-  </div>
-  <div class="col s10">
+  </div> -->
     <app-search #search></app-search>
     <router-outlet></router-outlet>
-  </div>
 </div>

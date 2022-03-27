@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CompanySimple } from 'src/app/models/companySimple';
+import { CompanyService } from 'src/app/services/company/company.service';
 
 @Component({
   selector: 'app-company',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyComponent implements OnInit {
 
-  constructor() { }
+  companies!: Observable<CompanySimple[]>;
+  constructor(private http: CompanyService) { }
 
   ngOnInit(): void {
+    this.companies = this.http.getCompanies();
   }
 
 }
