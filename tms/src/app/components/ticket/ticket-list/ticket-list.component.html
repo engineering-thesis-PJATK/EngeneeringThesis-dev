@@ -4,7 +4,7 @@
         <i class="material-icons right">add</i></a>
 </p>
 <ul class="collection" id="ticketList">
-    <li class="collection-item avatar"  *ngFor="let ticket of tickets">
+    <li class="collection-item avatar" *ngFor="let ticket of tickets">
         <a href="tickets/details/{{ticket.id}}">
             <i class="material-icons circle">folder</i>
             <span class="title">{{ticket.topic}}</span>
@@ -25,10 +25,8 @@
             <a href="tickets/delete/{{ticket.id}}"><i class="Tiny material-icons iconPadding">delete</i></a>
         </div>
         <a href="tickets/create" class="secondary-content"><i class="material-icons">grade</i></a>
-
     </li>
 </ul>
-
 <p class="left-align">
     <button class="btn waves-effect pulse waves-teal" routerLink="/tickets/create" routerLinkActive="active">
         <i class="material-icons right">add</i>
