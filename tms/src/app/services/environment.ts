@@ -1,11 +1,11 @@
 export const Environment = {
-    baseUrl: 'http://localhost:5001/api',
+    baseUrl: 'https://localhost:44330/api',
     production: false
 };
 
 export enum ApiPaths {
     Login = '/login',
     Company = '/company',
-    Employee = '/employees',
+    Employee = '/Employee/employees',
     EmployeePrivilege = '/employees/privileges'
 }

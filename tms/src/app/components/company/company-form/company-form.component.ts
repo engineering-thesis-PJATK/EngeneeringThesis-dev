@@ -1,6 +1,6 @@
 
 import { Component, OnInit, Output } from '@angular/core';
-import { Company } from 'src/app/models/company';
+import { CompanySend } from 'src/app/models/company';
 import { CompanyAddress } from 'src/app/models/companyAddress';
 import { CompanyService } from 'src/app/services/company/company.service';
 import { Location } from '@angular/common'
@@ -13,7 +13,7 @@ import { Location } from '@angular/common'
 
 export class CompanyFormComponent implements OnInit {
 
-  company: Company = { companyName: '', nipPrefix: '', nip: '', landLine: '', companyAddresses: {city: '', country: '', postalCode: '', street: '', streetNumber: '' } };
+  company: CompanySend = { cmpName: '', cmpNipPrefix: '', cmpNip: '', cmpLandLine: '', companyAddresses: {city: '', country: '', postalCode: '', street: '', streetNumber: '' } };
 
   constructor(private companyService: CompanyService,private location: Location) {
   }
