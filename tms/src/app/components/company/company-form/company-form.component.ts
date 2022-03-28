@@ -13,7 +13,7 @@ import { Location } from '@angular/common'
 
 export class CompanyFormComponent implements OnInit {
 
-  company: CompanySend = { cmpName: '', cmpNipPrefix: '', cmpNip: '', cmpLandLine: '', companyAddresses: {city: '', country: '', postalCode: '', street: '', streetNumber: '' } };
+  company: CompanySend = { cmpName: '', cmpNipPrefix: '', cmpNip: '', cmpLandLine: '', companyAddresses: [] };
 
   constructor(private companyService: CompanyService,private location: Location) {
   }
@@ -21,13 +21,13 @@ export class CompanyFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // onNewAddress(address: CompanyAddress) {
-  //   this.company.companyAddresses.push(address);
-  // }
+  onNewAddress(address: CompanyAddress) {
+    this.company.companyAddresses.push(address);
+  }
 
-  // onDeleteAddress(address: CompanyAddress) {
-  //   this.company.companyAddresses = this.company.companyAddresses.filter(item => item !== address);
-  // }
+  onDeleteAddress(address: CompanyAddress) {
+    this.company.companyAddresses = this.company.companyAddresses.filter(item => item !== address);
+  }
 
   addCompany() {
     this.companyService.postCompany(this.company).subscribe(

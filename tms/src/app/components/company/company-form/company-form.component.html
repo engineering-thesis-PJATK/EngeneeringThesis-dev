@@ -1,77 +1,110 @@
 <div class="row">
-<!-- <div class="col s8 offset-s2"> -->
+  <!-- <div class="col s8 offset-s2"> -->
   <div class="col s1 m1 l1 xl1"></div>
-  <div class="col s10 m10 l10 xl10 ">
-  <div class="row">
-    <div class="input-field col s12">
-      <i class="material-icons prefix">account_balance</i>
-      <input id="company_name" type="text" [(ngModel)]="company.cmpName" />
-      <label for="company_name">Company name</label>
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s4">
-      <i class="material-icons prefix">description</i>
-      <input id="nip_prefix" type="text" [(ngModel)]="company.cmpNipPrefix" />
-      <label for="nip_prefix">NIP Prefix</label>
-    </div>
-    <div class="input-field col s8">
-      <i class="material-icons prefix">description</i>
-      <input id="nip" type="text" [(ngModel)]="company.cmpNip" />
-      <label for="nip">NIP</label>
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s6">
-      <i class="material-icons prefix">description</i>
-      <input id="regon" type="text" [(ngModel)]="company.cmpRegon" />
-      <label for="regon">REGON</label>
-    </div>
-    <div class="input-field col s6">
-      <i class="material-icons prefix">description</i>
-      <input id="mobile" type="text" [(ngModel)]="company.cmpKrsNumber" />
-      <label for="mobile">KRS</label>
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <i class="material-icons prefix">phone</i>
-      <input id="phone" type="text" [(ngModel)]="company.cmpLandLine" />
-      <label for="phone">Phone number</label>
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <i class="material-icons prefix">account_balance</i>
-      <input id="city" type="text" [(ngModel)]="company.companyAddresses.city" />
-      <label for="city">City</label>
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s8">
-      <i class="material-icons prefix">location_on</i>
-      <input id="street" type="text" [(ngModel)]="company.companyAddresses.street" />
-      <label for="street">Street</label>
-    </div>
-    <div class="input-field col s4">
-        <i class="material-icons prefix">location_on</i>
-        <input id="building_number" type="text" [(ngModel)]="company.companyAddresses.streetNumber" />
-        <label for="building_number">Building no.</label>
+  <div class="col s10 m10 l10 xl10">
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">account_balance</i>
+        <input id="company_name" type="text" [(ngModel)]="company.cmpName" />
+        <label for="company_name">Company name</label>
       </div>
-  </div>
-  <div class="row">
+    </div>
+    <div class="row">
+      <div class="input-field col s4">
+        <i class="material-icons prefix">description</i>
+        <input id="nip_prefix" type="text" [(ngModel)]="company.cmpNipPrefix" />
+        <label for="nip_prefix">NIP Prefix</label>
+      </div>
+      <div class="input-field col s8">
+        <i class="material-icons prefix">description</i>
+        <input id="nip" type="text" [(ngModel)]="company.cmpNip" />
+        <label for="nip">NIP</label>
+      </div>
+    </div>
+    <div class="row">
       <div class="input-field col s6">
-        <i class="material-icons prefix">location_on</i>
-        <input id="postal_code" type="text" [(ngModel)]="company.companyAddresses.postalCode" />
-        <label for="postal_code">Postal code</label>
+        <i class="material-icons prefix">description</i>
+        <input id="regon" type="text" [(ngModel)]="company.cmpRegon" />
+        <label for="regon">REGON</label>
       </div>
       <div class="input-field col s6">
+        <i class="material-icons prefix">description</i>
+        <input id="mobile" type="text" [(ngModel)]="company.cmpKrsNumber" />
+        <label for="mobile">KRS</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">phone</i>
+        <input id="phone" type="text" [(ngModel)]="company.cmpLandLine" />
+        <label for="phone">Phone number</label>
+      </div>
+    </div>
+    <div class="row border">
+      <div class="col s6">
+        <app-company-address (newAddress)="onNewAddress($event)"></app-company-address>
+      </div>
+      <div class="col s4 offset-s1">
+        <div *ngIf="company.companyAddresses?.length" class="row">
+          <app-company-address-list
+            (removeAddress)="onDeleteAddress($event)"
+            [addresses]="company.companyAddresses"
+          ></app-company-address-list>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">account_balance</i>
+          <input
+            id="city"
+            type="text"
+            [(ngModel)]="company.companyAddresses.city"
+          />
+          <label for="city">City</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s8">
           <i class="material-icons prefix">location_on</i>
-          <input id="country" type="text" [(ngModel)]="company.companyAddresses.country" />
+          <input
+            id="street"
+            type="text"
+            [(ngModel)]="company.companyAddresses.street"
+          />
+          <label for="street">Street</label>
+        </div>
+        <div class="input-field col s4">
+          <i class="material-icons prefix">location_on</i>
+          <input
+            id="building_number"
+            type="text"
+            [(ngModel)]="company.companyAddresses.streetNumber"
+          />
+          <label for="building_number">Building no.</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">location_on</i>
+          <input
+            id="postal_code"
+            type="text"
+            [(ngModel)]="company.companyAddresses.postalCode"
+          />
+          <label for="postal_code">Postal code</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">location_on</i>
+          <input
+            id="country"
+            type="text"
+            [(ngModel)]="company.companyAddresses.country"
+          />
           <label for="country">Country</label>
         </div>
+      </div> -->
     </div>
-  <div class="row">
+    <div class="row">
       <button
         class="waves-effect waves-yellow btn-large btn-submit"
         type="submit"
@@ -85,7 +118,7 @@
       >
         Return
       </button>
+    </div>
   </div>
-</div>
-<div class="col s1 m1 l1 xl1"></div>
+  <div class="col s1 m1 l1 xl1"></div>
 </div>
