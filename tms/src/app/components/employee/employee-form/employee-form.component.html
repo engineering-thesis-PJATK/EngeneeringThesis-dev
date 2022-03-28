@@ -38,6 +38,15 @@
       </div>
     </div>
     <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">lock</i>
+      <select multiple class="select_all">
+        <option *ngFor="let privilege of privilegeList | async" [value]="privilege.id">{{privilege.name}}</option>
+      </select>
+      <label>Privileges</label>
+    </div>
+  </div>
+    <div class="row">
       <button
         class="waves-effect waves-yellow btn-large btn-submit"
         type="submit"

@@ -26,6 +26,11 @@ export class EmployeeService {
   }
 
   getPriveleges(): Observable<EmployeePrivilege[]> {
-    return this.http.get<EmployeePrivilege[]>(this.url+ApiPaths.EmployeePrivilege).pipe(tap(console.log));
+    let privileges: EmployeePrivilege[] = [
+      { id: 1, name: 'user'},
+      { id: 2, name: 'admin'},
+    ]
+    return of(privileges);
+    //return this.http.get<EmployeePrivilege[]>(this.url+ApiPaths.EmployeePrivilege).pipe(tap(console.log));
   }
 }
