@@ -3,3 +3,69 @@ $materialize-fonts-path: '~materialize-angular/fonts';
 
 @import '~materialize-angular/styles/materialize-angular.scss';
 
+.dark-mode {
+    background-color: #ffebee;
+}
+
+
+$transition-effects: color 1s ease, background-color 1s ease;
+
+body {
+	background-color: #eee;
+	transition: $transition-effects;
+	&.dark {
+		background-color: #202123;
+		color: #fff;
+		.nav {
+			background-color: #0277bd !important;
+		}
+        .nb {
+            background-color: #0277bd;
+        }
+		.card {
+			background-color: rgba(255,255,255,0.2);
+		}
+		.btn {
+			background-color: #0277bd;
+		}
+        .btn-floating {
+            background-color: #0277bd;
+        }
+        .btn-large {
+            background-color: #0277bd;
+        }
+		.divider {
+			opacity: 0.2;
+		}
+		.sidenav {
+			background-color: #2D2D31;
+			li {
+				a {
+					&:not(.subheader){
+						color: #89B2F5;
+						&:hover {
+							background-color: #3B4043;
+						}
+					}
+					&.subheader {
+						color:#9AA0A6; 
+					}
+					.material-icons {
+						color: #9AA0A6;
+					}
+				}
+			}
+		}
+		.collection {
+			border: 1px solid rgba(255,255,255,0.2);
+			.collection-item {
+				background-color: rgba(255,255,255,0.2);
+				border-bottom: 1px solid rgba(255,255,255,0.2);;
+			}
+		}
+        .small-button {
+            background-color: #4d4d4f;
+            color: #fff;
+        }
+	}
+}

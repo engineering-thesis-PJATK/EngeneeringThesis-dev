@@ -7,23 +7,25 @@
     <a href="#name"><span class="white-text name">John Doe</span></a>
     <a href="#email"><span class="white-text email">XXY@gmail.com</span></a>
   </div></li>
-  <li><a routerLink="/dashboard"><i class="material-icons">home</i>Dashboard</a></li>
+  <li><a routerLink="/dashboard" class="waves-effect waves-orange"><i class="material-icons">home</i>Dashboard</a></li>
   <li><div class="divider"></div></li>
-  <li><a routerLink="/messages"><i class="material-icons">mail_outline</i>Messages</a></li>
-  <li><a routerLink="/employees"><i class="material-icons">people_outline</i>Employees</a></li>
-  <li><a routerLink="/tickets"><i class="material-icons">assignment</i>Tickets</a></li>
-  <li><a routerLink="/kanban"><i class="material-icons">view_week</i>Kanban</a></li>
-  <li><a routerLink="/projects"><i class="material-icons">business</i>Projects</a></li>
-  <li><a routerLink="/calendar"><i class="material-icons">event</i>Calendar</a></li>
-  <li><a routerLink="/reports"><i class="material-icons">assessment</i>Reports</a></li>
-  <li><a routerLink="/companies"><i class="material-icons">account_balance</i>Companies</a></li>
+  <li><a class="subheader">Your area</a></li>
+  <li><a routerLink="/messages" class="waves-effect waves-orange"><i class="material-icons">mail_outline</i>Messages</a></li>
+  <li><a routerLink="/employees" class="waves-effect waves-orange"><i class="material-icons">assignment_ind</i>Colleagues</a></li>
+  <li><a routerLink="/tickets" class="waves-effect waves-orange"><i class="material-icons">assignment</i>Tickets</a></li>
+  <li><a routerLink="/projects" class="waves-effect waves-orange"><i class="material-icons">business</i>Projects</a></li>
+  <li><a routerLink="/calendar" class="waves-effect waves-orange"><i class="material-icons">event</i>Calendar</a></li>
+  <li><div class="divider"></div></li>
+  <li><a class="subheader">Client</a></li>
+  <li><a routerLink="/kanban" class="waves-effect waves-orange"><i class="material-icons">people_outline</i>Customers</a></li>
+  <li><a routerLink="/companies" class="waves-effect waves-orange"><i class="material-icons">account_balance</i>Companies</a></li>
+  <li><div class="divider"></div></li>
+  <li><a class="subheader">Other</a></li>
+  <li><a routerLink="/reports" class="waves-effect waves-orange"><i class="material-icons">assessment</i>Reports</a></li>
   <li><div class="divider"></div></li>
   <li><a class="subheader">Help</a></li>
-  <li><a routerLink="/Help"><i class="material-icons">help_outline</i>Help</a></li>
-  <li><a routerLink="/settings"><i class="material-icons">settings</i>Settings</a></li>
-
-  <li><div class="divider"></div></li>
-  <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+  <li><a routerLink="/Help" class="waves-effect waves-orange"><i class="material-icons">help_outline</i>Help</a></li>
+  <li><a routerLink="/settings" class="waves-effect waves-orange"><i class="material-icons">settings</i>Settings</a></li>
 </ul>
 
 
@@ -35,12 +37,13 @@
     <li><a href="#!">Opcja 3</a></li>
   </ul>
   <nav>
-    <div class="nav-wrapper teal">
+    <div class="nav-wrapper nb">
       <!-- <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a> -->
       <a  class="brand-logo display sidenav-trigger" data-target="slide-out"><i class="material-icons left ml-2r">menu</i> Logo Firmy</a>
       <ul class="right hide-on-med-and-down">
         <!-- <li><a href (click)="search.onSwitchForm()">Search<i class="material-icons right">search</i></a></li> -->
         <li><a class="btn transparent z-depth-0" (click)="searcher.onSwitchForm()" >Search</a></li>
+        <li><a class="dark-toggle"  onclick="localStorage.setItem('mode', (localStorage.getItem('mode') || 'dark') === 'dark' ? 'light' : 'dark'); localStorage.getItem('mode') === 'dark' ? document.querySelector('body').classList.add('dark') : document.querySelector('body').classList.remove('dark')" title="Dark/light"><i class="material-icons left">brightness_4</i>Dark Mode</a></li>
         <li><a href="#!">Notifications</a></li>
         <li><a class="dropdown-trigger" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>

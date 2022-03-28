@@ -18,5 +18,5 @@ export interface CompanySend {
     cmpRegon?: string;
     cmpKrsNumber?: string;
     cmpLandLine: string;
-    companyAddresses: CompanyAddress;
+    companyAddresses: CompanyAddress[];
 }
