@@ -30,6 +30,7 @@
 
 
 <ul id="dropdown1" class="dropdown-content">
+<<<<<<< Updated upstream
     <li><a href="#!">Opcja 1</a></li>
     <li class="divider"></li>
     <li><a href="#!">Opcja 2</a></li>
@@ -49,3 +50,41 @@
       </ul>
     </div>
   </nav>
+=======
+  <li><a href="#!">Opcja 1</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">Opcja 2</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">Opcja 3</a></li>
+</ul>
+<nav>
+  <div class="nav-wrapper nb">
+    <!-- <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a> -->
+    <a class="brand-logo display sidenav-trigger" data-target="slide-out"
+      ><i class="material-icons left ml-2r">menu</i> Logo Firmy</a
+    >
+    <ul class="right hide-on-med-and-down">
+      <!-- <li><a href (click)="search.onSwitchForm()">Search<i class="material-icons right">search</i></a></li> -->
+      <li>
+        <a class="btn transparent z-depth-0" (click)="searcher.onSwitchForm()"
+          >Search</a
+        >
+      </li>
+      <li>
+        <a
+          class="dark-toggle"
+          onclick="localStorage.setItem('mode', (localStorage.getItem('mode') || 'dark') === 'light' ? 'dark' : 'light'); localStorage.getItem('mode') === 'dark' ? document.querySelector('body').classList.add('dark') : document.querySelector('body').classList.remove('dark')"
+          title="Dark/light"
+          ><i class="material-icons left">brightness_4</i>Dark Mode</a
+        >
+      </li>
+      <li><a href="#!">Notifications</a></li>
+      <li>
+        <a class="dropdown-trigger" data-target="dropdown1"
+          >Dropdown<i class="material-icons right">arrow_drop_down</i></a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+>>>>>>> Stashed changes
