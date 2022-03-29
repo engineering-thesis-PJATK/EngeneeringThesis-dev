@@ -3,7 +3,6 @@ $materialize-fonts-path: '~materialize-angular/fonts';
 
 @import '~materialize-angular/styles/materialize-angular.scss';
 
-
 $transition-effects: color 1s ease, background-color 1s ease;
 
 body {
@@ -12,6 +11,24 @@ body {
 	&.dark {
 		background-color: #202123;
 		color: #fff;
+		input {
+			color: #eee;
+		}
+		input:focus {
+			border-bottom: 1px solid royalblue !important;
+			box-shadow: 0 1px 0 0 royalblue !important;
+			color: #fff;
+		}
+		label.active {
+			color: royalblue !important;
+		}
+		label {
+			color: #eee !important;
+		}
+		
+		.material-icons.active{
+			color: royalblue !important;
+		}
 		.nav {
 			background-color: #0277bd !important;
 		}
@@ -33,6 +50,13 @@ body {
 		.divider {
 			opacity: 0.2;
 		}
+		.border-address {
+			border: 1px solid #fff;
+			border-radius: 10px;
+		}
+		.address-tr {
+			border-bottom: 1px solid #fff;
+		  }
 		.sidenav {
 			background-color: #2D2D31;
 			li {
