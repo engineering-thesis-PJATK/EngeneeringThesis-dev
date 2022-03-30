@@ -20,3 +20,8 @@ export interface CompanySend {
     cmpLandLine: string;
     companyAddresses: CompanyAddress[];
 }
+
+export interface CompanySelect {
+    cmpId: number;
+    cmpName: string;
+}
