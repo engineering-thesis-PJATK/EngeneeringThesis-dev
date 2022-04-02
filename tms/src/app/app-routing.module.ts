@@ -17,6 +17,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { EmployeeFormComponent } from './components/employee/employee-form/employee-form.component';
+import { CustomerListComponent } from './components/customer/customer-list/customer-list.component';
+import { CustomerFormComponent } from './components/customer/customer-form/customer-form.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
@@ -48,6 +50,9 @@ const routes: Routes = [
 
   {path: 'employees', component: EmployeeComponent},
   {path: 'employees/add', component: EmployeeFormComponent},
+
+  {path: 'customers', component: CustomerListComponent},
+  {path: 'customers/add', component: CustomerFormComponent},
 
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },

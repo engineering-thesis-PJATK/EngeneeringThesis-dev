@@ -7,10 +7,10 @@
             <img src="assets/C.png" alt="" class="circle responsive-img" />
           </div>
           <div class="col s10 card-divider-vertical">
-            <h2 class="header">{{employee.empName}}</h2>
-            <p>{{employee.empPhoneNumber}}</p>
+            <h2 class="header">{{customer.cur_name + customer.cur_surname}}</h2>
+            <p>{{customer.cur_phoneNumber}}</p>
             <br />
-            <p>{{employee.empEmail}}</p>
+            <p>{{customer.cur_email}}</p>
           </div>
         </div>
         <div class="card-action">
@@ -21,19 +21,19 @@
           </li>
           <li
             class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
-            routerLink="/attachments?employee={{employee.empId}}"
+            routerLink="/tasks?customer={{customer.cur_id}}"
           >
-            <i class="material-icons">mail_outline</i>
+            <i class="material-icons">assignment</i>
           </li>
           <li
             class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
-            routerLink="/employees?employee={{employee.empId}}"
+            routerLink="/employees?employee={{customer.cur_id}}"
           >
             <i class="material-icons">toc</i>
           </li>
           <li
             class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
-            routerLink="/companies/edit?employee={{employee.empId}}"
+            routerLink="/companies/edit?employee={{customer.cur_id}}"
           >
             <i class="material-icons">edit</i>
           </li>

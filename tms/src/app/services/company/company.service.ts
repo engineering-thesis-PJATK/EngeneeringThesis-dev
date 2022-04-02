@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
-import { CompanyCard,CompanySend } from 'src/app/models/company';
+import { CompanyCard,CompanySelect,CompanySend } from 'src/app/models/company';
 import { Environment } from '../environment';
 import { ApiPaths } from '../environment';
 
@@ -29,5 +29,9 @@ export class CompanyService {
    postCompany(company: CompanySend): Observable<string[]> {
      return this.http.post<string[]>(this.url+ApiPaths.Company,company).pipe(tap(console.log));
      //dodać jwt do headera
+   }
+
+   getCompaniesSelect(): Observable<CompanySelect[]> {
+     return this.http.get<CompanySelect[]>(this.url+ApiPaths.CustomerSelect).pipe(tap(console.log));
    }
 }

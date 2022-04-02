@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col s1 m1 l1 xl1"></div>
+    <div class="col s10 m10 l10 xl10">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="name" type="text" />
+          <label for="name">Name</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="surname" type="text" />
+          <label for="surname">Surname</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">alternate_email</i>
+          <input id="email" type="text" />
+          <label for="email">Email</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">phone</i>
+          <input id="phone" type="text" />
+          <label for="phone">Phone number</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">work_outline</i>
+          <input id="position" type="text" />
+          <label for="position">Position</label>
+        </div>
+        <div class="input-field col s6">
+            <i class="material-icons prefix">account_balance</i>
+          <select>
+            <option *ngFor="let company of companyList | async" [value]="company.cmpId">{{company.cmpName}}</option>
+          </select>
+          <label>Company</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+            <i class="material-icons prefix">add_comment</i>
+            <input id="position" type="text" />
+            <label for="position">Comments</label>
+          </div>
+    </div>
+      <div class="row">
+        <button
+          class="waves-effect waves-yellow btn-large btn-submit"
+          type="submit"
+        >
+          Submit
+        </button>
+        <button
+          class="waves-effect waves-yellow btn-large btn-submit right"
+          type="submit"
+          (click)="returnButtonClick()"
+        >
+          Return
+        </button>
+      </div>
+    </div>
+    <div class="col s1 m1 l1 xl1"></div>
+  </div>
+  
