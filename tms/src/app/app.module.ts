@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -35,6 +35,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from "@angular/material/slider";
 import {MatIconModule} from '@angular/material/icon';
+import { KanbanCardComponent } from './components/dashboard/kanban-card/kanban-card.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -62,6 +65,7 @@ import {MatIconModule} from '@angular/material/icon';
     CustomerListComponent,
     CustomerListCardComponent,
     CustomerFormComponent,
+    KanbanCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,9 +79,12 @@ import {MatIconModule} from '@angular/material/icon';
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    BrowserAnimationsModule,
+    DragDropModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

@@ -1,0 +1,13 @@
+.tasks-row{
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-right-color: gray;
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-left-color: gray;
+    display: table-cell;
+}
+.tasks-container {
+    display: table;
+    width: 100%;
+}
