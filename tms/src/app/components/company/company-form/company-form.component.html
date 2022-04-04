@@ -1,111 +1,195 @@
 <div class="row">
   <!-- <div class="col s8 offset-s2"> -->
   <div class="col s1 m1 l1 xl1"></div>
-  <div class="col s10 m10 l10 xl10">
+  <form class="col s10 m10 l10 xl10" (ngSubmit)="addCompany()" #form="ngForm">
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">account_balance</i>
-        <input id="company_name" type="text" [(ngModel)]="company.cmpName" />
+        <input
+          id="company_name"
+          name="company_name"
+          type="text"
+          [(ngModel)]="company.cmpName"
+          required
+          #company_name="ngModel"
+          minlength="2"
+          maxlength="50"
+        />
         <label for="company_name">Company name</label>
+        <ng-container *ngIf="company_name.invalid && (company_name.dirty || company_name.touched)">
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="company_name.errors?.['required']"
+            >Field is required</span
+          >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="company_name.errors?.['minlength']"
+            >Text is too short</span
+          >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="company_name.errors?.['maxlength']"
+            >Text is too long</span
+          >
+        </ng-container>
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s4">
+      <div class="input-field col s12 m4 l4 xl4">
         <i class="material-icons prefix">description</i>
-        <input id="nip_prefix" type="text" [(ngModel)]="company.cmpNipPrefix" />
+        <input
+          id="nip_prefix"
+          name="nip_prefix"
+          type="text"
+          [(ngModel)]="company.cmpNipPrefix"
+          required
+          #nip_prefix="ngModel"
+          minlength="2"
+          maxlength="2"
+        />
         <label for="nip_prefix">NIP Prefix</label>
+        <ng-container *ngIf="nip_prefix.invalid && (nip_prefix.dirty || nip_prefix.touched)">
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="nip_prefix.errors?.['required']"
+            >Field is required</span
+          >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="nip_prefix.errors?.['minlength']"
+            >The text should consist of 2 characters</span
+          >
+        </ng-container>
       </div>
-      <div class="input-field col s8">
+      <div class="input-field col s12 m8 s8 xl8">
         <i class="material-icons prefix">description</i>
-        <input id="nip" type="text" [(ngModel)]="company.cmpNip" />
+        <input
+          id="nip"
+          name="nip"
+          type="text"
+          [(ngModel)]="company.cmpNip"
+          required
+          #nip="ngModel"
+          minlength="10"
+          maxlength="20"
+        />
         <label for="nip">NIP</label>
+        <ng-container *ngIf="nip.invalid && (nip.dirty || nip.touched)">
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="nip.errors?.['required']"
+            >Field is required</span
+          >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="nip.errors?.['minlength']"
+            >Text is too short</span
+          >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="nip.errors?.['maxlength']"
+            >Text is too long</span
+          >
+        </ng-container>
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s6">
+      <div class="input-field col s12 m6 s6 xl6">
         <i class="material-icons prefix">description</i>
-        <input id="regon" type="text" [(ngModel)]="company.cmpRegon" />
+        <input
+          id="regon"
+          name="regon"
+          type="text"
+          [(ngModel)]="company.cmpRegon"
+          #regon="ngModel"
+          minlength="9"
+          manlength="20"
+        />
         <label for="regon">REGON</label>
+        <ng-container *ngIf="regon.invalid && (regon.dirty || regon.touched)">
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="regon.errors?.['minlength']"
+            >Text is too short</span
+          >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="regon.errors?.['maxlength']"
+            >Text is too long</span
+          >
+        </ng-container>
       </div>
-      <div class="input-field col s6">
+      <div class="input-field col s12 m6 l6 xl6">
         <i class="material-icons prefix">description</i>
-        <input id="mobile" type="text" [(ngModel)]="company.cmpKrsNumber" />
-        <label for="mobile">KRS</label>
+        <input
+          id="krs"
+          name="krs"
+          type="text"
+          [(ngModel)]="company.cmpKrsNumber"
+          #krs="ngModel"
+          minlength="10"
+          maxlength="25"
+        />
+        <label for="krs">KRS</label>
+        <ng-container *ngIf="krs.invalid && (krs.dirty || krs.touched)">
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="krs.errors?.['minlength']"
+            >Text is too short</span
+          >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="krs.errors?.['maxlength']"
+            >Text is too long</span
+          >
+        </ng-container>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">phone</i>
-        <input id="phone" type="text" [(ngModel)]="company.cmpLandLine" />
+        <input
+          id="phone"
+          name="phone"
+          type="text"
+          [(ngModel)]="company.cmpLandLine"
+          #phone="ngModel"
+          minlength="5"
+          maxlength="25"
+        />
         <label for="phone">Phone number</label>
+        <ng-container *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="phone.errors?.['minlength']"
+            >Text is too short</span
+          >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="phone.errors?.['maxlength']"
+            >Text is too long</span
+          >
+        </ng-container>
       </div>
     </div>
     <div class="row border-address">
       <div class="col s12">
         <h1 class="header addres-header">Add address</h1>
       </div>
-      <div class="col s6">
-        <app-company-address (newAddress)="onNewAddress($event)"></app-company-address>
-      </div>
-      <div class="col s4 offset-s1">
-        <div *ngIf="company.companyAddresses?.length" class="row">
+      <div class="row">
+        <div class="col s12 m6 l6 xl6">
+          <app-company-address
+            (newAddress)="onNewAddress($event)"
+          ></app-company-address>
+        </div>
+        <div class="col s12 m6 l6 xl6" *ngIf="company.companyAddresses?.length">
           <app-company-address-list
             (removeAddress)="onDeleteAddress($event)"
             [addresses]="company.companyAddresses"
           ></app-company-address-list>
         </div>
       </div>
-      <!-- <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">account_balance</i>
-          <input
-            id="city"
-            type="text"
-            [(ngModel)]="company.companyAddresses.city"
-          />
-          <label for="city">City</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s8">
-          <i class="material-icons prefix">location_on</i>
-          <input
-            id="street"
-            type="text"
-            [(ngModel)]="company.companyAddresses.street"
-          />
-          <label for="street">Street</label>
-        </div>
-        <div class="input-field col s4">
-          <i class="material-icons prefix">location_on</i>
-          <input
-            id="building_number"
-            type="text"
-            [(ngModel)]="company.companyAddresses.streetNumber"
-          />
-          <label for="building_number">Building no.</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <i class="material-icons prefix">location_on</i>
-          <input
-            id="postal_code"
-            type="text"
-            [(ngModel)]="company.companyAddresses.postalCode"
-          />
-          <label for="postal_code">Postal code</label>
-        </div>
-        <div class="input-field col s6">
-          <i class="material-icons prefix">location_on</i>
-          <input
-            id="country"
-            type="text"
-            [(ngModel)]="company.companyAddresses.country"
-          />
-          <label for="country">Country</label>
-        </div>
-      </div> -->
     </div>
     <div class="row">
       <button
@@ -116,12 +200,12 @@
       </button>
       <button
         class="waves-effect waves-yellow btn-large btn-submit right"
-        type="submit"
+        type="button"
         (click)="returnButtonClick()"
       >
         Return
       </button>
     </div>
-  </div>
+  </form>
   <div class="col s1 m1 l1 xl1"></div>
 </div>
