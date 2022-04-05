@@ -29,6 +29,7 @@ import { EmployeeCardComponent } from './components/employee/employee-card/emplo
 import { CustomerListComponent } from './components/customer/customer-list/customer-list.component';
 import { CustomerListCardComponent } from './components/customer/customer-list/customer-list-card/customer-list-card.component';
 import { CustomerFormComponent } from './components/customer/customer-form/customer-form.component';
+import { TeamComponent } from './components/team/team.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { CustomerFormComponent } from './components/customer/customer-form/custo
     CustomerListComponent,
     CustomerListCardComponent,
     CustomerFormComponent,
+    TeamComponent,
   ],
   imports: [
     BrowserModule,

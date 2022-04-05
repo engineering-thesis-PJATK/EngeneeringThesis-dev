@@ -19,6 +19,7 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { EmployeeFormComponent } from './components/employee/employee-form/employee-form.component';
 import { CustomerListComponent } from './components/customer/customer-list/customer-list.component';
 import { CustomerFormComponent } from './components/customer/customer-form/customer-form.component';
+import { TeamComponent } from './components/team/team.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
@@ -53,6 +54,7 @@ const routes: Routes = [
 
   {path: 'customers', component: CustomerListComponent},
   {path: 'customers/add', component: CustomerFormComponent},
+  {path: 'teams', component: TeamComponent},
 
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
