@@ -6,28 +6,28 @@ $materialize-fonts-path: '~materialize-angular/fonts';
 $transition-effects: color 1s ease, background-color 1s ease;
 
 body {
-	background-color: #eee;
+	background-color: #eeeeee;
 	transition: $transition-effects;
 	&.dark {
 		background-color: #202123;
-		color: #fff;
+		color: #ffffff;
 		input {
-			color: #eee;
+			color: #eeeeee;
 		}
 		input:focus {
-			border-bottom: 1px solid royalblue !important;
-			box-shadow: 0 1px 0 0 royalblue !important;
-			color: #fff;
+			border-bottom: 1px solid #4169e1 !important;
+			box-shadow: 0 1px 0 0 #4169e1 !important;
+			color: #ffffff;
 		}
 		label.active {
-			color: royalblue !important;
+			color: #4169e1 !important;
 		}
 		label {
-			color: #eee !important;
+			color: #eeeeee !important;
 		}
 		
 		.material-icons.active{
-			color: royalblue !important;
+			color: #4169e1 !important;
 		}
 		.nav {
 			background-color: #0277bd !important;
@@ -36,7 +36,7 @@ body {
             background-color: #0277bd;
         }
 		.card {
-			background-color: rgba(255,255,255,0.2);
+			background-color: #ffffff33;
 		}
 		.btn {
 			background-color: #0277bd;
@@ -51,41 +51,41 @@ body {
 			opacity: 0.2;
 		}
 		.border-address {
-			border: 1px solid #fff;
+			border: 1px solid #ffffff;
 			border-radius: 10px;
 		}
 		.address-tr {
-			border-bottom: 1px solid #fff;
+			border-bottom: 1px solid #ffffff;
 		  }
 		.sidenav {
 			background-color: #2D2D31;
 			li {
 				a {
 					&:not(.subheader){
-						color: #89B2F5;
+						color: #ffffff;
 						&:hover {
-							background-color: #3B4043;
+							background-color: #0277bd;
 						}
 					}
 					&.subheader {
-						color:#9AA0A6; 
+						color:#ffffff; 
 					}
 					.material-icons {
-						color: #9AA0A6;
+						color: #ffffff;
 					}
 				}
 			}
 		}
 		.collection {
-			border: 1px solid rgba(255,255,255,0.2);
+			border: 1px solid #ffffff33;
 			.collection-item {
-				background-color: rgba(255,255,255,0.2);
-				border-bottom: 1px solid rgba(255,255,255,0.2);;
+				background-color: #ffffff33;
+				border-bottom: 1px solid #ffffff33;;
 			}
 		}
         .small-button {
             background-color: #4d4d4f;
-            color: #fff;
+            color: #ffffff;
         }
 	}
 }
