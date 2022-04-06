@@ -3,12 +3,14 @@ import { CompanyAddress } from "./companyAddress";
 export interface CompanyCard {
     cmpId?: number;
     cmpName: string;
-    cmpNip: string;
-    cmpNipPrefix: string;
+    cmpNip?: string;
+    cmpNipPrefix?: string;
     cmpRegon?: string;
     cmpKrsNumber?: string;
-    cmpLandLine: string;
-    cmpIdAddress: number;
+    cmpLandLine?: string;
+    cmpIdAddress?: number;
+    cmpCity: string;
+    cmpCountry: string;
 }
 
 export interface CompanySend {
