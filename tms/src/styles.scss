@@ -5,6 +5,8 @@ $materialize-fonts-path: '~materialize-angular/fonts';
 
 $transition-effects: color 1s ease, background-color 1s ease;
 
+
+
 body {
 	background-color: #eeeeee;
 	transition: $transition-effects;
@@ -15,37 +17,37 @@ body {
 			color: #eeeeee;
 		}
 		input:focus {
-			border-bottom: 1px solid #4169e1 !important;
-			box-shadow: 0 1px 0 0 #4169e1 !important;
+			border-bottom: 1px solid #8d6e63  !important;
+			box-shadow: 0 1px 0 0 #8d6e63  !important;
 			color: #ffffff;
 		}
 		label.active {
-			color: #4169e1 !important;
+			color: #8d6e63  !important;
 		}
 		label {
 			color: #eeeeee !important;
 		}
 		
 		.material-icons.active{
-			color: #4169e1 !important;
+			color: #8d6e63  !important;
 		}
 		.nav {
-			background-color: #0277bd !important;
+			background-color: #a1887f !important;
 		}
         .nb {
-            background-color: #0277bd;
+            background-color: #a1887f;
         }
 		.card {
 			background-color: #ffffff33;
 		}
 		.btn {
-			background-color: #0277bd;
+			background-color: #a1887f;
 		}
         .btn-floating {
-            background-color: #0277bd;
+            background-color: #a1887f;
         }
         .btn-large {
-            background-color: #0277bd;
+            background-color: #a1887f;
         }
 		.divider {
 			opacity: 0.2;
@@ -64,7 +66,7 @@ body {
 					&:not(.subheader){
 						color: #ffffff;
 						&:hover {
-							background-color: #0277bd;
+							background-color: #a1887f;
 						}
 					}
 					&.subheader {
@@ -83,6 +85,25 @@ body {
 				border-bottom: 1px solid #ffffff33;;
 			}
 		}
+		.dropdown-content li {
+			background-color: #202123;
+		}
+		.dropdown-content li:hover {
+			background-color: #37393b;
+		}
+		.dropdown-content li.selected {
+			background-color: #37393b;
+		}
+		.dropdown-content li > a, .dropdown-content li > span{
+			color: #a1887f;
+		}
+		.autocomplete-content li .highlight {
+			color: #ffffff;
+		}
+		.small-button:hover {
+			color: #a1887f;
+			background-color: transparent;
+		  }
         .small-button {
             background-color: #4d4d4f;
             color: #ffffff;
