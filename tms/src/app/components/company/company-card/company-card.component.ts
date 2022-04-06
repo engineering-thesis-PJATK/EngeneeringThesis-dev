@@ -7,7 +7,7 @@ import { CompanyCard } from 'src/app/models/company';
   styleUrls: ['./company-card.component.scss']
 })
 export class CompanyCardComponent implements OnInit {
-  @Input() company: CompanyCard = {cmpId: 0, cmpName: '', cmpNip: '', cmpNipPrefix: '', cmpRegon:'', cmpKrsNumber: '',cmpLandLine:'',cmpIdAddress:0 };
+  @Input() company: Partial<CompanyCard> = {};
   constructor() { }
 
   ngOnInit(): void {
