@@ -1,44 +1,40 @@
 <div class="col s12 m12 l4 xl4">
-    <div class="card horizontal">
-      <div class="card-image"></div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <div class="col s2">
-            <img src="assets/C.png" alt="" class="circle responsive-img" />
-          </div>
-          <div class="col s10 card-divider-vertical">
-            <h2 class="header">{{customer.cur_name + customer.cur_surname}}</h2>
-            <p>{{customer.cur_phoneNumber}}</p>
-            <br />
-            <p>{{customer.cur_email}}</p>
-          </div>
-        </div>
-        <div class="card-action">
-          <li
-            class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
-          >
-            <i class="medium material-icons">chat</i>
-          </li>
-          <li
-            class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
-            routerLink="/tasks?customer={{customer.cur_id}}"
-          >
-            <i class="material-icons">assignment</i>
-          </li>
-          <li
-            class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
-            routerLink="/employees?employee={{customer.cur_id}}"
-          >
-            <i class="material-icons">toc</i>
-          </li>
-          <li
-            class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
-            routerLink="/companies/edit?employee={{customer.cur_id}}"
-          >
-            <i class="material-icons">edit</i>
-          </li>
-        </div>
+  <div class="card horizontal">
+    <div class="card-image">
+      <a class="btn-floating btn-large"><i class="material-icons">person</i></a>
+    </div>
+    <div class="card-stacked">
+      <div class="card-content card-divider-vertical">
+        <h2 class="header">{{ customer.cur_name + customer.cur_surname }}</h2>
+        <p>{{ customer.cur_phoneNumber }}</p>
+        <br />
+        <p>{{ customer.cur_email }}</p>
+      </div>
+      <div class="card-action">
+        <li
+          class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
+        >
+          <i class="medium material-icons">chat</i>
+        </li>
+        <li
+          class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
+          routerLink="/tasks?customer={{ customer.cur_id }}"
+        >
+          <i class="material-icons">assignment</i>
+        </li>
+        <li
+          class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
+          routerLink="/employees?employee={{ customer.cur_id }}"
+        >
+          <i class="material-icons">toc</i>
+        </li>
+        <li
+          class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
+          routerLink="/companies/edit?employee={{ customer.cur_id }}"
+        >
+          <i class="material-icons">edit</i>
+        </li>
       </div>
     </div>
   </div>
-  
+</div>
