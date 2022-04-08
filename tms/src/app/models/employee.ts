@@ -16,3 +16,15 @@ export interface EmployeeSend {
     empPhoneNumber?: string;
     empPrivileges: [];
 }
+
+export interface TeamEmployee {
+    empId: number;
+    empName: string;
+    empSurname: string;
+    empRole: TeamRole;
+}
+
+export interface TeamRole {
+    etrId: number;
+    etrName: string;
+}
