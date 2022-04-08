@@ -9,10 +9,12 @@ import { EmployeeService } from 'src/app/services/employee/employee.service';
 })
 export class TeamFormComponent implements OnInit, AfterViewInit {
   employees: Partial<Employee[]> = [];
+  
+
   constructor(private empHttp: EmployeeService) { }
+
   ngAfterViewInit(): void {
     var elems = document.querySelectorAll('.autocomplete');
-    
     let empMap: {[key: string]: string | null} = {};
     this.employees.forEach(emp => {
       empMap[emp?.empName+' '+emp?.empSurname] = null;
@@ -21,11 +23,12 @@ export class TeamFormComponent implements OnInit, AfterViewInit {
       data: empMap
     }
     var instances = M.Autocomplete.init(elems, options);
-    
   }
 
   ngOnInit(): void {
     this.empHttp.getEmployees().subscribe(emp => this.employees = emp);
   }
+
+
 
 }

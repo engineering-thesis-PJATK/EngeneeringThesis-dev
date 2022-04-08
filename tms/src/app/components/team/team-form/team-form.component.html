@@ -1,38 +1,35 @@
 <div class="row">
-    <div class="col s1 m1 l1 xl1"></div>
-    <form class="col s10 m10 l10 xl10"  #form="ngForm">
-      <div class="row">
-          <!-- tutaj nazwa firmy -->
-          <!-- potem dodawanie pracownika -->
+  <div class="col s1 m1 l1 xl1"></div>
+  <form class="col s10 m10 l10 xl10" #form="ngForm">
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">supervisor_account</i>
+        <input id="Name" name="Name" type="text" required />
+        <label for="Name">Team name</label>
+      </div>
+    </div>
+      <div class="row border-address">
         <div class="col s12">
-            <div class="row">
-              <div class="input-field col s12">
-                <i class="material-icons prefix">person_add</i>
-                <input type="text" id="autocomplete-input" class="autocomplete">
-                <label for="autocomplete-input">Start type employee name</label>
-              </div>
-            </div>
-          </div>
-          <!-- wybranie roli -->
-          <!-- dodanie do listy -->
-          <!-- lista pracowników w projekcie z ikonką kosza jak na adresach -->
-          <!-- można utworzyć drużynę bez pracowników i później ją edtyować -->
+          <h1 class="header addres-header">Add team members</h1>
+        </div>
+      <app-team-member-list></app-team-member-list>
       </div>
-      <div class="row">
-        <button
-          class="waves-effect waves-yellow btn-large btn-submit"
-          type="submit"
-        >
-          Submit
-        </button>
-        <button
-          class="waves-effect waves-yellow btn-large btn-submit right"
-          type="submit"
-        >
-          Return
-        </button>
-      </div>
-    </form>
-    <div class="col s1 m1 l1 xl1"></div>
-  </div>
-  
+      <!-- lista pracowników w projekcie z ikonką kosza jak na adresach -->
+      <!-- można utworzyć drużynę bez pracowników i później ją edtyować -->
+    <div class="row">
+      <button
+        class="waves-effect waves-yellow btn-large btn-submit"
+        type="submit"
+      >
+        Submit
+      </button>
+      <button
+        class="waves-effect waves-yellow btn-large btn-submit right"
+        type="submit"
+      >
+        Return
+      </button>
+    </div>
+  </form>
+  <div class="col s1 m1 l1 xl1"></div>
+</div>
