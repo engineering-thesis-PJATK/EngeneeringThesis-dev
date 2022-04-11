@@ -18,13 +18,19 @@ export interface EmployeeSend {
 }
 
 export interface TeamEmployee {
-    empId: number;
-    empName: string;
-    empSurname: string;
-    empRole: TeamRole;
+    empId?: number;
+    empName?: string;
+    empSurname?: string;
+    etrId?: number;
+    empRole?: TeamRole;
 }
 
 export interface TeamRole {
     etrId: number;
     etrName: string;
+}
+
+export interface TempMember {
+    empId: number;
+    empRole: number;
 }
