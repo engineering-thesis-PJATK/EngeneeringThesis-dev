@@ -116,6 +116,16 @@ body {
 		.swal2-styled.swal2-confirm{
 			background-color: #a1887f;
 		}
+
+		.tabs .tab a:hover, .tabs .tab a.active {
+			background-color: #a1887f !important;
+			color: #212121 !important;
+		}
+		
+		.tabs .tab a {
+			background-color: #a1887f !important;
+			color: #212121 !important;
+		}
 	}
 
 	.swal2-styled.swal2-confirm{
