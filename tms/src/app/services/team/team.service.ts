@@ -1,7 +1,8 @@
+import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
-import { Team } from 'src/app/models/team';
+import { Observable, of, tap } from 'rxjs';
+import { Team, TeamSimple } from 'src/app/models/team';
 import { ApiPaths, Environment } from '../environment';
 
 @Injectable({
@@ -14,6 +15,17 @@ export class TeamService {
 
   postTeam(team: Team): Observable<string[]> {
     return this.http.post<string[]>(this.url+ApiPaths.Team,team).pipe(tap(console.log));
+  }
+
+  getTeams(): Observable<TeamSimple[]> {
+    //return this.http.get<TeamSimple[]>(this.url+ApiPaths.Team).pipe(tap(console.log));
+    let teas: TeamSimple[] = [
+      {id: 1, Name: 'Team 1'},
+      {id: 2, Name: '.NET Team'},
+      {id: 3, Name: 'bla bla'},
+      {id: 4, Name: 'test123'},
+    ];
+    return of(teas);
   }
   
 }
