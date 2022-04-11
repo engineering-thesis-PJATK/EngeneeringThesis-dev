@@ -32,6 +32,7 @@ import { CustomerFormComponent } from './components/customer/customer-form/custo
 import { TeamComponent } from './components/team/team.component';
 import { TeamFormComponent } from './components/team/team-form/team-form.component';
 import { TeamMemberListComponent } from './components/team/team-form/team-member-list/team-member-list.component';
+import { TeamCardComponent } from './components/team/team-card/team-card.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { TeamMemberListComponent } from './components/team/team-form/team-member
     TeamComponent,
     TeamFormComponent,
     TeamMemberListComponent,
+    TeamCardComponent,
   ],
   imports: [
     BrowserModule,
