@@ -52,7 +52,9 @@ export class EmployeeFormComponent implements OnInit, AfterViewInit {
 //regexy na hasła
 //conajmniej 1 mała litera, conajmniej 0 dużych, 1 cyfra i jeden znak specjalny 
 //^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$
+
 //1+ mała, 1+ duża, 1+ cyfra, 1+ znak
 //^(?=(.*[A-Z]){1,})(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$
+
 //do testów można wyłączyć i zostawić 1+ litera, 0+ cyfry, 0+ znaki specjalne
 //^(?=.*?[a-zA-Z])(?=(.*?[\d]){0,})(?=(.*?[\W]){0,})(?!.*\s).{8,}$
