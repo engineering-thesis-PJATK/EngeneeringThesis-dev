@@ -108,5 +108,20 @@ body {
             background-color: #4d4d4f;
             color: #ffffff;
         }
+		.swal2-popup {
+			background-color:#2b2d30;
+			color: #ffffff;
+		}
+
+		.swal2-styled.swal2-confirm{
+			background-color: #a1887f;
+		}
+	}
+
+	.swal2-styled.swal2-confirm{
+		background-color: #009688;
+	}
+	.swal2-styled.swal2-confirm:focus{
+		box-shadow: 0 0 0 0 !important;
 	}
 }
