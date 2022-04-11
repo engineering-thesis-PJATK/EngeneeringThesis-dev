@@ -1,6 +1,9 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Employee } from 'src/app/models/employee';
+import { Employee, TeamEmployee } from 'src/app/models/employee';
+import { Team } from 'src/app/models/team';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
+import { TeamService } from 'src/app/services/team/team.service';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-team-form',
@@ -9,9 +12,12 @@ import { EmployeeService } from 'src/app/services/employee/employee.service';
 })
 export class TeamFormComponent implements OnInit, AfterViewInit {
   employees: Partial<Employee[]> = [];
+  showList = false;
+  buttonShowListText: string = 'Next';
   
+  sendingTeam: Team = {Name: '',members: []};
 
-  constructor(private empHttp: EmployeeService) { }
+  constructor(private empHttp: EmployeeService, private teamHttp: TeamService,private location: Location) { }
 
   ngAfterViewInit(): void {
     var elems = document.querySelectorAll('.autocomplete');
@@ -29,6 +35,36 @@ export class TeamFormComponent implements OnInit, AfterViewInit {
     this.empHttp.getEmployees().subscribe(emp => this.employees = emp);
   }
 
+  onSwitchList(): void {
+    this.showList = !this.showList;
+    if(this.showList)
+    {
+      this.buttonShowListText = 'Previous';
+    }
+    else
+    {
+      this.buttonShowListText = 'Next';
+    }
+  }
 
+  onNewMember(member: TeamEmployee)
+  {
+    this.sendingTeam.members?.push(member);
+  }
+
+  onDeleteMember(member: TeamEmployee) {
+    this.sendingTeam.members = this.sendingTeam.members?.filter(item => item !== member);
+  }
+
+  addTeam(): void {
+    // this.teamHttp.postTeam(this.sendingTeam as Team).subscribe(
+    //   //
+    // );
+    console.log(this.sendingTeam);
+  }
+
+  returnButtonClick() {
+    this.location.back();
+  }
 
 }
