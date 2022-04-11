@@ -1,4 +1,4 @@
-<div class="row">
+<form class="row" name="form" #form="ngForm">
   <div class="col s12">
     <table class="highlight centered">
       <thead>
@@ -12,44 +12,64 @@
       <tbody>
         <tr *ngFor="let member of members" class="centered-table-tr">
           <td>{{ member.empName + " " + member.empSurname }}</td>
-          <td>{{ member.empRole.etrName }}</td>
+          <td>{{ member.empRole?.etrName }}</td>
           <td>
             <i
               class="material-icons prefix bin"
-              (click)="removeMember.emit(member)"
+              (click)="removeMember(member)"
               >delete</i
             >
           </td>
-        </tr>
-        <tr>
-          <td>ABC</td>
-          <td>DEFF</td>
-          <td><i
-            class="material-icons prefix bin"
-            >delete</i
-          ></td>
         </tr>
       </tbody>
     </table>
 
     <div class="input-field col s12 m5 l5 xl5">
       <i class="material-icons prefix">person_add</i>
-      <input type="text" id="autocomplete-input" class="autocomplete" />
-      <label for="autocomplete-input">Start type employee name</label>
+      <select  id="empName" name="empName" class="test"  required #empName="ngModel" [(ngModel)]="sendingEmployee.empId">
+        <option value="" disabled>Pick one</option>
+        <option *ngFor="let employee of employees" [value]="employee?.empId">
+          {{ employee?.empName + ' ' + employee?.empSurname }}
+        </option>
+      </select>
+      <label for="empName">Employee</label>
+      <ng-container
+      *ngIf="empName.invalid && (empName.dirty || empName.touched)"
+    >
+      <span
+        class="red-text text-lighten-1"
+        *ngIf="empName.errors?.['required']"
+        >Field is required</span
+      >
+    </ng-container>
     </div>
     <div class="input-field col s12 m5 l5 xl5">
-        <select id="role" name="role">
-            <option value="" disabled>Pick one</option>
-          <option *ngFor="let role of roles" [value]="role?.etrId">
-            {{ role?.etrName }}
-          </option>
-        </select>
-        <label>Role</label>
+      <i class="material-icons prefix">flag</i>
+      <select  id="role" name="role" class="test" required #role="ngModel" [(ngModel)]="sendingEmployee.empRole">
+        <option value="" disabled>Pick one</option>
+        <option *ngFor="let role of roles" [value]="role?.etrId">
+          {{ role?.etrName }}
+        </option>
+      </select>
+      <label>Role</label>
+      <ng-container
+        *ngIf="role.invalid && (role.dirty || role.touched)"
+      >
+        <span
+          class="red-text text-lighten-1"
+          *ngIf="role.errors?.['required']"
+          >Field is required</span
+        >
+      </ng-container>
     </div>
     <div class="input-field col s2">
-    <button class="waves-effect waves-yellow btn-floating">
-      <i class="material-icons">add</i>
-    </button>
-    </div>  
+      <button
+        class="waves-effect waves-yellow btn-floating"
+        type="submit"
+        (click)="addMember(sendingEmployee);"
+      >
+        <i class="material-icons">add</i>
+      </button>
+    </div>
   </div>
-</div>
+</form>

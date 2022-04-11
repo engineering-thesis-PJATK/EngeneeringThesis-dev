@@ -13,3 +13,8 @@
  tr {
     transition: coral .25s ease;
 }
+
+.test {
+  position: fixed !important;
+  z-index: 0 !important;
+}
