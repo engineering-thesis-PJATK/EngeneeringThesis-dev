@@ -5,7 +5,7 @@ export interface Team {
     members: TeamEmployee[];
 }
 
-export interface TeamSimple {
+export interface TeamSelect {
     id: number;
     Name: string;
 }
