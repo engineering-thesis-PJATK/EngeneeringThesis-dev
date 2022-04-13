@@ -7,17 +7,7 @@ import { CustomerCompany } from 'src/app/models/customer';
   styleUrls: ['./customer-list-card.component.scss'],
 })
 export class CustomerListCardComponent implements OnInit {
-  @Input() customer: CustomerCompany = {
-    cur_id: 0,
-    cur_name: '',
-    cur_surname: '',
-    cur_email: '',
-    cur_position: '',
-    cur_comments: '',
-    cur_idCompany: 0,
-    cmp_name: '',
-    cur_phoneNumber: '',
-  };
+  @Input() customer!: CustomerCompany;
   constructor() {}
 
   ngOnInit(): void {}

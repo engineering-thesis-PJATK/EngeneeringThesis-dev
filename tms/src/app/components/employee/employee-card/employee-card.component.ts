@@ -7,13 +7,7 @@ import { Employee } from 'src/app/models/employee';
   styleUrls: ['./employee-card.component.scss'],
 })
 export class EmployeeCardComponent implements OnInit {
-  @Input() employee: Employee = {
-    empId: 0,
-    empName: '',
-    empSurname: '',
-    empLogin: '',
-    empEmail: '',
-  };
+  @Input() employee!: Employee;
   constructor() {}
 
   ngOnInit(): void {}
