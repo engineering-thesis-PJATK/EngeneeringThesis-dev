@@ -10,5 +10,6 @@ export enum ApiPaths {
     CustomerSelect = '/customer2',
     Employee = '/Employee/employees',
     EmployeePrivilege = '/employees/privileges',
-    Team = '/team'
+    Team = '/team',
+    Project = '/project'
 }
