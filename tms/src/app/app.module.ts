@@ -39,6 +39,13 @@ import { KanbanCardComponent } from './components/dashboard/kanban-card/kanban-c
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 
+import { TeamComponent } from './components/team/team.component';
+import { TeamFormComponent } from './components/team/team-form/team-form.component';
+import { TeamMemberListComponent } from './components/team/team-form/team-member-list/team-member-list.component';
+import { TeamCardComponent } from './components/team/team-card/team-card.component';
+import { ProjectComponent } from './components/project/project.component';
+import { ProjectCardComponent } from './components/project/project-card/project-card.component';
+import { ProjectFromComponent } from './components/project/project-from/project-from.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +73,13 @@ import { CommonModule } from '@angular/common';
     CustomerListCardComponent,
     CustomerFormComponent,
     KanbanCardComponent,
+    TeamComponent,
+    TeamFormComponent,
+    TeamMemberListComponent,
+    TeamCardComponent,
+    ProjectComponent,
+    ProjectCardComponent,
+    ProjectFromComponent,
   ],
   imports: [
     BrowserModule,

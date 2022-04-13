@@ -1,0 +1,16 @@
+<div class="grid">
+    <div class="row">
+      <h1 class="header">Teams</h1>
+    </div>
+    <div class="row">
+      <app-team-card
+        *ngFor="let team of teams | async"
+        [team]="team"
+      ></app-team-card>
+    </div>
+    <a
+class="btn-floating btn-large waves-effect waves-light pulse absolute"
+routerLink="/teams/add"
+><i class="material-icons">add</i></a
+>
+</div>

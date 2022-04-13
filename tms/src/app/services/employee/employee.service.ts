@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
 import { EmployeePrivilege } from '../../models/employeePrivilege';
-import { Employee } from '../../models/employee';
+import { Employee, TeamRole } from '../../models/employee';
 import { Environment } from '../environment';
 import { ApiPaths } from '../environment';
 
@@ -27,10 +27,20 @@ export class EmployeeService {
 
   getPriveleges(): Observable<EmployeePrivilege[]> {
     let privileges: EmployeePrivilege[] = [
-      { id: 1, name: 'user'},
-      { id: 2, name: 'admin'},
+      { id: 1, name: 'User'},
+      { id: 2, name: 'Admin'},
     ]
     return of(privileges);
     //return this.http.get<EmployeePrivilege[]>(this.url+ApiPaths.EmployeePrivilege).pipe(tap(console.log));
+  }
+
+  getRoles(): Observable<TeamRole[]> {
+    let roles: TeamRole[] = [
+      {etrId: 1, etrName: 'TeamLeader'},
+      {etrId: 2, etrName: 'FrontendDev'},
+      {etrId: 3, etrName: 'BackendDev'},
+      {etrId: 4, etrName: 'Product owner'},
+    ];
+    return of(roles);
   }
 }

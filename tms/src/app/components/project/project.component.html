@@ -1,0 +1,14 @@
+<div class="grid">
+    <div class="row">
+        <app-project-card
+          *ngFor="let project of projects | async"
+          [project]="project"
+        ></app-project-card>
+
+    </div>
+    <a
+    class="btn-floating btn-large waves-effect waves-light pulse absolute"
+    routerLink="/employees/add"
+    ><i class="material-icons">add</i></a
+  >
+</div>

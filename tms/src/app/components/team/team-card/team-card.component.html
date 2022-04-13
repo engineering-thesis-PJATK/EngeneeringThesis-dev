@@ -1,0 +1,39 @@
+<div class="col s12 m12 l4 xl4">
+  <div class="card horizontal">
+    <div class="card-image">
+      <a class="btn-floating btn-large"
+        ><i class="material-icons">supervisor_account</i></a
+      >
+    </div>
+    <div class="card-stacked">
+      <div class="card-content card-divider-vertical">
+        <h2 class="header">{{ team.Name }}</h2>
+      </div>
+      <div class="card-action">
+        <li
+          class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
+        >
+          <i class="medium material-icons">chat</i>
+        </li>
+        <li
+          class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
+          routerLink="/employees?team={{ team.id }}"
+        >
+          <i class="material-icons">supervisor_account</i>
+        </li>
+        <li
+          class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
+          routerLink="/projects?team={{ team.id }}"
+        >
+          <i class="material-icons">business</i>
+        </li>
+        <li
+          class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
+          routerLink="/companies/edit/{{ team.id }}"
+        >
+          <i class="material-icons">edit</i>
+        </li>
+      </div>
+    </div>
+  </div>
+</div>
