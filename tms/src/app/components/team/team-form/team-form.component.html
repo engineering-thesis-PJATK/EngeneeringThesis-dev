@@ -9,43 +9,16 @@
           name="Name"
           type="text"
           required
-          [(ngModel)]="sendingTeam.Name"
-          #Name="ngModel"
           minlength="2"
           maxlength="50"
         />
         <label for="Name">Team name</label>
-        <ng-container *ngIf="Name.invalid && (Name.dirty || Name.touched)">
-          <span
-            class="red-text text-lighten-1"
-            *ngIf="Name.errors?.['minlength']"
-            >Text is too short</span
-          >
-          <span
-            class="red-text text-lighten-1"
-            *ngIf="Name.errors?.['maxlength']"
-            >Text is too long</span
-          >
-        </ng-container>
+       
       </div>
-      <div class="row border-address edit-row" [class.drawer]="showList">
-        <div class="col s12">
-          <h1 class="header addres-header">Add team members</h1>
-        </div>
-        <app-team-member-list
-          [members]="sendingTeam.members"
-        ></app-team-member-list>
-      </div>
+      
     </div>
-    <div class="row mt-100">
+    <div class="row">
       <div class="col s6 m3 l3 xl3">
-        <button
-          class="waves-effect waves-yellow btn-large btn-submit"
-          type="button"
-          (click)="onSwitchList()"
-        >
-          {{ buttonShowListText }}
-        </button>
       </div>
       <div class="col s6 m3 l3 xl3">
         <button
@@ -60,7 +33,6 @@
         <button
           class="waves-effect waves-yellow btn-large btn-submit "
           type="submit"
-          (click)="returnButtonClick()"
         >
           Return
         </button>
