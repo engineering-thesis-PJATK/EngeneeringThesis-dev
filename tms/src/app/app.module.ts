@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -26,6 +26,26 @@ import { CompanyCardComponent } from './components/company/company-card/company-
 import { EmployeeComponent } from './components/employee/employee.component';
 import { EmployeeFormComponent } from './components/employee/employee-form/employee-form.component';
 import { EmployeeCardComponent } from './components/employee/employee-card/employee-card.component';
+import { CustomerListComponent } from './components/customer/customer-list/customer-list.component';
+import { CustomerListCardComponent } from './components/customer/customer-list/customer-list-card/customer-list-card.component';
+import { CustomerFormComponent } from './components/customer/customer-form/customer-form.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSliderModule } from "@angular/material/slider";
+import {MatIconModule} from '@angular/material/icon';
+import { KanbanCardComponent } from './components/dashboard/kanban-card/kanban-card.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CommonModule } from '@angular/common';
+
+import { TeamComponent } from './components/team/team.component';
+import { TeamFormComponent } from './components/team/team-form/team-form.component';
+import { TeamMemberListComponent } from './components/team/team-form/team-member-list/team-member-list.component';
+import { TeamCardComponent } from './components/team/team-card/team-card.component';
+import { ProjectComponent } from './components/project/project.component';
+import { ProjectCardComponent } from './components/project/project-card/project-card.component';
+import { ProjectFromComponent } from './components/project/project-from/project-from.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +69,17 @@ import { EmployeeCardComponent } from './components/employee/employee-card/emplo
     EmployeeComponent,
     EmployeeFormComponent,
     EmployeeCardComponent,
+    CustomerListComponent,
+    CustomerListCardComponent,
+    CustomerFormComponent,
+    KanbanCardComponent,
+    TeamComponent,
+    TeamFormComponent,
+    TeamMemberListComponent,
+    TeamCardComponent,
+    ProjectComponent,
+    ProjectCardComponent,
+    ProjectFromComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,9 +87,18 @@ import { EmployeeCardComponent } from './components/employee/employee-card/emplo
     BrowserAnimationsModule,
     FormsModule,
     MaterializeCollapsibleModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSliderModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    DragDropModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

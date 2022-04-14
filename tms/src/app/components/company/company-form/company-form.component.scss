@@ -1,7 +1,18 @@
-.border {
-    border: 1px solid black;
+.border-address {
+    border: 1px solid #9e9e9e;
+    border-radius: 10px;
 }
 
 .right-side-of-power {
     float: right;
+}
+
+.addres-header {
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+
+.ng-invalid.ng-touched:not(form) {
+    border-bottom: 3px solid #ef5350;
 }

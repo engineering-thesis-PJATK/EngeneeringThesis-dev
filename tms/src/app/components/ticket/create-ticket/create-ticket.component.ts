@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import $ from 'jquery'
+//import $ from 'jquery'
 import { Datepicker } from "materialize-css";
 declare const M: any;
 
@@ -49,4 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.datepicker');
   var instances = M.Datepicker.init(elems, {});
 });
-
+// $(document).ready(function() {
+//   $('input#input_text, textarea#textarea2').characterCounter();
+// });

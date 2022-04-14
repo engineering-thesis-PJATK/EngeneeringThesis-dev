@@ -1,17 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EmployeeSimple } from 'src/app/models/employeeSimple';
+import { Employee } from 'src/app/models/employee';
 
 @Component({
   selector: 'app-employee-card',
   templateUrl: './employee-card.component.html',
-  styleUrls: ['./employee-card.component.scss']
+  styleUrls: ['./employee-card.component.scss'],
 })
 export class EmployeeCardComponent implements OnInit {
-@Input() employee: EmployeeSimple = { id: 0, name: '', email:'', phoneNumber: ''};
-  constructor() { }
+  @Input() employee!: Employee;
+  constructor() {}
 
-  ngOnInit(): void {
-    
-  }
-
+  ngOnInit(): void {}
 }
