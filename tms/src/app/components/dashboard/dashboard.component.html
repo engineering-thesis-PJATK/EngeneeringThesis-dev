@@ -1,1 +1,47 @@
-<p>dashboard works!</p>
+<div class="row tasks-container" cdkDropListGroup>
+    <div class="tasks-row">
+        <p class="center-align flow-text">Do zrobienia</p>
+        <div 
+            cdkDropList
+            #listOne="cdkDropList"
+            [cdkDropListData]="TasksToDo"
+            [cdkDropListConnectedTo]="[listTwo]"
+            (cdkDropListDropped)="drop($event)">
+            <app-kanban-card
+                *ngFor="let ticket of TasksToDo"
+                [ticket]="ticket"
+                cdkDrag>
+            </app-kanban-card>
+        </div>
+    </div>
+    <div class="tasks-row">
+        <p class="center-align flow-text">Oczekujące</p>
+        <div
+            cdkDropList 
+            #listTwo="cdkDropList"
+            [cdkDropListData]="TasksWaiting"
+            [cdkDropListConnectedTo]="[listOne, listThree]"
+            (cdkDropListDropped)="drop($event)">
+            <app-kanban-card
+                *ngFor="let ticket of TasksWaiting"
+                [ticket]="ticket"
+                cdkDrag>
+            </app-kanban-card>
+        </div>
+    </div>
+    <div class="tasks-row">
+        <p class="center-align flow-text">Zrobione</p>
+        <div
+            cdkDropList
+            #listThree="cdkDropList"
+            [cdkDropListData]="TasksDone"
+            [cdkDropListConnectedTo]="[listTwo]"
+            (cdkDropListDropped)="drop($event)">
+            <app-kanban-card
+            *ngFor="let ticket of TasksDone"
+            [ticket]="ticket"
+            cdkDrag>
+            </app-kanban-card>
+        </div>
+    </div>
+</div>

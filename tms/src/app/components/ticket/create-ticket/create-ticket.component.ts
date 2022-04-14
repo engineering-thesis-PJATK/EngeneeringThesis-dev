@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import $ from 'jquery'
+//import $ from 'jquery'
 import { Datepicker } from "materialize-css";
 declare const M: any;
 
@@ -9,14 +9,6 @@ interface Employee {
 }
 interface Priority{
   value: number;
-  viewValue: string;
-}
-interface Status{
-  id: number;
-  viewValue: string;
-}
-interface TicketType{
-  id: number;
   viewValue: string;
 }
 
@@ -29,20 +21,6 @@ interface TicketType{
 
 
 export class CreateTicketComponent implements OnInit {
-ticketTypes: TicketType[] = [
-  {id: 0, viewValue: "Budget"},
-  {id: 1, viewValue: "Analysis"},
-  {id: 2, viewValue: "Own Cost"}
-]
-
-statuses: Status[] = [
-  {id: 0, viewValue: "In Progress"},
-  {id: 1, viewValue: "Finished"},
-  {id: 2, viewValue: "Created"},
-  {id: 3, viewValue: "Waiting for customer"},
-  {id: 4, viewValue: "Waiting for third party"},
-]
-
   employees: Employee[] = [
     {value: 0, viewValue: 'Krzysztof Jurkowski'},
     {value: 1, viewValue: 'Piotr Łojko'},
@@ -71,4 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.datepicker');
   var instances = M.Datepicker.init(elems, {});
 });
-
+// $(document).ready(function() {
+//   $('input#input_text, textarea#textarea2').characterCounter();
+// });

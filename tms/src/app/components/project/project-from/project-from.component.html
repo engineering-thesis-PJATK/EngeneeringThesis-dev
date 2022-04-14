@@ -1,0 +1,110 @@
+<div class="row">
+    <div class="col s1 m1 l1 xl1"></div>
+    <form class="col s10 m10 l10 xl10" (ngSubmit)="addProject()" #form="ngForm">
+      <div class="row">
+        <div class="input-field col s6">
+            <i class="material-icons prefix">account_balance</i>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              [(ngModel)]="project.prjName"
+              required
+              #name="ngModel"
+              minlength="2"
+              maxlength="50"
+            />
+            <label for="name">Company name</label>
+            <ng-container *ngIf="name.invalid && (name.dirty || name.touched)">
+              <span
+                class="red-text text-lighten-1"
+                *ngIf="name.errors?.['required']"
+                >Field is required</span
+              >
+              <span
+                class="red-text text-lighten-1"
+                *ngIf="name.errors?.['minlength']"
+                >Text is too short</span
+              >
+              <span
+                class="red-text text-lighten-1"
+                *ngIf="name.errors?.['maxlength']"
+                >Text is too long</span
+              >
+            </ng-container>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix">account_balance</i>
+            <input
+              id="description"
+              name="description"
+              type="text"
+              [(ngModel)]="project.prjDescription"
+              required
+              #description="ngModel"
+              minlength="2"
+              maxlength="50"
+            />
+            <label for="description">Company description</label>
+            <ng-container *ngIf="description.invalid && (description.dirty || description.touched)">
+              <span
+                class="red-text text-lighten-1"
+                *ngIf="description.errors?.['required']"
+                >Field is required</span
+              >
+              <span
+                class="red-text text-lighten-1"
+                *ngIf="description.errors?.['minlength']"
+                >Text is too short</span
+              >
+              <span
+                class="red-text text-lighten-1"
+                *ngIf="description.errors?.['maxlength']"
+                >Text is too long</span
+              >
+            </ng-container>
+          </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m6 l6 xl6">
+            <i class="material-icons prefix">account_balance</i>
+            <select  id="company" name="company" class="test"  required #company="ngModel" [(ngModel)]="project.companyId">
+              <option value="" disabled>Pick one</option>
+              <option *ngFor="let company of companies | async" [value]="company.cmpId">
+                {{ company.cmpName }}
+              </option>
+            </select>
+            <label for="company">Company</label>
+            <ng-container
+            *ngIf="company.invalid && (company.dirty || company.touched)"
+          >
+            <span
+              class="red-text text-lighten-1"
+              *ngIf="company.errors?.['required']"
+              >Field is required</span
+            >
+          </ng-container>
+          </div>
+
+          <div class="input-field col s12 m6 l6 xl6">
+            <i class="material-icons prefix">group</i>
+            <select  id="team" name="team" class="test"  required #team="ngModel" [(ngModel)]="project.teamId">
+              <option value="" disabled>Pick one</option>
+              <option *ngFor="let team of teams | async" [value]="team.id">
+                {{ team.Name }}
+              </option>
+            </select>
+            <label for="team">Team</label>
+            <ng-container
+            *ngIf="team.invalid && (team.dirty || team.touched)"
+          >
+            <span
+              class="red-text text-lighten-1"
+              *ngIf="team.errors?.['required']"
+              >Field is required</span
+            >
+          </ng-container>
+          </div>
+      </div>
+    </form>
+</div>

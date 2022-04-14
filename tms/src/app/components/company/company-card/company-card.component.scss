@@ -1,12 +1,9 @@
-.btn {
-    background-color: white;
-    color: #424242;
-  }
-
-.btn:hover {
-    color: #009688;
+.small-button:hover {
+  color: #00bfa5;
+  background-color: transparent;
 }
 
 .card-divider-vertical {
-  border-left: 2px solid #ececec;
+  border-left: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
 }

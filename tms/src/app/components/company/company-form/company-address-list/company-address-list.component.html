@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col s12">
-        <table class="centered">
+        <table class="highlight centered">
             <thead>
-              <tr>
+              <tr class="address-tr">
                   <th>City</th>
                   <th>Street</th>
                   <th>Postal code</th>
@@ -12,7 +12,7 @@
             </thead>
     
             <tbody>
-              <tr *ngFor = "let address of addresses">
+              <tr *ngFor = "let address of addresses" class="centered-table-tr">
                 <td>{{address.city}}</td>
                 <td>{{ address.street + ' ' + address.streetNumber }}</td>
                 <td>{{ address.postalCode }}</td>
