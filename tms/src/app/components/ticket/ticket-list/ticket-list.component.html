@@ -5,7 +5,7 @@
 </p>
 <ul class="collection" id="ticketList">
     <li class="collection-item avatar" *ngFor="let ticket of tickets">
-        <a href="tickets/details/{{ticket.id}}">
+        <a class="a-headers" href="tickets/details/{{ticket.id}}">
             <i class="material-icons circle">folder</i>
             <span class="title">{{ticket.topic}}</span>
         </a>
@@ -19,12 +19,12 @@
         </div>
         <hr class="solid">
         <div class="card-action">
-            <i class="Tiny material-icons iconPadding">phone</i>
+            <i class="Tiny material-icons iconPadding ">phone</i>
             <i class="Tiny material-icons iconPadding">mail</i>
-            <a href="tickets/archive/{{ticket.id}}"> <i class="Tiny material-icons iconPadding">archive</i></a>
-            <a href="tickets/delete/{{ticket.id}}"><i class="Tiny material-icons iconPadding">delete</i></a>
+            <a class="a-headers" href="tickets/archive/{{ticket.id}}"> <i class="Tiny material-icons iconPadding">archive</i></a>
+            <a class="a-headers" href="tickets/delete/{{ticket.id}}"><i class="Tiny material-icons iconPadding">delete</i></a>
         </div>
-        <a href="tickets/create" class="secondary-content"><i class="material-icons">grade</i></a>
+        <a href="tickets/create" class="secondary-content"><i class="material-icons custom-icon-color">grade</i></a>
     </li>
 </ul>
 <p class="left-align">

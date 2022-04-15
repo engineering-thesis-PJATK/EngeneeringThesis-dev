@@ -10,7 +10,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 $transition-effects: color 1s ease, background-color 1s ease;
 
 
-
 body {
 	background-color: #eeeeee;
 	transition: $transition-effects;
@@ -136,6 +135,27 @@ body {
 			background-color: #a1887f !important;
 			color: #212121 !important;
 		}
+		.datepicker-date-display{
+			background-color: #a1887f;
+		}
+		.datepicker-calendar-container {
+			background-color:#616161 ;
+			}
+			.datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done{
+				color: #a1887f;
+			}
+			td.is-today.is-selected,td.is-selected{
+				background-color: #a1887f;		
+				color: #ffffff		
+			}
+			td.is-today,.a-headers{
+				color: #a1887f;
+			}
+			.custom-icon-color{
+				color: #a1887f;
+			}
+
+			
 	}
 
 	.swal2-styled.swal2-confirm{

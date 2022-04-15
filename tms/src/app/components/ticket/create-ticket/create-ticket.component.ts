@@ -37,18 +37,11 @@ export class CreateTicketComponent implements OnInit {
   ]
    
   constructor() {}
+  ngAfterViewInit(): void {
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems, {});
+       elems = document.querySelectorAll('.datepicker');
+      instances = M.Datepicker.init(elems, {});
+  }
   ngOnInit(): void {}
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(elems,{});
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.datepicker');
-  var instances = M.Datepicker.init(elems, {});
-});
-// $(document).ready(function() {
-//   $('input#input_text, textarea#textarea2').characterCounter();
-// });
