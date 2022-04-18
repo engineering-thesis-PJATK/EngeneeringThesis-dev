@@ -1,4 +1,4 @@
-export interface Ticket {
+export interface TicketList {
     ticId: number;
     ticName: string;
     ticTopic: string;
@@ -11,4 +11,11 @@ export interface Ticket {
     ticCustomerId: number;
     ticTicketTypeId: number;
     ticTicketPriorityId: number;
+}
+
+export interface TicketKanBan{
+    ticId: number;
+    ticName: string;
+    ticTopic: string;
+    ticDueDate: string;
 }

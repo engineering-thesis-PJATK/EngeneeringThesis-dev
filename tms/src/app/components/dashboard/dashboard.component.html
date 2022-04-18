@@ -1,14 +1,14 @@
 <div class="row tasks-container" cdkDropListGroup>
     <div class="tasks-row">
-        <p class="center-align flow-text">Do zrobienia</p>
+        <p class="center-align flow-text">Otwarte</p>
         <div 
             cdkDropList
             #listOne="cdkDropList"
-            [cdkDropListData]="TasksToDo"
+            [cdkDropListData]="openTasks"
             [cdkDropListConnectedTo]="[listTwo]"
             (cdkDropListDropped)="drop($event)">
             <app-kanban-card
-                *ngFor="let ticket of TasksToDo"
+                *ngFor="let ticket of openTasks"
                 [ticket]="ticket"
                 cdkDrag>
             </app-kanban-card>
@@ -19,11 +19,11 @@
         <div
             cdkDropList 
             #listTwo="cdkDropList"
-            [cdkDropListData]="TasksWaiting"
+            [cdkDropListData]="waitingTasks"
             [cdkDropListConnectedTo]="[listOne, listThree]"
             (cdkDropListDropped)="drop($event)">
             <app-kanban-card
-                *ngFor="let ticket of TasksWaiting"
+                *ngFor="let ticket of waitingTasks"
                 [ticket]="ticket"
                 cdkDrag>
             </app-kanban-card>
@@ -34,11 +34,11 @@
         <div
             cdkDropList
             #listThree="cdkDropList"
-            [cdkDropListData]="TasksDone"
+            [cdkDropListData]="doneTasks"
             [cdkDropListConnectedTo]="[listTwo]"
             (cdkDropListDropped)="drop($event)">
             <app-kanban-card
-            *ngFor="let ticket of TasksDone"
+            *ngFor="let ticket of doneTasks"
             [ticket]="ticket"
             cdkDrag>
             </app-kanban-card>
