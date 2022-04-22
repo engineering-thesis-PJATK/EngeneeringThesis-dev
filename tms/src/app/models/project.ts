@@ -14,3 +14,10 @@ export interface ProjectSending {
     companyId: number;
     teamId: number;
 }
+
+export interface ProjectTask {
+    ptId: number;
+    ptEmpId: number;
+    ptContent: string;
+    ptEstimatedCost: number;
+}
