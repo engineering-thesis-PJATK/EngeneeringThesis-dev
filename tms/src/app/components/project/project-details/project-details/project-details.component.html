@@ -1,0 +1,48 @@
+<ul id="hours" class="sidenav width-400px">
+  <li>
+    <div class="user-view">
+      <div class="background">
+        <img src="images/office.jpg" />
+      </div>
+      <a href="#user"><img class="circle" src="images/yuna.jpg" /></a>
+      <a href="#name"><span class="white-text name">John Doe</span></a>
+      <a href="#email"
+        ><span class="white-text email">jdandturk@gmail.com</span></a
+      >
+    </div>
+  </li>
+  <li>
+    <a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a>
+  </li>
+  <li><a href="#!">Second Link</a></li>
+  <li><div class="divider"></div></li>
+  <li><a class="subheader">Subheader</a></li>
+  <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+</ul>
+
+<!-- <a href="#"  data-target="hours" class="sidenav-trigger"><i class="material-icons">menu</i></a> -->
+
+<div class="grid">
+  <div class="row" *ngIf="projectDetails | async as Project">
+        <div class="col s12 m12 l2 xl2">
+            <div class="row">
+              <div class="s12 card-panel">
+                <h2 class="text-centered">{{ Project.prjName }}</h2>
+                <h4>{{ Project.prjDescription }}</h4>
+              </div>
+              <div class="s12 card-panel">
+                <!-- div firma -->
+                <h3 class="text-centered">{{ Project.companyName }}</h3>
+                <h3 class="text-centered">{{ Project.teamName }}</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="col s12 m12 l10 xl10">
+            <div class="card-panel">
+              <app-project-task></app-project-task>
+            </div>
+          </div>
+    </div>
+  </div>
+  
