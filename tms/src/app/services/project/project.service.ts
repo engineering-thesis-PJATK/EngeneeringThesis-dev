@@ -8,7 +8,6 @@ import { ApiPaths, Environment } from '../environment';
   providedIn: 'root'
 })
 export class ProjectService {
-
   private url = Environment.baseUrl;
   constructor(private http: HttpClient) { }
 
@@ -24,5 +23,11 @@ export class ProjectService {
 
   postProject(project: ProjectSending): Observable<string> {
     return this.http.post(this.url+ApiPaths.Project,project).pipe(tap(console.log));
+  }
+
+  getProject(id: string): Observable<Project> {
+    //return this.http.get(this.url+ApiPaths.Project+'/'+id).pipe(tap(console.log));
+    let project: Project =  { prjId: 1, prjName: 'first project', prjDescription: 'description dfjlkfdjfksfdsfdsfsfdsf  sdf sdf', companyId: 1, companyName: 'first compnay', teamId: 1, teamName: 'abc team name'};
+    return of(project);
   }
 }
