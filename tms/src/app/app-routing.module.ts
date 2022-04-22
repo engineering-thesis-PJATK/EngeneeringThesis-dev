@@ -23,6 +23,7 @@ import { TeamComponent } from './components/team/team.component';
 import { TeamFormComponent } from './components/team/team-form/team-form.component';
 import { ProjectComponent } from './components/project/project.component';
 import { ProjectFromComponent } from './components/project/project-from/project-from.component';
+import { ProjectDetailsComponent } from './components/project/project-details/project-details/project-details.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
@@ -52,6 +53,7 @@ const routes: Routes = [
 
   {path: 'projects', component:ProjectComponent},
   {path: 'projects/add', component:ProjectFromComponent},
+  {path: 'projects/:id', component:ProjectDetailsComponent},
 
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
