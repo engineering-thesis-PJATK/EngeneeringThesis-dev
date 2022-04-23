@@ -128,6 +128,18 @@ body {
 			color: #ffffff;
 		}
 
+		.collapsible-body-background {
+			background-color: #ffffff33;
+		}
+		.collapsible-header {
+			background-color: #ffffff33;
+		}
+		.collapsible {
+			border-top: 1px solid #202123;
+			border-right: 1px solid #202123;
+			border-left: 1px solid #202123;
+		}
+
 		.swal2-styled.swal2-confirm{
 			background-color: #a1887f;
 		}
