@@ -43,4 +43,14 @@ export class EmployeeService {
     ];
     return of(roles);
   }
+
+  getTeamEmployees(id: string): Observable<Employee[]> {
+    //return this.http.get(this.url+ApiPaths.Employee+'/project/'+id).pipe(tap(console.log));
+    let cmps: Employee[] = [
+      { empId: 1, empName: 'Jan', empPhoneNumber: '223441425', empEmail: 'Poland',empLogin:'x',empSurname:'Kowalski' },
+      { empId: 2, empName: 'Jonh X', empPhoneNumber: '456456234', empEmail: 'Poland',empLogin:'x',empSurname:'Kowalski'  },
+      { empId: 3, empName: 'Barbara Squirrel', empPhoneNumber: '666264362', empEmail: 'Poland',empLogin:'x',empSurname:'Kowalski'  },
+    ];
+    return of(cmps);
+  }
 }
