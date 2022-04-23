@@ -18,6 +18,7 @@ export interface ProjectSending {
 export interface ProjectTask {
     ptId: number;
     ptEmpId: number;
+    ptEmpName?: string;
     ptContent: string;
     ptEstimatedCost: number;
 }
