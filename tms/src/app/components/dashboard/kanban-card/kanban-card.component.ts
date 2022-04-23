@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Ticket } from '../tickets';
+import { TicketKanBan } from 'src/app/models/ticket';
 
 @Component({
   selector: 'app-kanban-card',
@@ -7,7 +7,7 @@ import { Ticket } from '../tickets';
   styleUrls: ['./kanban-card.component.scss']
 })
 export class KanbanCardComponent implements OnInit {
-  @Input() ticket: Ticket = {idTicket: 0, title: '',  description: '', endDate: ''}
+  @Input() ticket: TicketKanBan = {ticId: 0, ticName: '',  ticTopic: '', ticDueDate: ''}
   constructor() { }
 
   ngOnInit(): void {
