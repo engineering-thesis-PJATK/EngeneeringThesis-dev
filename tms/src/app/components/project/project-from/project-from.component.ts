@@ -49,7 +49,7 @@ export class ProjectFromComponent implements OnInit, AfterViewInit {
     this.teamHttp.getTeams().subscribe((t) => (this.teams = t));
 
     var options = {
-      edge: 'left'//'right' //niestety nie działa :c
+      edge: 'left'//'right' //niestety nie działa poprawnie na dwa sidenavy:c
     }
      var elems = document.querySelectorAll('.sidenav');
      var instances = M.Sidenav.init(elems, options);
