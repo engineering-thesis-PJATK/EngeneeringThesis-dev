@@ -8,8 +8,8 @@
             [cdkDropListConnectedTo]="[listTwo]"
             (cdkDropListDropped)="drop($event)">
             <app-kanban-card
-                *ngFor="let ticket of openTasks"
-                [ticket]="ticket"
+                *ngFor="let element of openTasks"
+                [element]="element"
                 cdkDrag>
             </app-kanban-card>
         </div>
@@ -23,8 +23,8 @@
             [cdkDropListConnectedTo]="[listOne, listThree]"
             (cdkDropListDropped)="drop($event)">
             <app-kanban-card
-                *ngFor="let ticket of waitingTasks"
-                [ticket]="ticket"
+                *ngFor="let element of waitingTasks"
+                [element]="element"
                 cdkDrag>
             </app-kanban-card>
         </div>
@@ -38,8 +38,8 @@
             [cdkDropListConnectedTo]="[listTwo]"
             (cdkDropListDropped)="drop($event)">
             <app-kanban-card
-            *ngFor="let ticket of doneTasks"
-            [ticket]="ticket"
+            *ngFor="let element of doneTasks"
+            [element]="element"
             cdkDrag>
             </app-kanban-card>
         </div>

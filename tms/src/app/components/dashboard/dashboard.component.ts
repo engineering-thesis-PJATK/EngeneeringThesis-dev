@@ -2,8 +2,8 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
-import { TicketKanBan } from 'src/app/models/ticket';
-import { TicketService } from 'src/app/services/ticket/ticket.service';
+import { KanbanElement } from 'src/app/models/kanbanElement';
+import { KanbanService } from 'src/app/services/kanban/kanban.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,26 +11,26 @@ import { TicketService } from 'src/app/services/ticket/ticket.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  waitingTasks!: TicketKanBan[];
-  openTasks!: TicketKanBan[];
-  doneTasks!: TicketKanBan[];
-  constructor(private http: TicketService) { }
+  waitingTasks!: KanbanElement[];
+  openTasks!: KanbanElement[];
+  doneTasks!: KanbanElement[];
+  constructor(private http: KanbanService) { }
 
   ngOnInit(): void {
-    this.http.getWaitingTicketsForKanBan()
+    this.http.getWaitingElementsForKanban()
     .subscribe( waitingTasksList => {
-      this.waitingTasks = waitingTasksList as TicketKanBan[]
+      this.waitingTasks = waitingTasksList as KanbanElement[]
     })
     this.http.getOpenTicketsForKanBan()
     .subscribe(openTasksList => {
-      this.openTasks = openTasksList as TicketKanBan[]
+      this.openTasks = openTasksList as KanbanElement[]
     })
     this.http.getDoneTicketsForKanBan()
     .subscribe(doneTaskList => {
-      this.doneTasks = doneTaskList as TicketKanBan[]
+      this.doneTasks = doneTaskList as KanbanElement[]
     })
   }
-  drop(event: CdkDragDrop<TicketKanBan[]>){
+  drop(event: CdkDragDrop<KanbanElement[]>){
     if(event.previousContainer === event.container){
       moveItemInArray(
         event.container.data, 
