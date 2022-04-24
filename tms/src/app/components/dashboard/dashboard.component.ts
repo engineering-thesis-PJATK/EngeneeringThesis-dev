@@ -43,5 +43,8 @@ export class DashboardComponent implements OnInit {
         event.previousIndex, 
         event.currentIndex);
     }
+    
+    //event.previousContainer.data[event.previousIndex]['id'];
+    //console.log(event.container.id);
   }
 }

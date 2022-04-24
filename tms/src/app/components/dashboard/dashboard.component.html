@@ -3,6 +3,7 @@
         <p class="center-align flow-text">Otwarte</p>
         <div 
             cdkDropList
+            id="openTaskList"
             #listOne="cdkDropList"
             [cdkDropListData]="openTasks"
             [cdkDropListConnectedTo]="[listTwo]"
@@ -18,6 +19,7 @@
         <p class="center-align flow-text">Oczekujące</p>
         <div
             cdkDropList 
+            id="waitingTaskList"
             #listTwo="cdkDropList"
             [cdkDropListData]="waitingTasks"
             [cdkDropListConnectedTo]="[listOne, listThree]"
@@ -33,6 +35,7 @@
         <p class="center-align flow-text">Zrobione</p>
         <div
             cdkDropList
+            id="doneTaskList"
             #listThree="cdkDropList"
             [cdkDropListData]="doneTasks"
             [cdkDropListConnectedTo]="[listTwo]"
