@@ -153,6 +153,13 @@ body {
 			background-color: #a1887f !important;
 			color: #212121 !important;
 		}
+		.disabled{
+			color: #cecece !important;
+			border-bottom: 1px dotted #cecece !important;
+		}
+		.a-fix {
+			color: #ffffff !important;
+		  }
 	}
 
 	.swal2-styled.swal2-confirm{

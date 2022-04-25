@@ -1,24 +1,117 @@
-<!-- TODO: do zrobienia 'sidenav' do wprowadzania czasu oraz drugi sidenav do edycji istniejącego taska -->
-<ul id="hours" class="sidenav width-400px">
-  <li>
-    <div class="user-view">
-      <div class="background">
-        <img src="images/office.jpg" />
-      </div>
-      <a href="#user"><img class="circle" src="images/yuna.jpg" /></a>
-      <a href="#name"><span class="white-text name">John Doe</span></a>
-      <a href="#email"
-        ><span class="white-text email">jdandturk@gmail.com</span></a
-      >
-    </div>
-  </li>
-  <li>
-    <a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a>
-  </li>
-  <li><a href="#!">Second Link</a></li>
+<!-- TODO: do zrobienia 'sidenav' do wprowadzania czasu  -->
+<ul id="edit" class="sidenav width-400px">
+  <li><a class="subheader">Edit task</a></li>
   <li><div class="divider"></div></li>
-  <li><a class="subheader">Subheader</a></li>
-  <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+  <li>
+      <div class="input-field col s12">
+          <i class="material-icons prefix">person</i>
+          <input
+          disabled
+          id="emName"
+          name="emName"
+          required
+          #editEmp
+          class="disabled"
+          />
+        </div>
+      </li>
+      
+      <li>
+      <div class="input-field col s12">
+        <i class="material-icons prefix">description</i>
+        <input
+          id="desc"
+          name="desc"
+          type="text"
+          minlength="2"
+          maxlength="1000"
+          #editDescription
+        />
+      </div>
+    </li>
+    <li class="ml-20px bottom-margin-20px">
+      <p>
+        <label>
+          <input name="group1" type="radio" #ToDo/>
+          <span>ToDo</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input name="group1" type="radio" #InProgress/>
+          <span>In progress</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input name="group1" type="radio" #Finished/>
+          <span>Finished</span>
+        </label>
+      </p>
+    </li>
+    <li>
+      <div class="ml-20px bottom-margin-20px">
+    <button class="waves-effect waves-yellow btn-large btn-submit">Save</button>
+  </div>
+  </li>
+  <li>
+    <div class="ml-20px bottom-margin-20px">
+    <button class="waves-effect waves-yellow btn-large btn-submit sidenav-close">Cancel</button>
+  </div>
+  </li>
+</ul>
+
+<ul id="time" class="sidenav">
+  <li><a class="subheader">Enter time</a></li>
+  <li><div class="divider"></div></li>
+  <li>
+      <div class="input-field col s12">
+          <i class="material-icons prefix">date_range</i>
+          <input type="date" name="dateofbirth" id="dateofbirth">
+        </div>
+      </li>
+      
+      <li>
+      <div class="input-field col s12">
+        <i class="material-icons prefix">timelapse</i>
+        <input
+          id="time"
+          name="time"
+          type="text"
+          #time
+        />
+      </div>
+    </li>
+    <li class="ml-20px bottom-margin-20px">
+      <p>
+        <label>
+          <input name="group1" type="radio" #ToDo/>
+          <span>ToDo</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input name="group1" type="radio" #InProgress/>
+          <span>In progress</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input name="group1" type="radio" #Finished/>
+          <span>Finished</span>
+        </label>
+      </p>
+    </li>
+    <li>
+      <div class="ml-20px bottom-margin-20px">
+    <button class="waves-effect waves-yellow btn-large btn-submit">Save</button>
+  </div>
+  </li>
+  <li>
+    <div class="ml-20px bottom-margin-20px">
+    <button class="waves-effect waves-yellow btn-large btn-submit sidenav-close">Cancel</button>
+  </div>
+  </li>
 </ul>
 
 <!-- <a href="#"  data-target="hours" class="sidenav-trigger"><i class="material-icons">menu</i></a> -->
@@ -34,6 +127,7 @@
           <tr class="address-tr">
             <th>Employee</th>
             <th>Description</th>
+            <th>State</th>
             <th>Options</th>
           </tr>
         </thead>
@@ -42,10 +136,14 @@
           <tr *ngFor="let task of tasks | async" class="centered-table-tr">
             <td>{{ task.ptEmpName }}</td>
             <td>{{ task.ptContent }}</td>
+            <td>{{ task.ptState }}</td>
             <td>
-              <i class="material-icons prefix edit">edit</i>
-              <i class="material-icons prefix archive">assignment_turned_in</i>
+              <!-- <i class="material-icons prefix edit" (click)="setEditedTask(task)" data-target="edit" class="sidenav-trigger">edit</i> -->
+              <a data-target="edit" class="sidenav-trigger a-fix" (click)="setEditedTask(task)"><i class="material-icons prefix edit">edit</i></a>
+              <a (click)="setTaskFinished(task)" class="a-fix"><i class="material-icons prefix archive">assignment_turned_in</i></a>
+              <!-- <i class="material-icons prefix archive">assignment_turned_in</i> -->
               <i class="material-icons prefix time">timelapse</i>
+              <a data-target="time" class="sidenav-trigger a-fix"><i class="material-icons prefix time">timelapse</i></a>
             </td>
           </tr>
         </tbody>
@@ -89,47 +187,47 @@
         </div>
         <!-- pole tekstowe z opisiem -->
         <div class="input-field col s12 m6 l6 xl6">
-            <i class="material-icons prefix">description</i>
-        <input
-          id="Name"
-          name="Name"
-          type="text"
-          required
-          [(ngModel)]="sendingTask.ptContent"
-          #Name="ngModel"
-          minlength="2"
-          maxlength="1000"
-        />
-        <label for="Name">Description</label>
-        <ng-container *ngIf="Name.invalid && (Name.dirty || Name.touched)">
+          <i class="material-icons prefix">description</i>
+          <input
+            id="Name"
+            name="Name"
+            type="text"
+            required
+            [(ngModel)]="sendingTask.ptContent"
+            #Name="ngModel"
+            minlength="2"
+            maxlength="1000"
+          />
+          <label for="Name">Description</label>
+          <ng-container *ngIf="Name.invalid && (Name.dirty || Name.touched)">
             <span
-            class="red-text text-lighten-1"
-            *ngIf="Name.errors?.['required']"
-            >Field is required</span
-          >
-          <span
-            class="red-text text-lighten-1"
-            *ngIf="Name.errors?.['minlength']"
-            >Text is too short</span
-          >
-          <span
-            class="red-text text-lighten-1"
-            *ngIf="Name.errors?.['maxlength']"
-            >Text is too long</span
-          >
-        </ng-container>
+              class="red-text text-lighten-1"
+              *ngIf="Name.errors?.['required']"
+              >Field is required</span
+            >
+            <span
+              class="red-text text-lighten-1"
+              *ngIf="Name.errors?.['minlength']"
+              >Text is too short</span
+            >
+            <span
+              class="red-text text-lighten-1"
+              *ngIf="Name.errors?.['maxlength']"
+              >Text is too long</span
+            >
+          </ng-container>
         </div>
         <!-- button send -->
         <div class="col s6 m2 l2 xl2">
-            <button
-              class="waves-effect waves-yellow btn-large btn-submit"
-              type="submit"
-              [disabled]="form.invalid"
-              (click)="addTask()"
-            >
-              Create
-            </button>
-          </div>
+          <button
+            class="waves-effect waves-yellow btn-large btn-submit"
+            type="submit"
+            [disabled]="form.invalid"
+            (click)="addTask()"
+          >
+            Create
+          </button>
+        </div>
       </form>
     </div>
   </li>
