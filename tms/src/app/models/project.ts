@@ -21,4 +21,5 @@ export interface ProjectTask {
     ptEmpName?: string;
     ptContent: string;
     ptEstimatedCost: number;
+    ptState: string;
 }
