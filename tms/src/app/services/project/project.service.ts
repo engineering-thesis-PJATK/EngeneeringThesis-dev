@@ -34,14 +34,20 @@ export class ProjectService {
   getTasks(id: string): Observable<ProjectTask[]> {
     //return this.http.get(this.url+ApiPaths.ProjectTasks+'/'+id).pipe(tap(console.log));
     let tasks: ProjectTask[] = [
-      { ptId: 1, ptEmpId: 1, ptEmpName: 'Jan Kowalski', ptContent: 'sprawdzić logi', ptEstimatedCost: 21.32},
-      { ptId: 1, ptEmpId: 2, ptEmpName: 'Tomasz Nowak', ptContent: 'Integracja systemów x y', ptEstimatedCost: 221.32},
+      { ptId: 1, ptEmpId: 1, ptEmpName: 'Jan Kowalski', ptContent: 'sprawdzić logi', ptEstimatedCost: 21.32, ptState: 'In progress'},
+      { ptId: 1, ptEmpId: 2, ptEmpName: 'Tomasz Nowak', ptContent: 'Integracja systemów x y', ptEstimatedCost: 221.32, ptState: 'ToDo'},
+      { ptId: 1, ptEmpId: 3, ptEmpName: 'Tomasz Nowak', ptContent: 'Integracja maili x y', ptEstimatedCost: 221.32, ptState: 'Finished'},
     ];
     return of(tasks);
   }
 
   putTask(task: ProjectTask): Observable<string> {
     //return this.http.put(this.url+ApiPaths.ProjectTasks, task).pipe(tap(console.log));
+    return of('ok');
+  }
+
+  postTask(task: ProjectTask): Observable<string> {
+    //return this.http.post(this.url+ApiPaths.ProjectTasks, task).pipe(tap(console.log));
     return of('ok');
   }
 }
