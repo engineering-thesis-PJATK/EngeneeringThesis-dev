@@ -24,6 +24,11 @@ body {
 			box-shadow: 0 1px 0 0 #8d6e63  !important;
 			color: #ffffff;
 		}
+		textarea:focus {
+			border-bottom: 1px solid #8d6e63  !important;
+			box-shadow: 0 1px 0 0 #8d6e63  !important;
+			color: #ffffff;
+		}
 		label.active {
 			color: #8d6e63  !important;
 		}
@@ -113,9 +118,19 @@ body {
         }
 		.task-card{
 			background-color: #616161;
+			border-color:#a1887f;
 		}
 		.card-font{ 
 			color: white;
+		}
+		.task-add{
+			background-color:#a1887f;
+		}
+		.task-add-component{
+			color: white;
+		}
+		.new-task-submit{
+			background-color: #37393b;
 		}
 		.swal2-popup {
 			background-color:#2b2d30;
@@ -154,7 +169,7 @@ body {
 			.custom-icon-color{
 				color: #a1887f;
 			}
-
+		
 			
 	}
 

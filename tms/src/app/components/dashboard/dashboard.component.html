@@ -1,3 +1,31 @@
+<div class="row">
+    <div class="col s2"> 
+        <ul class="collapsible popout add-task">
+            <li>
+                <div class="collapsible-header task-add"><i class="material-icons task-add-icon">add</i>Dodaj zadanie</div>
+                <div class="collapsible-body">
+                    <form (ngSubmit)="addTask(taskDescription.value, taskDate.value)" #form="ngForm">
+                        <textarea
+                            #taskDescription
+                            id="task-description"
+                            class="materialize-textarea task-add-component"
+                            placeholder="Description"></textarea>
+                        <input 
+                            #taskDate 
+                            type="text" 
+                            class="datepicker task-add-component" 
+                            placeholder="Due date" 
+                            required>
+                        <button 
+                            class="waves-effect waves-light btn-small new-task-submit" 
+                            type="submit" 
+                            name="action">Submit</button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
 <div class="row tasks-container" cdkDropListGroup>
     <div class="tasks-row">
         <p class="center-align flow-text">Otwarte</p>
@@ -48,3 +76,4 @@
         </div>
     </div>
 </div>
+<!-- <a class="btn-floating btn-large waves-effect waves-light pulse absolute" data-target="slide-out"><i class="material-icons">add</i></a> -->

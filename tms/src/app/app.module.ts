@@ -46,6 +46,7 @@ import { TeamCardComponent } from './components/team/team-card/team-card.compone
 import { ProjectComponent } from './components/project/project.component';
 import { ProjectCardComponent } from './components/project/project-card/project-card.component';
 import { ProjectFromComponent } from './components/project/project-from/project-from.component';
+import { TaskFormComponent } from './components/dashboard/task-form/task-form.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { ProjectFromComponent } from './components/project/project-from/project-
     ProjectComponent,
     ProjectCardComponent,
     ProjectFromComponent,
+    TaskFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,18 +4,24 @@ import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { KanbanElement } from 'src/app/models/kanbanElement';
 import { KanbanService } from 'src/app/services/kanban/kanban.service';
-
+import { NgForm } from '@angular/forms';
+declare const M: any;
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  waitingTasks!: KanbanElement[];
-  openTasks!: KanbanElement[];
-  doneTasks!: KanbanElement[];
+  waitingTasks: KanbanElement[] = [];
+  openTasks: KanbanElement[] =[];
+  doneTasks: KanbanElement[] = [];
   constructor(private http: KanbanService) { }
-
+  ngAfterViewInit(): void {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, {});
+     elems = document.querySelectorAll('.datepicker');
+    instances = M.Datepicker.init(elems, {});
+  }
   ngOnInit(): void {
     this.http.getWaitingElementsForKanban()
     .subscribe( waitingTasksList => {
@@ -25,9 +31,13 @@ export class DashboardComponent implements OnInit {
     .subscribe(openTasksList => {
       this.openTasks = openTasksList as KanbanElement[]
     })
-    this.http.getDoneTicketsForKanBan()
-    .subscribe(doneTaskList => {
-      this.doneTasks = doneTaskList as KanbanElement[]
+    // this.http.getDoneTicketsForKanBan()
+    // .subscribe(doneTaskList => {
+    //   this.doneTasks = doneTaskList as KanbanElement[]
+    // })
+    this.http.getTaskForKanban(1, 1)
+    .subscribe(test => {
+      this.doneTasks = test as KanbanElement[]
     })
   }
   drop(event: CdkDragDrop<KanbanElement[]>){
@@ -43,8 +53,16 @@ export class DashboardComponent implements OnInit {
         event.previousIndex, 
         event.currentIndex);
     }
-    
-    //event.previousContainer.data[event.previousIndex]['id'];
-    //console.log(event.container.id);
+  }
+  addTask(taskDescription: string, taskDate: string){
+    var elem = document.querySelector('.add-task');
+    var instance = M.Collapsible.getInstance(elem);
+    var newTask: KanbanElement = {name: '', topic: taskDescription, dueDate: taskDate, type: 1};
+    this.openTasks.push(newTask);
+    instance.close(0);
   }
 }
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.collapsible');
+  var instances = M.Collapsible.init(elems, {});
+});

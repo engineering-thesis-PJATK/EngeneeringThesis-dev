@@ -6,7 +6,7 @@ import { KanbanElement } from 'src/app/models/kanbanElement';
   styleUrls: ['./kanban-card.component.scss']
 })
 export class KanbanCardComponent implements OnInit {
-  @Input() element: KanbanElement = {id: 0, name: '',  topic: '', dueDate:'', type: 0}
+  @Input() element: KanbanElement = {name: '',  topic: '', dueDate:'', type: 0}
   constructor() { }
 
   ngOnInit(): void {

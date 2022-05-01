@@ -23,9 +23,11 @@ import { TeamComponent } from './components/team/team.component';
 import { TeamFormComponent } from './components/team/team-form/team-form.component';
 import { ProjectComponent } from './components/project/project.component';
 import { ProjectFromComponent } from './components/project/project-from/project-from.component';
+import { TaskFormComponent } from './components/dashboard/task-form/task-form.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
+  { path: 'dashboard/task', component: TaskFormComponent},
   {
     path: 'login',
     component: AccountComponent,
