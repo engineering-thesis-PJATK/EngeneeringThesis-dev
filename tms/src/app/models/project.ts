@@ -23,3 +23,9 @@ export interface ProjectTask {
     ptEstimatedCost: number;
     ptState: string;
 }
+
+export interface TaskTime {
+    ptTaskId: number;
+    ptDate: Date;
+    ptMinutes: number;
+}
