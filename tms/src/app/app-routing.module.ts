@@ -24,6 +24,7 @@ import { TeamFormComponent } from './components/team/team-form/team-form.compone
 import { ProjectComponent } from './components/project/project.component';
 import { ProjectFromComponent } from './components/project/project-from/project-from.component';
 import { TaskFormComponent } from './components/dashboard/task-form/task-form.component';
+import { EmployeeCalendarComponent } from './components/employee-calendar/employee-calendar.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
@@ -54,6 +55,8 @@ const routes: Routes = [
 
   {path: 'projects', component:ProjectComponent},
   {path: 'projects/add', component:ProjectFromComponent},
+
+  {path: 'calendar', component: EmployeeCalendarComponent},
 
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },

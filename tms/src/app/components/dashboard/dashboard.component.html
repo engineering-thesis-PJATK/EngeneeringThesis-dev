@@ -4,7 +4,7 @@
             <li>
                 <div class="collapsible-header task-add"><i class="material-icons task-add-icon">add</i>Dodaj zadanie</div>
                 <div class="collapsible-body">
-                    <form (ngSubmit)="addTask(taskDescription.value, taskDate.value)" #form="ngForm">
+                    <form #addTaskForm="ngForm" (ngSubmit)="addTask(taskDescription.value, taskDate.value); addTaskForm.reset()">
                         <textarea
                             #taskDescription
                             id="task-description"
