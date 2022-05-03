@@ -24,6 +24,7 @@ import { TeamFormComponent } from './components/team/team-form/team-form.compone
 import { ProjectComponent } from './components/project/project.component';
 import { ProjectFromComponent } from './components/project/project-from/project-from.component';
 import { TaskFormComponent } from './components/dashboard/task-form/task-form.component';
+import { PasswordReminderComponent } from './components/account/password-reminder/password-reminder.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
@@ -33,6 +34,7 @@ const routes: Routes = [
     component: AccountComponent,
     children: [{ path: '', component: SignInComponent }],
   },
+  { path: 'password', component: PasswordReminderComponent },
   {
     path: 'companies',
     component: CompanyComponent,

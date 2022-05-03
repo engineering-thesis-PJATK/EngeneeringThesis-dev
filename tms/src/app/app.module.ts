@@ -47,6 +47,7 @@ import { ProjectComponent } from './components/project/project.component';
 import { ProjectCardComponent } from './components/project/project-card/project-card.component';
 import { ProjectFromComponent } from './components/project/project-from/project-from.component';
 import { TaskFormComponent } from './components/dashboard/task-form/task-form.component';
+import { PasswordReminderComponent } from './components/account/password-reminder/password-reminder.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { TaskFormComponent } from './components/dashboard/task-form/task-form.co
     ProjectCardComponent,
     ProjectFromComponent,
     TaskFormComponent,
+    PasswordReminderComponent,
   ],
   imports: [
     BrowserModule,
