@@ -1,7 +1,7 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
-import { Project, ProjectSending, ProjectTask } from 'src/app/models/project';
+import { Project, ProjectSending, ProjectTask, TaskTime } from 'src/app/models/project';
 import { ApiPaths, Environment } from '../environment';
 
 @Injectable({
@@ -48,6 +48,11 @@ export class ProjectService {
 
   postTask(task: ProjectTask): Observable<string> {
     //return this.http.post(this.url+ApiPaths.ProjectTasks, task).pipe(tap(console.log));
+    return of('ok');
+  }
+
+  postTime(time: TaskTime): Observable<string>{
+    //
     return of('ok');
   }
 }
