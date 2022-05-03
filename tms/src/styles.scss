@@ -57,7 +57,12 @@ body {
 		}
 		.border-address {
 			border: 1px solid #ffffff;
-			border-radius: 10px;
+		}
+		.border-info {
+			border: 1px solid #ffffff;
+		}
+		.card-panel {
+			background-color: #ffffff33;
 		}
 		.centered-table-tr {
 			border-bottom: 1px solid #ffffff;
@@ -122,6 +127,18 @@ body {
 			color: #ffffff;
 		}
 
+		.collapsible-body-background {
+			background-color: #ffffff33;
+		}
+		.collapsible-header {
+			background-color: #ffffff33;
+		}
+		.collapsible {
+			border-top: 1px solid #202123;
+			border-right: 1px solid #202123;
+			border-left: 1px solid #202123;
+		}
+
 		.swal2-styled.swal2-confirm{
 			background-color: #a1887f;
 		}
@@ -156,6 +173,13 @@ body {
 			}
 
 			
+		.disabled{
+			color: #cecece !important;
+			border-bottom: 1px dotted #cecece !important;
+		}
+		.a-fix {
+			color: #ffffff !important;
+		  }
 	}
 
 	.swal2-styled.swal2-confirm{

@@ -55,12 +55,23 @@ export class TeamMemberListComponent implements OnInit, AfterViewInit {
   addMember(member: Partial<TempMember>) {
     var emp =  this.employees.find(item => item?.empId == member?.empId);
     var role = this.roles.find(item => item?.etrId == member.empRole);
-    if(emp === undefined || role === undefined)
+    if(role === undefined)
     {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'You have to choose employee and role!',
+        text: 'You have to choose role!',
+        // footer: '<a href="">Why do I have this issue?</a>'
+      });
+      return;
+    }
+
+    if(emp === undefined)
+    {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'You have to choose employee!',
         // footer: '<a href="">Why do I have this issue?</a>'
       });
       return;
