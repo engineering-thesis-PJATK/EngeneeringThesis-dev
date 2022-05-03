@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Employee } from 'src/app/models/employee';
 import { Observable, switchMap } from 'rxjs';
-import { ProjectTask } from 'src/app/models/project';
+import { ProjectTask, TaskTime } from 'src/app/models/project';
 import { ProjectService } from 'src/app/services/project/project.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
@@ -24,6 +24,10 @@ export class ProjectTaskComponent implements OnInit, AfterViewInit {
 
   sendingTask: ProjectTask = { ptId: this.projectId, ptEmpId: 0, ptEmpName: '', ptContent: '', ptEstimatedCost: 0, ptState: 'ToDo'};
   editedTask!: ProjectTask;
+  timeTaskInput!: ProjectTask;
+  time!: TaskTime;
+  timeValue: string = '';
+  dateValue: string = '';
   constructor(private projectHttp: ProjectService, private route: ActivatedRoute, private empHttp: EmployeeService) { }
 
 
@@ -74,6 +78,10 @@ export class ProjectTaskComponent implements OnInit, AfterViewInit {
     this.editEmp.nativeElement.value = this.editedTask.ptEmpName;
   }
 
+  setTaskTimeInput(task: ProjectTask): void {
+    this.timeTaskInput = task;
+  }
+
   setTaskFinished(task: ProjectTask): void {
     let response = this.projectHttp.postTask(task);
     //task.ptState = 'Finished';
@@ -86,5 +94,30 @@ export class ProjectTaskComponent implements OnInit, AfterViewInit {
     );
   }
 
-  addTime(){}//TODO : dokończyć sidenava, następnie dodać metodę i walidację na wprowadzany czas.
+  addTime(): void {
+    if(this.dateValue == '' || this.timeValue == ''){
+      return;
+    }
+    let dateParsed = new Date(this.dateValue);
+    let minutes = '0';
+    let hours = '0';
+    let colonIndex = this.timeValue.indexOf(':');
+    let timeLength = this.timeValue.length;
+
+    if(colonIndex == 0)
+    {
+      minutes = this.timeValue.substring(1,timeLength);
+    }
+    else if(colonIndex > 0) {
+      hours = this.timeValue.substring(0,colonIndex);
+      minutes = this.timeValue.substring(colonIndex+1,timeLength-colonIndex+1);
+    }
+    let minutesFloat = parseFloat(minutes) + (parseFloat(hours)*60);
+    let pt : TaskTime = { ptTaskId: this.timeTaskInput.ptId, ptDate: dateParsed, ptMinutes: minutesFloat } ;
+    this.projectHttp.postTime(pt);
+  }
+
+  updateTask(): void {
+    
+  }
 }
