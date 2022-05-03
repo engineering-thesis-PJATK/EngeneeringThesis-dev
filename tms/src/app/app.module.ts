@@ -47,9 +47,6 @@ import { ProjectComponent } from './components/project/project.component';
 import { ProjectCardComponent } from './components/project/project-card/project-card.component';
 import { ProjectFromComponent } from './components/project/project-from/project-from.component';
 import { TaskFormComponent } from './components/dashboard/task-form/task-form.component';
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-import { EmployeeCalendarComponent } from './components/employee-calendar/employee-calendar.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +82,6 @@ import { EmployeeCalendarComponent } from './components/employee-calendar/employ
     ProjectCardComponent,
     ProjectFromComponent,
     TaskFormComponent,
-    EmployeeCalendarComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,10 +98,6 @@ import { EmployeeCalendarComponent } from './components/employee-calendar/employ
     MatIconModule,
     BrowserAnimationsModule,
     DragDropModule,
-    CalendarModule.forRoot({
-      provide: DateAdapter,
-      useFactory: adapterFactory
-    })
   ],
   providers: [],
   bootstrap: [AppComponent],
