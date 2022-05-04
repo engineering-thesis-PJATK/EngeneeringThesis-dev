@@ -13,9 +13,9 @@ export interface TicketList {
     ticTicketPriorityId: number;
 }
 
-export interface TicketKanBan{
-    ticId: number;
-    ticName: string;
-    ticTopic: string;
-    ticDueDate: string;
-}
+// export interface TicketKanBan{
+//     ticId: number;
+//     ticName: string;
+//     ticTopic: string;
+//     ticDueDate: string;
+// }

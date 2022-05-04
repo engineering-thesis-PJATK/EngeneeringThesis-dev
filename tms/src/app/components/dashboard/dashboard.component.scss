@@ -15,3 +15,22 @@
     display: table-column;
     width: fit-content;
 }
+.absolute {
+    position: fixed;
+    right: 50px;
+    bottom: 30px;
+}
+.task-add{
+    font-size: small;
+    border-radius: 10px;
+}
+.task-add-icon{
+    font-size: medium;
+}
+.task-add-component{
+    font-size: small;
+}
+.new-task-submit{
+    margin-left: 25%;
+    margin-right: 25%;
+}

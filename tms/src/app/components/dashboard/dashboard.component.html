@@ -1,15 +1,44 @@
+<div class="row">
+    <div class="col s2"> 
+        <ul class="collapsible popout add-task">
+            <li>
+                <div class="collapsible-header task-add"><i class="material-icons task-add-icon">add</i>Dodaj zadanie</div>
+                <div class="collapsible-body">
+                    <form (ngSubmit)="addTask(taskDescription.value, taskDate.value)" #form="ngForm">
+                        <textarea
+                            #taskDescription
+                            id="task-description"
+                            class="materialize-textarea task-add-component"
+                            placeholder="Description"></textarea>
+                        <input 
+                            #taskDate 
+                            type="text" 
+                            class="datepicker task-add-component" 
+                            placeholder="Due date" 
+                            required>
+                        <button 
+                            class="waves-effect waves-light btn-small new-task-submit" 
+                            type="submit" 
+                            name="action">Submit</button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
 <div class="row tasks-container" cdkDropListGroup>
     <div class="tasks-row">
         <p class="center-align flow-text">Otwarte</p>
         <div 
             cdkDropList
+            id="openTaskList"
             #listOne="cdkDropList"
             [cdkDropListData]="openTasks"
             [cdkDropListConnectedTo]="[listTwo]"
             (cdkDropListDropped)="drop($event)">
             <app-kanban-card
-                *ngFor="let ticket of openTasks"
-                [ticket]="ticket"
+                *ngFor="let element of openTasks"
+                [element]="element"
                 cdkDrag>
             </app-kanban-card>
         </div>
@@ -18,13 +47,14 @@
         <p class="center-align flow-text">Oczekujące</p>
         <div
             cdkDropList 
+            id="waitingTaskList"
             #listTwo="cdkDropList"
             [cdkDropListData]="waitingTasks"
             [cdkDropListConnectedTo]="[listOne, listThree]"
             (cdkDropListDropped)="drop($event)">
             <app-kanban-card
-                *ngFor="let ticket of waitingTasks"
-                [ticket]="ticket"
+                *ngFor="let element of waitingTasks"
+                [element]="element"
                 cdkDrag>
             </app-kanban-card>
         </div>
@@ -33,15 +63,17 @@
         <p class="center-align flow-text">Zrobione</p>
         <div
             cdkDropList
+            id="doneTaskList"
             #listThree="cdkDropList"
             [cdkDropListData]="doneTasks"
             [cdkDropListConnectedTo]="[listTwo]"
             (cdkDropListDropped)="drop($event)">
             <app-kanban-card
-            *ngFor="let ticket of doneTasks"
-            [ticket]="ticket"
+            *ngFor="let element of doneTasks"
+            [element]="element"
             cdkDrag>
             </app-kanban-card>
         </div>
     </div>
 </div>
+<!-- <a class="btn-floating btn-large waves-effect waves-light pulse absolute" data-target="slide-out"><i class="material-icons">add</i></a> -->
