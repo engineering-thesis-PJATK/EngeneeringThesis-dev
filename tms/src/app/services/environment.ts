@@ -13,5 +13,6 @@ export enum ApiPaths {
     Team = '/team',
     Project = '/project',
     Ticket = '/ticket',
-    Kanban = '/kanban'
+    Kanban = '/kanban',
+    Auth = '/auth'
 }

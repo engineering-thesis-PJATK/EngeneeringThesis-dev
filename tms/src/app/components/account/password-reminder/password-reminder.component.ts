@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { PasswordService } from '../../../services/password/password.service';
 @Component({
   selector: 'app-password-reminder',
   templateUrl: './password-reminder.component.html',
@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PasswordReminderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: PasswordService) { }
 
   ngOnInit(): void {
   }
   changePassword(email: string){
-
+    this.http.changePassword(email);
   }
 }
