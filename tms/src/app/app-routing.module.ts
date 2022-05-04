@@ -25,7 +25,7 @@ import { ProjectComponent } from './components/project/project.component';
 import { ProjectFromComponent } from './components/project/project-from/project-from.component';
 import { TaskFormComponent } from './components/dashboard/task-form/task-form.component';
 import { PasswordReminderComponent } from './components/account/password-reminder/password-reminder.component';
-
+import { SettingListComponent } from './components/settings/setting-list/setting-list.component';
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
   { path: 'dashboard/task', component: TaskFormComponent},
@@ -44,6 +44,9 @@ const routes: Routes = [
 
   {path: 'tickets', component: TicketListComponent},
   {path: 'tickets/create', component: CreateTicketComponent},
+
+  {path: 'settings', component: SettingListComponent},
+  {path: 'settings/edit', component: SettingListComponent},
 
   {path: 'employees', component: EmployeeComponent},
   {path: 'employees/add', component: EmployeeFormComponent},
