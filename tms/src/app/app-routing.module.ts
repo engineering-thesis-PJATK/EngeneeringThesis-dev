@@ -23,18 +23,16 @@ import { TeamComponent } from './components/team/team.component';
 import { TeamFormComponent } from './components/team/team-form/team-form.component';
 import { ProjectComponent } from './components/project/project.component';
 import { ProjectFromComponent } from './components/project/project-from/project-from.component';
-import { TaskFormComponent } from './components/dashboard/task-form/task-form.component';
-import { PasswordReminderComponent } from './components/account/password-reminder/password-reminder.component';
+import { ProjectDetailsComponent } from './components/project/project-details/project-details/project-details.component';
+import { SettingListComponent } from './components/settings/setting-list/setting-list.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
-  { path: 'dashboard/task', component: TaskFormComponent},
   {
     path: 'login',
     component: AccountComponent,
     children: [{ path: '', component: SignInComponent }],
   },
-  { path: 'password', component: PasswordReminderComponent },
   {
     path: 'companies',
     component: CompanyComponent,
@@ -44,6 +42,9 @@ const routes: Routes = [
 
   {path: 'tickets', component: TicketListComponent},
   {path: 'tickets/create', component: CreateTicketComponent},
+
+  {path: 'settings', component: SettingListComponent},
+  {path: 'settings/edit', component: SettingListComponent},
 
   {path: 'employees', component: EmployeeComponent},
   {path: 'employees/add', component: EmployeeFormComponent},
@@ -56,6 +57,7 @@ const routes: Routes = [
 
   {path: 'projects', component:ProjectComponent},
   {path: 'projects/add', component:ProjectFromComponent},
+  {path: 'projects/:id', component:ProjectDetailsComponent},
 
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },

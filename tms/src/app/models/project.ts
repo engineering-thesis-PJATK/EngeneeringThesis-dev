@@ -14,3 +14,18 @@ export interface ProjectSending {
     companyId: number;
     teamId: number;
 }
+
+export interface ProjectTask {
+    ptId: number;
+    ptEmpId: number;
+    ptEmpName?: string;
+    ptContent: string;
+    ptEstimatedCost: number;
+    ptState: string;
+}
+
+export interface TaskTime {
+    ptTaskId: number;
+    ptDate: Date;
+    ptMinutes: number;
+}
