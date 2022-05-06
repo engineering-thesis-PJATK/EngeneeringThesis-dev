@@ -21,6 +21,9 @@ export class DashboardComponent implements OnInit {
     var instances = M.FormSelect.init(elems, {});
      elems = document.querySelectorAll('.datepicker');
     instances = M.Datepicker.init(elems, {});
+
+    var elems2 = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems2, {});
   }
   ngOnInit(): void {
     this.http.getWaitingElementsForKanban()
@@ -62,7 +65,4 @@ export class DashboardComponent implements OnInit {
     instance.close(0);
   }
 }
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.collapsible');
-  var instances = M.Collapsible.init(elems, {});
-});
+
