@@ -24,6 +24,7 @@ import { TeamFormComponent } from './components/team/team-form/team-form.compone
 import { ProjectComponent } from './components/project/project.component';
 import { ProjectFromComponent } from './components/project/project-from/project-from.component';
 import { ProjectDetailsComponent } from './components/project/project-details/project-details/project-details.component';
+import { SettingListComponent } from './components/settings/setting-list/setting-list.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
@@ -41,6 +42,9 @@ const routes: Routes = [
 
   {path: 'tickets', component: TicketListComponent},
   {path: 'tickets/create', component: CreateTicketComponent},
+
+  {path: 'settings', component: SettingListComponent},
+  {path: 'settings/edit', component: SettingListComponent},
 
   {path: 'employees', component: EmployeeComponent},
   {path: 'employees/add', component: EmployeeFormComponent},
