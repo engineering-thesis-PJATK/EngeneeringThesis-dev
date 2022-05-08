@@ -1,3 +1,5 @@
+import { EmployeePrivilege } from "./employeePrivilege";
+
 export interface Employee {
     empId: number;
     empLogin: string;
@@ -9,12 +11,22 @@ export interface Employee {
 
 export interface EmployeeSend {
     empLogin: string;
-    empPassword: string;
+    empPassword?: string;
     empName: string;
     empSurname: string;
     empEmail: string;
     empPhoneNumber?: string;
-    empPrivileges: [];
+    empPrivileges: EmployeePrivilege[];
+}
+
+export interface EmployeeEdit {
+    empId: number;
+    empLogin: string;
+    empName: string;
+    empSurname: string;
+    empEmail: string;
+    empPhoneNumber?: string;
+    empPrivileges: EmployeePrivilege[];
 }
 
 export interface TeamEmployee {
