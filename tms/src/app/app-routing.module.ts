@@ -24,6 +24,7 @@ import { TeamFormComponent } from './components/team/team-form/team-form.compone
 import { ProjectComponent } from './components/project/project.component';
 import { ProjectFromComponent } from './components/project/project-from/project-from.component';
 import { ProjectDetailsComponent } from './components/project/project-details/project-details/project-details.component';
+import { EmployeeEditComponent } from './components/employee/employee-edit/employee-edit.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
@@ -44,6 +45,7 @@ const routes: Routes = [
 
   {path: 'employees', component: EmployeeComponent},
   {path: 'employees/add', component: EmployeeFormComponent},
+  {path: 'employees/edit/:id', component: EmployeeEditComponent},
 
   {path: 'customers', component: CustomerListComponent},
   {path: 'customers/add', component: CustomerFormComponent},
