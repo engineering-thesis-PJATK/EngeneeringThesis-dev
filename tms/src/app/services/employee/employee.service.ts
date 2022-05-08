@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
 import { EmployeePrivilege } from '../../models/employeePrivilege';
-import { Employee, TeamRole } from '../../models/employee';
+import { Employee, EmployeeEdit, EmployeeSend, TeamRole } from '../../models/employee';
 import { Environment } from '../environment';
 import { ApiPaths } from '../environment';
 
@@ -16,15 +16,32 @@ export class EmployeeService {
   constructor(private http: HttpClient) { }
 
   getEmployees(): Observable<Employee[]> {
-    return this.http.get<Employee[]>(this.url+ApiPaths.Employee).pipe(tap(console.log));
+   // return this.http.get<Employee[]>(this.url+ApiPaths.Employee).pipe(tap(console.log));
     
-    // let cmps: Employee[] = [
-    //   { empId: 1, empName: 'Jan', empPhoneNumber: '223441425', empEmail: 'Poland',empLogin:'x',empSurname:'Kowalski' },
-    //   { empId: 2, empName: 'Jonh X', empPhoneNumber: '456456234', empEmail: 'Poland',empLogin:'x',empSurname:'Kowalski'  },
-    //   { empId: 3, empName: 'Barbara Squirrel', empPhoneNumber: '666264362', empEmail: 'Poland',empLogin:'x',empSurname:'Kowalski'  },
-    // ];
-    // return of(cmps);
+    let cmps: Employee[] = [
+      { empId: 1, empName: 'Jan', empPhoneNumber: '223441425', empEmail: 'Poland',empLogin:'x',empSurname:'Kowalski' },
+      { empId: 2, empName: 'Jonh X', empPhoneNumber: '456456234', empEmail: 'Poland',empLogin:'x',empSurname:'Kowalski'  },
+      { empId: 3, empName: 'Barbara Squirrel', empPhoneNumber: '666264362', empEmail: 'Poland',empLogin:'x',empSurname:'Kowalski'  },
+    ];
+    return of(cmps);
   }
+
+  getEmployee(id: string): Observable<EmployeeEdit> {
+    // return this.http.get<Employee>(this.url+ApiPaths.Employee+'/'+id).pipe(tap(console.log));
+     
+     let emp: EmployeeEdit = {
+       empId: 1, empName: 'Jan', empPhoneNumber: '223441425', empEmail: 'Poland', empLogin: 'x', empSurname: 'Kowalski',
+       empPrivileges: [{ id: 1, name: 'User'}]
+     };
+     return of(emp);
+   }
+
+   getEmployeePrivileges(id: string): Observable<EmployeePrivilege[]> {
+    let privileges: EmployeePrivilege[] = [
+      { id: 1, name: 'User'},
+    ]
+    return of(privileges);
+   }
 
   getPriveleges(): Observable<EmployeePrivilege[]> {
     let privileges: EmployeePrivilege[] = [
@@ -53,5 +70,13 @@ export class EmployeeService {
       { empId: 3, empName: 'Barbara Squirrel', empPhoneNumber: '666264362', empEmail: 'Poland',empLogin:'x',empSurname:'Kowalski'  },
     ];
     return of(cmps);
+  }
+
+  postEmployee(employee: EmployeeSend) {
+    return this.http.post<string[]>(this.url+ApiPaths.Employee,employee).pipe(tap(console.log));
+  }
+
+  putEmployee(employee: EmployeeEdit) {
+    return this.http.put<string[]>(this.url+ApiPaths.Employee,employee).pipe(tap(console.log));
   }
 }
