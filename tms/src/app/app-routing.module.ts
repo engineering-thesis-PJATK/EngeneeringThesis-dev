@@ -6,6 +6,7 @@ import { SignInComponent } from './components/account/sign-in/sign-in.component'
 import { SignUpComponent } from './components/account/sign-up/sign-up.component';
 import { CompanyComponent } from './components/company/company.component';
 import { CompanyFormComponent } from './components/company/company-form/company-form.component';
+import { ExtraOptions } from '@angular/router';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -64,9 +65,18 @@ const routes: Routes = [
   //#endregion tickets 
 ];
 
+const routerOptions: ExtraOptions = {
+  useHash: false,
+  anchorScrolling: 'enabled',
+  onSameUrlNavigation: 'reload', 
+  scrollPositionRestoration: 'enabled'
+};
+
+
+
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, routerOptions),
     MatSidenavModule,
     MatIconModule,
     MatListModule,
