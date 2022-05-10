@@ -14,7 +14,7 @@ declare const M: any;
   styleUrls: ['./employee-form.component.scss'],
 })
 export class EmployeeFormComponent implements OnInit, AfterViewInit {
-  employee: Partial<EmployeeSend> = {};
+  employee: EmployeeSend = {empLogin: '', empEmail: '', empName: '', empPrivileges: [], empSurname: '', empPassword: '',empPhoneNumber:''};
 
   privilegeList: EmployeePrivilege[] = [];
 
@@ -38,6 +38,7 @@ export class EmployeeFormComponent implements OnInit, AfterViewInit {
 
   addEmployee() {
     console.log(this.employee);
+    //this.http.postEmployee(this.employee as unknown as EmployeeSend);
   }
 
   print(any: NgModel) {

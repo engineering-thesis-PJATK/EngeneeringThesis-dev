@@ -30,19 +30,7 @@ export class TeamMemberListComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.loadSelect();
   }
-
-  // loadAuto(): void {
-  //   var elems = document.querySelectorAll('.autocomplete');
-  //   let empMap: {[key: string]: string | null} = {};
-  //   this.employees.forEach(emp => {
-  //     empMap[emp?.empName+' '+emp?.empSurname] = null;
-  //   });
-  //   var options = {
-  //     data: empMap
-  //   }
-  //   this.instances = M.Autocomplete.init(elems, options);
-  // }
-
+  
   loadSelect(): void {
     var elems2 = document.querySelectorAll('select');
     var instances2 = M.FormSelect.init(elems2, {});

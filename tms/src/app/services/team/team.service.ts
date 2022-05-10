@@ -1,4 +1,3 @@
-import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
@@ -26,6 +25,11 @@ export class TeamService {
       {id: 4, Name: 'test123'},
     ];
     return of(teas);
+  }
+
+  getTeam(id: string): Observable<TeamSelect> {
+    let team = {id: 1, Name: 'Team 1'};
+    return of(team);
   }
   
 }
