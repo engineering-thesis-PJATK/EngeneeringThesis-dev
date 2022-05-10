@@ -1,6 +1,6 @@
 import { Component, Input, NgModule, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { timeEntryReport } from 'src/app/models/report';
+import { timeEntryHeader, timeEntryReport } from 'src/app/models/report';
 import { ReportService } from 'src/app/services/report/report.service';
 
 declare const M: any;
@@ -12,6 +12,7 @@ declare const M: any;
 export class ReportComponent implements OnInit {
   @Input() dateInputVisibility: string = "hidden";
   timeEntryData!:Observable<timeEntryReport[]>
+  timeEntryGroup!: Observable<timeEntryHeader[]>
   selectedTimePeriod!: string;
   isExpanded: boolean = false;
 
@@ -25,7 +26,8 @@ export class ReportComponent implements OnInit {
     this.initCollapsible();
   }
   GenerateReport(employee: string, timePeriod: string){
-    this.timeEntryData = this.reportHttp.getDataForReport(employee, new Date("2022-01-01"), new Date("2022-02-01"));
+    // this.timeEntryData = this.reportHttp.getDataForReport(employee, new Date("2022-01-01"), new Date("2022-02-01"));
+    this.timeEntryGroup = this.reportHttp.getGroupDataForReport();
     this.closeCollapsableComponent();
   }
   onChange(event: NgModule){

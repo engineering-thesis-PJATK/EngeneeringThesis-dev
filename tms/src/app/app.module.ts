@@ -49,6 +49,7 @@ import { ProjectFromComponent } from './components/project/project-from/project-
 import { ProjectDetailsComponent } from './components/project/project-details/project-details/project-details.component';
 import { ProjectTaskComponent } from './components/project/project-details/project-task/project-task.component';
 import { ReportComponent } from './components/report/report.component';
+import { DetailsPartComponent } from './components/report/details-part/details-part.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { ReportComponent } from './components/report/report.component';
     ProjectDetailsComponent,
     ProjectTaskComponent,
     ReportComponent,
+    DetailsPartComponent,
   ],
   imports: [
     BrowserModule,

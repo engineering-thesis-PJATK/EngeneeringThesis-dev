@@ -4,7 +4,14 @@ export interface timeEntryReport{
     terTicketTitle: string;
     terDescription: string;
     terTimeValue: string;
-    terDate: Date;
+    terDate: string;
     terCompany: string;
+}
+
+export interface timeEntryHeader {
+    tehId: number;
+    tehGroupTitle: string;
+    tehGroupTimeSum: string;
+    tehDetails: timeEntryReport[];
 }
 
