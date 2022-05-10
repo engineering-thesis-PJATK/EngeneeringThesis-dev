@@ -25,6 +25,7 @@ import { ProjectComponent } from './components/project/project.component';
 import { ProjectFromComponent } from './components/project/project-from/project-from.component';
 import { ProjectDetailsComponent } from './components/project/project-details/project-details/project-details.component';
 import { EmployeeEditComponent } from './components/employee/employee-edit/employee-edit.component';
+import { TeamEditComponent } from './components/team/team-edit/team-edit.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
@@ -52,6 +53,7 @@ const routes: Routes = [
 
   {path: 'teams', component: TeamComponent},
   {path: 'teams/add', component: TeamFormComponent},
+  {path: 'teams/edit/:id', component: TeamEditComponent},
 
   {path: 'projects', component:ProjectComponent},
   {path: 'projects/add', component:ProjectFromComponent},
