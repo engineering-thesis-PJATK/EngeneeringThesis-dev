@@ -26,6 +26,7 @@ import { ProjectComponent } from './components/project/project.component';
 import { ProjectFromComponent } from './components/project/project-from/project-from.component';
 import { ProjectDetailsComponent } from './components/project/project-details/project-details/project-details.component';
 import { SettingListComponent } from './components/settings/setting-list/setting-list.component';
+import { ReportComponent } from './components/report/report.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
@@ -59,6 +60,8 @@ const routes: Routes = [
   {path: 'projects', component:ProjectComponent},
   {path: 'projects/add', component:ProjectFromComponent},
   {path: 'projects/:id', component:ProjectDetailsComponent},
+
+  {path: 'reports', component: ReportComponent},
 
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
