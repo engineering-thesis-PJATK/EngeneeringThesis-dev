@@ -38,9 +38,6 @@ export class ProjectTaskComponent implements OnInit, AfterViewInit {
 
   initCollapsible() {
     var elems = document.querySelectorAll('.collapsible');
-    // var options = {
-    //   accordion: false
-    // }
     var instances = M.Collapsible.init(elems, {});
   }
 
@@ -118,6 +115,7 @@ export class ProjectTaskComponent implements OnInit, AfterViewInit {
   }
 
   updateTask(): void {
-    
+    this.projectHttp.putTask(this.editedTask);
+    this.getTasks();
   }
 }
