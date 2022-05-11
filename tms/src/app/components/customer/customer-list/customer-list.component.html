@@ -6,6 +6,7 @@
       <app-customer-list-card
         *ngFor="let customer of customers | async"
         [customer]="customer"
+        (getCustomers)="reloadCustomers()"
       ></app-customer-list-card>
     </div>
     <a
