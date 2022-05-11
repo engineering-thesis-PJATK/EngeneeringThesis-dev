@@ -101,4 +101,9 @@ export class EmployeeService {
   putEmployee(employee: EmployeeEdit) {
     return this.http.put<string[]>(this.url+ApiPaths.Employee,employee).pipe(tap(console.log));
   }
+
+  deleteEmployee(id: number): string {
+    //return this.http.delete<object>(this.url+ApiPaths.Employee+'/'+id).pipe(tap(console.log));
+    return 'ok';
+  }
 }
