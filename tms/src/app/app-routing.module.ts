@@ -28,6 +28,7 @@ import { ProjectDetailsComponent } from './components/project/project-details/pr
 import { SettingListComponent } from './components/settings/setting-list/setting-list.component';
 import { EmployeeEditComponent } from './components/employee/employee-edit/employee-edit.component';
 import { TeamEditComponent } from './components/team/team-edit/team-edit.component';
+import { CustomerEditComponent } from './components/customer/customer-edit/customer-edit.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
@@ -55,6 +56,7 @@ const routes: Routes = [
 
   {path: 'customers', component: CustomerListComponent},
   {path: 'customers/add', component: CustomerFormComponent},
+  {path: 'customers/edit/:id', component: CustomerEditComponent},
 
   {path: 'teams', component: TeamComponent},
   {path: 'teams/add', component: TeamFormComponent},
