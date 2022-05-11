@@ -15,11 +15,6 @@
       <div class="card-action">
         <li
           class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
-        >
-          <i class="medium material-icons">chat</i>
-        </li>
-        <li
-          class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
           routerLink="/attachments?employee={{ employee.empId }}"
         >
           <i class="material-icons">mail_outline</i>
@@ -35,6 +30,10 @@
           routerLink="/employees/edit/{{ employee.empId }}"
         >
           <i class="material-icons">edit</i>
+        </li>
+        <li class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
+          (click)="deleteEmployee()">
+          <i class="material-icons">delete</i>
         </li>
       </div>
     </div>
