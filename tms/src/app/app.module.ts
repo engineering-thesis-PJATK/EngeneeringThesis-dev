@@ -50,6 +50,7 @@ import { ProjectDetailsComponent } from './components/project/project-details/pr
 import { ProjectTaskComponent } from './components/project/project-details/project-task/project-task.component';
 import { EmployeeEditComponent } from './components/employee/employee-edit/employee-edit.component';
 import { TeamEditComponent } from './components/team/team-edit/team-edit.component';
+import { CustomerEditComponent } from './components/customer/customer-edit/customer-edit.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { TeamEditComponent } from './components/team/team-edit/team-edit.compone
     ProjectTaskComponent,
     EmployeeEditComponent,
     TeamEditComponent,
+    CustomerEditComponent,
   ],
   imports: [
     BrowserModule,
