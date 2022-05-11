@@ -7,6 +7,7 @@ export interface Customer {
     cur_position: string;
     cur_comments: string;
     cur_idCompany: number;
+    cmp_name?: string;
 }
 
 
