@@ -181,23 +181,6 @@
           maxlength="255"
         />
         <label for="comments">Comments</label>
-        <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
-          <span
-            class="red-text text-lighten-1"
-            *ngIf="email.errors?.['required']"
-            >Field is required</span
-          >
-          <span
-            class="red-text text-lighten-1"
-            *ngIf="email.errors?.['minlength']"
-            >Text is too short</span
-          >
-          <span
-            class="red-text text-lighten-1"
-            *ngIf="email.errors?.['maxlength']"
-            >Text is too long</span
-          >
-        </ng-container>
       </div>
     </div>
     <div class="row">
