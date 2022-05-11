@@ -27,15 +27,17 @@ export class TeamEditComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.getMembers();
-    this.teamMembers = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) => this.empHttp.getTeamMembers(params.get('id') || '0'))
+    this.teamDetails = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) => this.http.getTeam(params.get('id') || '0'))
     );
+    
     this.empHttp.getEmployees().subscribe(emp => this.employees = emp);
     this.empHttp.getRoles().subscribe(emp => this.roles = emp);
   }
 
   ngAfterViewInit(): void {
     this.loadSelect();
+    this.initCollapsible();
   }
 
   loadSelect(): void {
@@ -43,16 +45,20 @@ export class TeamEditComponent implements OnInit, AfterViewInit {
     var instances = M.FormSelect.init(elems, {});
   }
 
+  initCollapsible() {
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems, {});
+  }
+
   getMembers(): void {
-    this.teamDetails = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) => this.http.getTeam(params.get('id') || '0'))
+    this.teamMembers = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) => this.empHttp.getTeamMembers(params.get('id') || '0'))
     );
   }
 
   setMember(member: TeamEmployee): void {
     this.editedMember = member;
     this.editEmp.nativeElement.value = this.editedMember.empName;
-    console.log(this.roleEdit);
   }
   
   async updateMember(): Promise<void> {
