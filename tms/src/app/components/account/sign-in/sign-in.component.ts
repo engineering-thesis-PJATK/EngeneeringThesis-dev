@@ -28,4 +28,7 @@ export class SignInComponent {
       complete: () => console.info('complete'),
     });
   }
+  RemindPassword(){
+    this.router.navigate(['/','remind'])
+  }
 }

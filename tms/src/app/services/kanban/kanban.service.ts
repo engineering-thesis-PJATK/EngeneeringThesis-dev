@@ -20,30 +20,11 @@ export class KanbanService {
     return this.http.get<KanbanElement[]>(this.url + ApiPaths.Kanban, {params:params}).pipe(tap(console.log));
   }
   changeTaskStatusInKanBan(type: number, id: number, status:string){
-    // let headers = new Headers();
-    // headers.append('Content-Type', 'application/json');
-    // headers.append('elementId', id.toString());
-    // headers.append('elementType', type.toString());
-    // headers.append('status', status);
-    // let params = new HttpParams().set('elementId', id.toString()).set('elementType', type.toString()).set('status', status);
-    // let search = new URLSearchParams();
-    // search.set('elementId', id.toString())
-    // search.set('elementType', type.toString());
-    // search.set('status', status);
-    // console.log(params);
-    // console.log(this.url + ApiPaths.Kanban);
-    // const httpOptions ={
-    //   headers: new HttpHeaders({'elementId':id.toString()})
-    // }
-    console.log("Update")
-    let test:UpdatedElement = {
+    let updatedKanbanlement:UpdatedElement = {
         elementId: id,
         elementType: type,
         Status: status
     };
-    return this.http.put(this.url + ApiPaths.Kanban, test).subscribe();
-    //var test = this.http.post('https://localhost:5001/Api/Kanban?elementId=9&elementType=0&status=waiting',params).subscribe();
-    // console.log(test);
-    // return test;
+    return this.http.put(this.url + ApiPaths.Kanban, updatedKanbanlement).subscribe();
   }
 }

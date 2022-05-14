@@ -1,9 +1,10 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
-import { Observable } from 'rxjs';
+import { Observable, pipe } from 'rxjs';
 import { KanbanElement } from 'src/app/models/kanbanElement';
 import { KanbanService } from 'src/app/services/kanban/kanban.service';
+import { OrganizationaTaskService } from 'src/app/services/organizationalTask/organizationa-task.service';
 import { NgForm } from '@angular/forms';
 declare const M: any;
 @Component({
@@ -15,7 +16,7 @@ export class DashboardComponent implements OnInit {
   waitingTasks: KanbanElement[] = [];
   openTasks: KanbanElement[] =[];
   doneTasks: KanbanElement[] = [];
-  constructor(private http: KanbanService) { }
+  constructor(private httpKanBan: KanbanService, private httpOrganizationalTask: OrganizationaTaskService) { }
   ngAfterViewInit(): void {
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems, {});
@@ -26,15 +27,15 @@ export class DashboardComponent implements OnInit {
     var instances = M.Collapsible.init(elems2, {});
   }
   ngOnInit(): void {
-    this.http.getTaskForKanban(1, "Opened")
+    this.httpKanBan.getTaskForKanban(1, "Waiting")
     .subscribe( waitingTasksList => {
       this.waitingTasks = waitingTasksList as KanbanElement[]
     })
-    this.http.getTaskForKanban(1, "Waiting")
+    this.httpKanBan.getTaskForKanban(1, "Opened")
     .subscribe(openTasksList => {
       this.openTasks = openTasksList as KanbanElement[]
     })
-    this.http.getTaskForKanban(1, "Completed")
+    this.httpKanBan.getTaskForKanban(1, "Completed")
     .subscribe(test => {
       this.doneTasks = test as KanbanElement[]
     })
@@ -59,20 +60,31 @@ export class DashboardComponent implements OnInit {
         status = "waiting";
         break;
       case "openTaskList":
-        status = "open";
+        status = "opened";
         break;
       case "doneTaskList":
         status = "completed"
     }
-    this.http.changeTaskStatusInKanBan(event.container.data[event.currentIndex].type, event.container.data[event.currentIndex].id, status);
+    this.httpKanBan.changeTaskStatusInKanBan(event.container.data[event.currentIndex].type, event.container.data[event.currentIndex].id, status);
   }
   addTask(taskDescription: string){
+    var test = this.httpOrganizationalTask.addOrganizationalTask(taskDescription, 1, "Opened").subscribe();
+    console.log(test);
     var elem = document.querySelector('.add-task');
     var instance = M.Collapsible.getInstance(elem);
-    var newTask: KanbanElement = {id: 0,name: '', topic: taskDescription, dueDate:'' , type: 1};
-    this.openTasks.push(newTask);
+    // var newTask: KanbanElement = {id: 0,name: '', topic: taskDescription, dueDate:'' , type: 1};
+    // this.openTasks.push(newTask);
+    this.refreshOpened();
     instance.close(0);
   }
+  refreshOpened(){
+    this.httpKanBan.getTaskForKanban(1, "Opened")
+    .subscribe(openTasksList => {
+      this.openTasks = openTasksList as KanbanElement[]
+    })
+    console.log(this.openTasks);
+  }
+  
 
 }
 

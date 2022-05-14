@@ -27,6 +27,7 @@ import { ProjectFromComponent } from './components/project/project-from/project-
 import { ProjectDetailsComponent } from './components/project/project-details/project-details/project-details.component';
 import { SettingListComponent } from './components/settings/setting-list/setting-list.component';
 import { ReportComponent } from './components/report/report.component';
+import { PasswordReminderComponent } from './components/account/password-reminder/password-reminder.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
@@ -35,6 +36,7 @@ const routes: Routes = [
     component: AccountComponent,
     children: [{ path: '', component: SignInComponent }],
   },
+  { path: 'remind', component: PasswordReminderComponent},
   {
     path: 'companies',
     component: CompanyComponent,
