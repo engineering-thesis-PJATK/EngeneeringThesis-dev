@@ -26,19 +26,15 @@ export class DashboardComponent implements OnInit {
     var instances = M.Collapsible.init(elems2, {});
   }
   ngOnInit(): void {
-    this.http.getWaitingElementsForKanban()
+    this.http.getTaskForKanban(1, "Opened")
     .subscribe( waitingTasksList => {
       this.waitingTasks = waitingTasksList as KanbanElement[]
     })
-    this.http.getOpenTicketsForKanBan()
+    this.http.getTaskForKanban(1, "Waiting")
     .subscribe(openTasksList => {
       this.openTasks = openTasksList as KanbanElement[]
     })
-    // this.http.getDoneTicketsForKanBan()
-    // .subscribe(doneTaskList => {
-    //   this.doneTasks = doneTaskList as KanbanElement[]
-    // })
-    this.http.getTaskForKanban(1, 1)
+    this.http.getTaskForKanban(1, "Completed")
     .subscribe(test => {
       this.doneTasks = test as KanbanElement[]
     })
@@ -56,13 +52,27 @@ export class DashboardComponent implements OnInit {
         event.previousIndex, 
         event.currentIndex);
     }
+
+    let status!: string;
+    switch(event.container.id){
+      case "waitingTaskList":
+        status = "waiting";
+        break;
+      case "openTaskList":
+        status = "open";
+        break;
+      case "doneTaskList":
+        status = "completed"
+    }
+    this.http.changeTaskStatusInKanBan(event.container.data[event.currentIndex].type, event.container.data[event.currentIndex].id, status);
   }
-  addTask(taskDescription: string, taskDate: string){
+  addTask(taskDescription: string){
     var elem = document.querySelector('.add-task');
     var instance = M.Collapsible.getInstance(elem);
-    var newTask: KanbanElement = {name: '', topic: taskDescription, dueDate: taskDate, type: 1};
+    var newTask: KanbanElement = {id: 0,name: '', topic: taskDescription, dueDate:'' , type: 1};
     this.openTasks.push(newTask);
     instance.close(0);
   }
+
 }
 
