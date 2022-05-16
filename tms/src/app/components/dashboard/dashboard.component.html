@@ -4,18 +4,18 @@
             <li>
                 <div class="collapsible-header task-add"><i class="material-icons task-add-icon">add</i>Dodaj zadanie</div>
                 <div class="collapsible-body">
-                    <form (ngSubmit)="addTask(taskDescription.value, taskDate.value)" #form="ngForm">
+                    <form (ngSubmit)="addTask(taskDescription.value)" #form="ngForm">
                         <textarea
                             #taskDescription
                             id="task-description"
                             class="materialize-textarea task-add-component"
                             placeholder="Description"></textarea>
-                        <input 
+                        <!-- <input 
                             #taskDate 
                             type="text" 
                             class="datepicker task-add-component" 
                             placeholder="Due date" 
-                            required>
+                            required> -->
                         <button 
                             class="waves-effect waves-light btn-small new-task-submit" 
                             type="submit" 
@@ -28,7 +28,7 @@
 </div>
 <div class="row tasks-container" cdkDropListGroup>
     <div class="tasks-row">
-        <p class="center-align flow-text">Otwarte</p>
+        <p class="center-align flow-text">Opened</p>
         <div 
             cdkDropList
             id="openTaskList"
@@ -44,7 +44,7 @@
         </div>
     </div>
     <div class="tasks-row">
-        <p class="center-align flow-text">Oczekujące</p>
+        <p class="center-align flow-text">Waiting</p>
         <div
             cdkDropList 
             id="waitingTaskList"
@@ -60,7 +60,7 @@
         </div>
     </div>
     <div class="tasks-row">
-        <p class="center-align flow-text">Zrobione</p>
+        <p class="center-align flow-text">Completed</p>
         <div
             cdkDropList
             id="doneTaskList"

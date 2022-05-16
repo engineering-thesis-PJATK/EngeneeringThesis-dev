@@ -1,0 +1,19 @@
+<table>
+    <thead>
+      <tr class="grey lighten-2 group-header-row">
+        <th class="group-header-cell"><b>{{group.tehGroupTitle}}</b></th>
+        <th class="group-header-cell"></th>
+        <th class="group-header-cell"></th>
+        <th class="group-header-cell"><b>{{group.tehGroupTimeSum}}</b></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let details of group.tehDetails">
+            <td>{{details.terTicketTitle}}</td>
+            <td>{{details.terDescription}}</td>
+            <td>{{details.terDate}}</td>
+            <td>{{details.terTimeValue}}</td>
+        </tr>
+    </tbody>
+  </table>
+
