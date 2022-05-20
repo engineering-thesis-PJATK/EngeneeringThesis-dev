@@ -4,25 +4,25 @@
         <i class="material-icons right">add</i></a>
 </p>
 <ul class="collection" id="ticketList">
-    <li class="collection-item avatar" *ngFor="let ticket of tickets">
-        <a class="a-headers" href="tickets/details/{{ticket.id}}">
+    <li class="collection-item avatar" *ngFor="let ticket of (tickets | async)">
+        <a class="a-headers" href="tickets/details/{{ticket.ticId}}">
             <i class="material-icons circle">folder</i>
-            <span class="title">{{ticket.topic}}</span>
+            <span class="title">{{ticket.ticTopic}}</span>
         </a>
         <div style="display: flex; justify-content: space-between;">
-            <p class="left-align">{{ticket.description}}<br>
-                {{ticket.email}}
+            <p class="left-align">{{ticket.ticDescription}}<br>
+                {{ticket.ticCustomerId}}
             </p>
-            <p class="right-align">{{ticket.company.name}}<br>
-                {{ticket.email}}
+            <p class="right-align">{{ticket.ticCustomerId}}<br>
+                {{ticket.ticCustomerId}}
             </p>
         </div>
         <hr class="solid">
         <div class="card-action">
             <i class="Tiny material-icons iconPadding ">phone</i>
             <i class="Tiny material-icons iconPadding">mail</i>
-            <a class="a-headers" href="tickets/archive/{{ticket.id}}"> <i class="Tiny material-icons iconPadding">archive</i></a>
-            <a class="a-headers" href="tickets/delete/{{ticket.id}}"><i class="Tiny material-icons iconPadding">delete</i></a>
+            <a class="a-headers" href="tickets/archive/{{ticket.ticId}}"> <i class="Tiny material-icons iconPadding">archive</i></a>
+            <a class="a-headers" href="tickets/delete/{{ticket.ticId}}"><i class="Tiny material-icons iconPadding">delete</i></a>
         </div>
         <a href="tickets/create" class="secondary-content"><i class="material-icons custom-icon-color">grade</i></a>
     </li>

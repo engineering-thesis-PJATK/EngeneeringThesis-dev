@@ -16,8 +16,7 @@ export class CompanyService {
    }
 
    getCompanies(): Observable<CompanyCard[]> {
-      //this.http.get(this.url+ApiPaths.Company).subscribe(responseData => console.log(responseData));
-      //return this.http.get<CompanyCard[]>(this.url+ApiPaths.Company).pipe(tap(console.log));
+      return this.http.get<CompanyCard[]>(this.url+ApiPaths.Company).pipe(tap(console.log));
       let cmps: CompanyCard[] = [
         { cmpId: 1, cmpName: 'first company', cmpCity: 'Warsaw', cmpCountry: 'Poland' },
         { cmpId: 2, cmpName: 'second company', cmpCity: 'Warsaw', cmpCountry: 'Poland' },
@@ -39,5 +38,8 @@ export class CompanyService {
        {cmpId: 3, cmpName: 'third company'}
      ];
      return of(cmps);
+   }
+   getCompanyById(cmpId: number): Observable<CompanyCard> {
+     return this.http.get<CompanyCard>(this.url+ApiPaths.Company+'/' + cmpId).pipe(tap(console.log));
    }
 }
