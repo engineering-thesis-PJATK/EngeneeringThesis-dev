@@ -1,7 +1,7 @@
 import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
-import { TicketList } from 'src/app/models/ticket';
+import { SingleTicket } from 'src/app/models/ticket';
 import { ApiPaths, Environment } from '../environment';
 
 
@@ -12,8 +12,8 @@ export class TicketService {
 
   private url = Environment.baseUrl;
   constructor(private http: HttpClient) { }
-  getTickets(): Observable<TicketList[]>{
-    return this.http.get<TicketList[]>(this.url + ApiPaths.Ticket).pipe(tap(console.log));
+  getTickets(): Observable<SingleTicket[]>{
+    return this.http.get<SingleTicket[]>(this.url + ApiPaths.Ticket).pipe(tap(console.log));
   }
   // getWaitingTicketsForKanBan(): Observable<TicketKanBan[]>{
   //     //return this.http.get<TicketKanBan[]>(this.url + ApiPaths.Ticket).pipe(tap(console.log));

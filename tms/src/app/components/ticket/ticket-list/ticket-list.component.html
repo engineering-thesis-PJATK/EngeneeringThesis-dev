@@ -1,28 +1,63 @@
-<p class="right-align">
+<!-- <p class="right-align">
     <a class="btn-floating pulse btn-large waves-effect waves-light " routerLink="/tickets/create"
         routerLinkActive="active">
         <i class="material-icons right">add</i></a>
 </p>
 <ul class="collection" id="ticketList">
-    <li class="collection-item avatar" *ngFor="let ticket of (tickets | async)">
-        <a class="a-headers" href="tickets/details/{{ticket.ticId}}">
+    <li class="collection-item avatar" *ngFor="let entity of (listOfEntities)">
+        <a class="a-headers" href="tickets/details/{{entity.singleTicket.ticId}}">
             <i class="material-icons circle">folder</i>
-            <span class="title">{{ticket.ticTopic}}</span>
+            <span class="title">{{entity.singleTicket.ticTopic}}</span>
         </a>
         <div style="display: flex; justify-content: space-between;">
-            <p class="left-align">{{ticket.ticDescription}}<br>
-                {{ticket.ticCustomerId}}
+            <p class="left-align">{{entity.singleTicket.ticDescription}}<br>
+                {{entity.singleCustomer.cur_email}}
             </p>
-            <p class="right-align">{{ticket.ticCustomerId}}<br>
-                {{ticket.ticCustomerId}}
+            <p class="right-align">{{entity.singleTicket.ticCustomerId}}<br>
+                {{entity.singleTicket.ticCustomerId}}
             </p>
         </div>
         <hr class="solid">
         <div class="card-action">
             <i class="Tiny material-icons iconPadding ">phone</i>
             <i class="Tiny material-icons iconPadding">mail</i>
-            <a class="a-headers" href="tickets/archive/{{ticket.ticId}}"> <i class="Tiny material-icons iconPadding">archive</i></a>
-            <a class="a-headers" href="tickets/delete/{{ticket.ticId}}"><i class="Tiny material-icons iconPadding">delete</i></a>
+            <a class="a-headers" href="tickets/archive/{{entity.singleTicket.ticId}}"> <i class="Tiny material-icons iconPadding">archive</i></a>
+            <a class="a-headers" href="tickets/delete/{{entity.singleTicket.ticId}}"><i class="Tiny material-icons iconPadding">delete</i></a>
+        </div>
+        <a href="tickets/create" class="secondary-content"><i class="material-icons custom-icon-color">grade</i></a>
+    </li>
+</ul>
+<p class="left-align">
+    <button class="btn waves-effect pulse waves-teal" routerLink="/tickets/create" routerLinkActive="active">
+        <i class="material-icons right">add</i>
+        create ticket
+    </button>
+</p> -->
+<p class="right-align">
+    <a class="btn-floating pulse btn-large waves-effect waves-light " routerLink="/tickets/create"
+        routerLinkActive="active">
+        <i class="material-icons right">add</i></a>
+</p>
+<ul class="collection" id="ticketList">
+    <li class="collection-item avatar" *ngFor="let entity of (tickets) | async">
+        <a class="a-headers" href="tickets/details/{{entity.ticId}}">
+            <i class="material-icons circle">folder</i>
+            <span class="title">{{entity.ticTopic}}</span>
+        </a>
+        <div style="display: flex; justify-content: space-between;">
+            <p class="left-align">{{entity.ticDescription}}<br>
+                {{entity.ticCustomerId}}
+            </p>
+            <p class="right-align">{{entity.ticCustomerId}}<br>
+                {{entity.ticCustomerId}}
+            </p>
+        </div>
+        <hr class="solid">
+        <div class="card-action">
+            <i class="Tiny material-icons iconPadding ">phone</i>
+            <i class="Tiny material-icons iconPadding">mail</i>
+            <a class="a-headers" href="tickets/archive/{{entity.ticId}}"> <i class="Tiny material-icons iconPadding">archive</i></a>
+            <a class="a-headers" href="tickets/delete/{{entity.ticId}}"><i class="Tiny material-icons iconPadding">delete</i></a>
         </div>
         <a href="tickets/create" class="secondary-content"><i class="material-icons custom-icon-color">grade</i></a>
     </li>

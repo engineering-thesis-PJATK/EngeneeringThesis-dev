@@ -27,5 +27,8 @@ export class CustomerService {
     ]
     return of(cus);
   }
+  getCustomerById(cusId: number): Observable<Customer> {
+    return this.http.get<Customer>(this.url+ApiPaths.Customer+'/' + cusId).pipe(tap(console.log));
+  }
 
 }

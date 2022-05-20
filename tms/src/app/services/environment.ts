@@ -6,7 +6,7 @@ export const Environment = {
 
 export enum ApiPaths {
   Login = '/login',
-  Company = '/company',
+  Company = '/company',  
   Customer = '/customer',
   CustomerSelect = '/customer2',
   Employee = '/Employee/employees',
