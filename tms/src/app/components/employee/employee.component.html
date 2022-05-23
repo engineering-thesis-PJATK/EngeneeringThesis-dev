@@ -6,6 +6,7 @@
     <app-employee-card
       *ngFor="let employee of employees | async"
       [employee]="employee"
+      (getEmployees)="reloadEmployees()"
     ></app-employee-card>
   </div>
   <a

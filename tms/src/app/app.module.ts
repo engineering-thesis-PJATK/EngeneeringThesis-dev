@@ -48,6 +48,11 @@ import { ProjectCardComponent } from './components/project/project-card/project-
 import { ProjectFromComponent } from './components/project/project-from/project-from.component';
 import { ProjectDetailsComponent } from './components/project/project-details/project-details/project-details.component';
 import { ProjectTaskComponent } from './components/project/project-details/project-task/project-task.component';
+import { EmployeeEditComponent } from './components/employee/employee-edit/employee-edit.component';
+import { TeamEditComponent } from './components/team/team-edit/team-edit.component';
+import { CustomerEditComponent } from './components/customer/customer-edit/customer-edit.component';
+import { ReportComponent } from './components/report/report.component';
+import { DetailsPartComponent } from './components/report/details-part/details-part.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +89,11 @@ import { ProjectTaskComponent } from './components/project/project-details/proje
     ProjectFromComponent,
     ProjectDetailsComponent,
     ProjectTaskComponent,
+    EmployeeEditComponent,
+    TeamEditComponent,
+    CustomerEditComponent,
+    ReportComponent,
+    DetailsPartComponent,
   ],
   imports: [
     BrowserModule,

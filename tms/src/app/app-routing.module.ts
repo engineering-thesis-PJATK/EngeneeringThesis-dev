@@ -26,6 +26,11 @@ import { ProjectComponent } from './components/project/project.component';
 import { ProjectFromComponent } from './components/project/project-from/project-from.component';
 import { ProjectDetailsComponent } from './components/project/project-details/project-details/project-details.component';
 import { SettingListComponent } from './components/settings/setting-list/setting-list.component';
+import { EmployeeEditComponent } from './components/employee/employee-edit/employee-edit.component';
+import { TeamEditComponent } from './components/team/team-edit/team-edit.component';
+import { CustomerEditComponent } from './components/customer/customer-edit/customer-edit.component';
+import { ReportComponent } from './components/report/report.component';
+import { PasswordReminderComponent } from './components/account/password-reminder/password-reminder.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
@@ -34,6 +39,7 @@ const routes: Routes = [
     component: AccountComponent,
     children: [{ path: '', component: SignInComponent }],
   },
+  { path: 'remind', component: PasswordReminderComponent},
   {
     path: 'companies',
     component: CompanyComponent,
@@ -49,16 +55,21 @@ const routes: Routes = [
 
   {path: 'employees', component: EmployeeComponent},
   {path: 'employees/add', component: EmployeeFormComponent},
+  {path: 'employees/edit/:id', component: EmployeeEditComponent},
 
   {path: 'customers', component: CustomerListComponent},
   {path: 'customers/add', component: CustomerFormComponent},
+  {path: 'customers/edit/:id', component: CustomerEditComponent},
 
   {path: 'teams', component: TeamComponent},
   {path: 'teams/add', component: TeamFormComponent},
+  {path: 'teams/edit/:id', component: TeamEditComponent},
 
   {path: 'projects', component:ProjectComponent},
   {path: 'projects/add', component:ProjectFromComponent},
   {path: 'projects/:id', component:ProjectDetailsComponent},
+
+  {path: 'reports', component: ReportComponent},
 
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },

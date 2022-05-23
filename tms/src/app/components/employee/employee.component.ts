@@ -18,4 +18,7 @@ export class EmployeeComponent implements OnInit {
     alert(this.employees);
   }//
 
+  reloadEmployees() {
+    this.employees = this.http.getEmployees();
+  }
 }

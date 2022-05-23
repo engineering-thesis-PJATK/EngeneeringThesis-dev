@@ -36,11 +36,6 @@ export class CustomerFormComponent implements OnInit, AfterViewInit {
 
   addCustomer()
   {
-
+    this.httpCustomer.postCustomer(this.customer as CustomerSend);
   }
 }
-
-// document.addEventListener('DOMContentLoaded', function () {
-//   var elems = document.querySelectorAll('select');
-//   var instances = M.FormSelect.init(elems, {});
-// });

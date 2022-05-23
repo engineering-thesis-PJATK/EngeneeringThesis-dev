@@ -5,7 +5,7 @@ import { ProjectTask, TaskTime } from 'src/app/models/project';
 import { ProjectService } from 'src/app/services/project/project.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
-
+declare const M: any;
 @Component({
   selector: 'app-project-task',
   templateUrl: './project-task.component.html',
@@ -38,15 +38,12 @@ export class ProjectTaskComponent implements OnInit, AfterViewInit {
 
   initCollapsible() {
     var elems = document.querySelectorAll('.collapsible');
-    var options = {
-      accordion: false
-    }
-    var instances = M.Collapsible.init(elems, options);
+    var instances = M.Collapsible.init(elems, {});
   }
 
   initDP() {
-    var elems = document.querySelectorAll('.datepicker');
-    var instances = M.Datepicker.init(elems, {});
+    var elems2 = document.querySelectorAll('.datepicker');
+    var instances2 = M.Datepicker.init(elems2, {});
   }
 
   ngOnInit(): void {
@@ -83,8 +80,8 @@ export class ProjectTaskComponent implements OnInit, AfterViewInit {
   }
 
   setTaskFinished(task: ProjectTask): void {
+    task.ptState = 'Finished';
     let response = this.projectHttp.postTask(task);
-    //task.ptState = 'Finished';
     this.getTasks();
   }
 
@@ -118,6 +115,7 @@ export class ProjectTaskComponent implements OnInit, AfterViewInit {
   }
 
   updateTask(): void {
-    
+    this.projectHttp.putTask(this.editedTask);
+    this.getTasks();
   }
 }

@@ -17,4 +17,8 @@ export class CustomerListComponent implements OnInit {
     this.customers = this.http.getCustomers();
   }
 
+  reloadCustomers() {
+    this.customers = this.http.getCustomers();
+  }
+
 }
