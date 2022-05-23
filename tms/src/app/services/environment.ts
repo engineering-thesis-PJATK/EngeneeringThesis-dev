@@ -15,5 +15,6 @@ export enum ApiPaths {
   Project = '/project',
   ProjectTasks = '/project/task',
   Ticket = "/ticket",
+  CustomTicket= "/Ticket/CustomTicket",
   Kanban = '/kanban'
 }

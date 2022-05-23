@@ -39,25 +39,25 @@
         <i class="material-icons right">add</i></a>
 </p>
 <ul class="collection" id="ticketList">
-    <li class="collection-item avatar" *ngFor="let entity of (tickets) | async">
-        <a class="a-headers" href="tickets/details/{{entity.ticId}}">
+    <li class="collection-item avatar" *ngFor="let customTicket of (tickets) | async">
+        <a class="a-headers" href="tickets/details/{{customTicket.ticId}}">
             <i class="material-icons circle">folder</i>
-            <span class="title">{{entity.ticTopic}}</span>
+            <span class="title">{{customTicket.ticTopic}}</span>
         </a>
         <div style="display: flex; justify-content: space-between;">
-            <p class="left-align">{{entity.ticDescription}}<br>
-                {{entity.ticCustomerId}}
+            <p class="left-align">{{customTicket.ticDescription}}<br>
+                {{customTicket.singleCustomer.curEmail}}
             </p>
-            <p class="right-align">{{entity.ticCustomerId}}<br>
-                {{entity.ticCustomerId}}
+            <p class="right-align">{{customTicket.singleCompany.cmpName}}<br>
+                {{customTicket.singleCustomer.curEmail}}
             </p>
         </div>
         <hr class="solid">
         <div class="card-action">
             <i class="Tiny material-icons iconPadding ">phone</i>
             <i class="Tiny material-icons iconPadding">mail</i>
-            <a class="a-headers" href="tickets/archive/{{entity.ticId}}"> <i class="Tiny material-icons iconPadding">archive</i></a>
-            <a class="a-headers" href="tickets/delete/{{entity.ticId}}"><i class="Tiny material-icons iconPadding">delete</i></a>
+            <a class="a-headers" href="tickets/archive/{{customTicket.ticId}}"> <i class="Tiny material-icons iconPadding">archive</i></a>
+            <a class="a-headers" href="tickets/delete/{{customTicket.ticId}}" ><i class="Tiny material-icons iconPadding">delete</i></a>
         </div>
         <a href="tickets/create" class="secondary-content"><i class="material-icons custom-icon-color">grade</i></a>
     </li>
