@@ -1,0 +1,32 @@
+<!-- <div class="input-field col s6" >
+    <i class="material-icons prefix">image.png</i>
+    <select multiple class="browser-default"  id="privileges" name="privileges" required 
+    (ngModelChange)="print(this)">
+      <option *ngFor="let privilege of privilegeList" [ngValue]="privilege.epvId">
+        {{ privilege.epvName }}
+      </option>
+    </select>
+    <label>Privileges</label>
+  </div> -->
+
+  <ul class="collapsible popout">
+    <li>
+        <div class="collapsible-header"><i class="material-icons prefix">lock</i>Privileges</div>
+        <div class="collapsible-body">
+            <table class="highlight centered">
+                <tbody>
+                    <tr *ngFor="let privilege of privilegeList">
+                        <th> 
+                            <label>
+                            <input type="checkbox" (change)="privilegeChecked(privilege.epvId,$event)" />
+                            <span></span>
+                          </label>
+                        </th>
+                        <th>{{privilege.epvName}}</th>
+                        <th>{{privilege.epvDescription}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </li>
+</ul>

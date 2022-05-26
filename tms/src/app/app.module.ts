@@ -51,6 +51,7 @@ import { ProjectTaskComponent } from './components/project/project-details/proje
 import { EmployeeEditComponent } from './components/employee/employee-edit/employee-edit.component';
 import { TeamEditComponent } from './components/team/team-edit/team-edit.component';
 import { CustomerEditComponent } from './components/customer/customer-edit/customer-edit.component';
+import { EmployeeFormSelectComponent } from './components/employee/employee-form-select/employee-form-select.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { CustomerEditComponent } from './components/customer/customer-edit/custo
     EmployeeEditComponent,
     TeamEditComponent,
     CustomerEditComponent,
+    EmployeeFormSelectComponent,
   ],
   imports: [
     BrowserModule,
