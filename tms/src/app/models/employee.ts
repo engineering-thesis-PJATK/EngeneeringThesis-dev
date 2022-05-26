@@ -1,4 +1,9 @@
-import { EmployeePrivilege } from "./employeePrivilege";
+export interface EmployeePrivilege {
+    epvId: number;
+    epvName: string;
+    epvDescription: string;
+    employeePrivilegeEmployees?: any[];
+}
 
 export interface Employee {
     empId: number;
@@ -7,26 +12,34 @@ export interface Employee {
     empSurname: string;
     empEmail: string;
     empPhoneNumber?: string;
+    roles?: EmployeePrivilege[];
+    employeeTeams?: any;
 }
 
-export interface EmployeeSend {
-    empLogin: string;
-    empPassword?: string;
+export interface EmployeeNew {
     empName: string;
     empSurname: string;
     empEmail: string;
     empPhoneNumber?: string;
-    empPrivileges: EmployeePrivilege[];
+    empPassword: string;
+    //empPrivileges?: EmployeePrivilege[];
 }
 
+// export interface EmployeeEdit {
+//     empId: number;
+//     empLogin: string;
+//     empName: string;
+//     empSurname: string;
+//     empEmail: string;
+//     empPhoneNumber?: string;
+//     empPrivileges: EmployeePrivilege[];
+// }
 export interface EmployeeEdit {
-    empId: number;
     empLogin: string;
     empName: string;
     empSurname: string;
     empEmail: string;
-    empPhoneNumber?: string;
-    empPrivileges: EmployeePrivilege[];
+    empPhoneNumber: string;
 }
 
 export interface TeamEmployee {
