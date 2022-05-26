@@ -15,5 +15,6 @@ export enum ApiPaths {
   Project = '/project',
   ProjectTasks = '/project/task',
   Ticket = "/ticket",
-  Kanban = '/kanban'
+  Kanban = '/kanban',
+  ForgotPassword = '/Auth/ForgotPassword',
 }
