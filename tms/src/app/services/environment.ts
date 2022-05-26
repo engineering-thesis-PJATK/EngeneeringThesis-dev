@@ -1,5 +1,5 @@
 export const Environment = {
-    baseUrl: 'https://localhost:5001/api',
+    baseUrl: 'https://localhost:44330/api',
     production: false
 };
 
@@ -9,8 +9,8 @@ export enum ApiPaths {
   Company = '/company',
   Customer = '/customer',
   CustomerSelect = '/customer2',
-  Employee = '/Employee/employees',
-  EmployeePrivilege = '/employees/privileges',
+  Employee = '/employee',
+  EmployeePrivilege = '/employee/privilege',
   Team = '/team',
   Project = '/project',
   ProjectTasks = '/project/task',
