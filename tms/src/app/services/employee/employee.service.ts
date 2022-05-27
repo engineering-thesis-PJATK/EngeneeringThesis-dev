@@ -17,21 +17,21 @@ export class EmployeeService {
   constructor(private http: HttpClient, private handler: HandlerService) { }
 
   getEmployees(): Observable<Employee[]> {
-    return this.http.get<Employee[]>(this.url+ApiPaths.Employee).pipe();
+    return this.http.get<Employee[]>(this.url+ApiPaths.Employee).pipe(tap(console.log),catchError(this.handler.handleError));
   }
 
   getEmployee(id: string): Observable<Employee> {
-    return this.http.get<Employee>(this.url+ApiPaths.Employee+'/'+id).pipe();
+    return this.http.get<Employee>(this.url+ApiPaths.Employee+'/'+id).pipe(tap(console.log),catchError(this.handler.handleError));
    }
 
   getPriveleges(): Observable<EmployeePrivilege[]> {
-    return this.http.get<EmployeePrivilege[]>(this.url+ApiPaths.EmployeePrivilege).pipe(tap(console.log));
+    return this.http.get<EmployeePrivilege[]>(this.url+ApiPaths.EmployeePrivilege).pipe(tap(console.log),catchError(this.handler.handleError));
   }
 
   getForgotPassword(email : string) {
     email = email.replace("@","%40");
     console.log(email);
-    return this.http.get<any>(this.url+ApiPaths.ForgotPassword+`?emailAddress=${email}`).pipe(tap(console.log));
+    return this.http.get<any>(this.url+ApiPaths.ForgotPassword+`?emailAddress=${email}`).pipe(tap(console.log),catchError(this.handler.handleError));
   }
 
   getRoles(): Observable<TeamRole[]> {
@@ -45,7 +45,7 @@ export class EmployeeService {
   }
 
   getTeamEmployees(id: string): Observable<Employee[]> {
-    return this.http.get(this.url+ApiPaths.Employee+'/project/'+id).pipe(tap(console.log));
+    return this.http.get(this.url+ApiPaths.Employee+'/project/'+id).pipe(tap(console.log),catchError(this.handler.handleError));
     // let cmps: Employee[] = [
     //   { empId: 1, empName: 'Jan', empPhoneNumber: '223441425', empEmail: 'Poland',empLogin:'x',empSurname:'Kowalski' },
     //   { empId: 2, empName: 'Jonh X', empPhoneNumber: '456456234', empEmail: 'Poland',empLogin:'x',empSurname:'Kowalski'  },
@@ -81,11 +81,15 @@ export class EmployeeService {
   }
 
   postEmployeePrivileges(id: number, privileges: number[]) {
-    return this.http.post<any>(this.url+ApiPaths.Employee+`/${id}/roles`,privileges).pipe(tap(console.log));
+    return this.http.post<any>(this.url+ApiPaths.Employee+`/${id}/roles`,privileges).pipe(tap(console.log),catchError(this.handler.handleError));
+  }
+
+  putEmployeePrivileges(id: number, privileges: number[]) {
+    return this.http.put<any>(this.url+ApiPaths.Employee+`/${id}/roles`,privileges).pipe(tap(console.log),catchError(this.handler.handleError));
   }
 
   putEmployee(id: number, employee: EmployeeEdit) {
-    return this.http.put<any>(this.url+ApiPaths.Employee+`/${id}`,employee).pipe(tap(console.log));
+    return this.http.put<any>(this.url+ApiPaths.Employee+`/${id}`,employee).pipe(tap(console.log),catchError(this.handler.handleError));
   }
 
   deleteEmployee(id: number): string {
