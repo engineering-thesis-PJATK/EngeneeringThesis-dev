@@ -30,9 +30,11 @@ export class CompanyFormComponent implements OnInit {
   }
 
   addCompany() {
-    this.companyService.postCompany(this.company).subscribe(
-      //
+    let res = this.companyService.postCompany(this.company).subscribe(
+      result => console.log(result),
+      error => console.error(error)
     );
+    console.log(res);
   }
 
   returnButtonClick() {
