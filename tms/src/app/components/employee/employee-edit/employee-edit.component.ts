@@ -34,30 +34,35 @@ export class EmployeeEditComponent implements OnInit, AfterViewInit {
     this.http.getPriveleges().subscribe((prv) => (this.privilegeList = prv));
     this.http.getEmployee(this.route.snapshot.paramMap.get('id') || '0').pipe(
       map(res => {
-          this.employee = res;
-          if(this.employee.roles != undefined) {
-            this.employee.roles.forEach(element => {
-              this.empPrivileges.push(element.epvId);
-            });
-          }
+        this.employee = res;
+        if (this.employee.roles != undefined) {
+          this.employee.roles.forEach(element => {
+            this.empPrivileges.push(element.epvId);
+          });
+        }
       })).subscribe();
   }
 
   resetPassword(): void {
     this.http.getForgotPassword(this.employee.empEmail).subscribe();
-      Swal.fire({
-        icon: 'success',
-        title: 'Done',
-        text: 'New password has been sent to employee email address'
-      });
-      return;
+    Swal.fire({
+      icon: 'success',
+      title: 'Done',
+      text: 'New password has been sent to employee email address'
+    });
+    return;
   }
 
   updateEmployee(): void {
     let sending = this.employee as unknown as EmployeeEdit;
-    //console.log(sending);
-    let result = this.http.putEmployee(this.employee.empId,sending).subscribe();
-    //console.log(result);
+    this.http.putEmployee(this.employee.empId, sending).pipe(
+      map(res => {
+        if (res.statusCode == 200) {
+          this.http.putEmployeePrivileges(this.employee.empId, this.empPrivileges).subscribe();
+          this.returnButtonClick();
+        }
+      })
+    ).subscribe();
   }
 
   returnButtonClick(): void {
