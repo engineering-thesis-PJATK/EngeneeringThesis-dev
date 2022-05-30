@@ -1,12 +1,11 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { Location } from '@angular/common';
-import { Employee, EmployeeEdit, EmployeeNew } from 'src/app/models/employee';
+import { Employee, EmployeeEdit } from 'src/app/models/employee';
 import { EmployeePrivilege } from 'src/app/models/employee';
-import { NgModel } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { last, map, Observable, switchMap } from 'rxjs';
+import { map } from 'rxjs';
 declare const M: any;
 
 @Component({
@@ -16,7 +15,6 @@ declare const M: any;
 })
 export class EmployeeEditComponent implements OnInit, AfterViewInit {
   employee!: Employee;
-  //employeePrivileges!: EmployeePrivilege[];
   privilegeList: EmployeePrivilege[] = [];
   empPrivileges: number[] = [];
 
