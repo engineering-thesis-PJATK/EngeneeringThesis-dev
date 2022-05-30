@@ -53,7 +53,7 @@
         <i class="material-icons prefix">vpn_key</i>
         <input id="password" name="password" type="password" [(ngModel)]="employee.empPassword" required
           #password="ngModel" minlength="4" maxlength="255"
-          pattern="^(?=.*?[a-zA-Z])(?=(.*?[\d]){0,})(?=(.*?[\W]){0,})(?!.*\s).{8,}$" />
+          pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$" />
         <label for="password">Password</label>
         <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
           <span class="red-text text-lighten-1" *ngIf="password.errors?.['required']">Field is required </span>
@@ -71,12 +71,16 @@
         (removePrivilege)="employeePrivilegesRemove($event)"></app-employee-form-select>
     </div>
     <div class="row">
-      <button class="waves-effect waves-yellow btn-large btn-submit" type="button" (click)="returnButtonClick()">
-        Return
-      </button>
-      <button class="waves-effect waves-yellow btn-large btn-submit right" type="submit" [disabled]="form.invalid">
-        Submit
-      </button>
+      <div class="col s12 m12 l6 xl6">
+        <button class="waves-effect waves-yellow btn-large btn-submit" type="button" (click)="returnButtonClick()">
+          Return
+        </button>
+      </div>
+      <div class="col s12 m12 l6 xl6">
+        <button class="waves-effect waves-yellow btn-large btn-submit" type="submit" [disabled]="form.invalid">
+          Submit
+        </button>
+      </div>
     </div>
   </form>
   <div class="col s1 m1 l1 xl1"></div>
