@@ -18,4 +18,5 @@ export enum ApiPaths {
   CustomTicket= "/Ticket/CustomTicket",
   Kanban = '/kanban',
   ForgotPassword = '/Auth/ForgotPassword',
+  RemindPassword ='/Auth/RemindPassword'
 }
