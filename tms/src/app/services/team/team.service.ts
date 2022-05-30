@@ -12,8 +12,8 @@ export class TeamService {
   private url = Environment.baseUrl;
   constructor(private http: HttpClient) { }
 
-  postTeam(team: Team): Observable<string[]> {
-    return this.http.post<string[]>(this.url+ApiPaths.Team,team).pipe(tap(console.log));
+  postTeam(team: Team) {
+    return this.http.post<any>(this.url+ApiPaths.Team,team).pipe(tap(console.log));
   }
 
   getTeams(): Observable<TeamSelect[]> {
