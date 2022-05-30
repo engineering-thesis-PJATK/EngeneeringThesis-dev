@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, delay, first, last, Observable, of, take, tap } from 'rxjs';
+import { catchError, Observable, of, tap } from 'rxjs';
 import { EmployeeNew, EmployeePrivilege } from '../../models/employee';
 import { Employee,  EmployeeEdit, TeamEmployee, TeamRole } from '../../models/employee';
 import { Environment } from '../environment';
@@ -77,23 +77,24 @@ export class EmployeeService {
   }
 
   postEmployee(employee: EmployeeNew) {
-    return this.http.post<any>(this.url+ApiPaths.Employee,employee).pipe(tap(console.log),catchError(this.handler.handleError));
+    return this.http.post<any>(this.url+ApiPaths.Employee,employee).pipe(catchError(this.handler.handleError));
+    //return this.http.post<any>(this.url+ApiPaths.Employee,employee).pipe(tap(console.log),catchError(this.handler.handleError));
   }
 
   postEmployeePrivileges(id: number, privileges: number[]) {
-    return this.http.post<any>(this.url+ApiPaths.Employee+`/${id}/roles`,privileges).pipe(tap(console.log),catchError(this.handler.handleError));
+    return this.http.post<any>(this.url+ApiPaths.Employee+`/${id}/roles`,privileges).pipe(catchError(this.handler.handleError));
   }
 
   putEmployeePrivileges(id: number, privileges: number[]) {
-    return this.http.put<any>(this.url+ApiPaths.Employee+`/${id}/roles`,privileges).pipe(tap(console.log),catchError(this.handler.handleError));
+    return this.http.put<any>(this.url+ApiPaths.Employee+`/${id}/roles`,privileges).pipe(catchError(this.handler.handleError));
   }
 
   putEmployee(id: number, employee: EmployeeEdit) {
-    return this.http.put<any>(this.url+ApiPaths.Employee+`/${id}`,employee).pipe(tap(console.log),catchError(this.handler.handleError));
+    return this.http.put<any>(this.url+ApiPaths.Employee+`/${id}`,employee).pipe(catchError(this.handler.handleError));
   }
 
-  deleteEmployee(id: number): string {
-    //return this.http.delete<object>(this.url+ApiPaths.Employee+'/'+id).pipe(tap(console.log));
-    return 'ok';
+  deleteEmployee(id: number) {
+    // TODO : do sprawdzenia
+    return this.http.delete<any>(this.url+ApiPaths.Employee+'/'+id).pipe(tap(console.log),catchError(this.handler.handleError));
   }
 }
