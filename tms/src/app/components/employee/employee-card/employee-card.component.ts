@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { map } from 'rxjs';
 import { Employee } from 'src/app/models/employee';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import Swal from 'sweetalert2';
@@ -33,12 +34,12 @@ export class EmployeeCardComponent implements OnInit {
   }
 
   handleDelete() {
-    let response = this.http.deleteEmployee(this.employee.empId);
-    if(response == 'ok') {
-      this.getEmployees.emit();
-    }
-    else {
-      console.error(response);
-    }
+    this.http.deleteEmployee(this.employee.empId).pipe(
+      map(res => {
+        if(res.statusCode == 200) {
+          this.getEmployees.emit();
+        }
+      })
+    ).subscribe();
   }
 }

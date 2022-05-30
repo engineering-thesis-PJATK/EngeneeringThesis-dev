@@ -1,40 +1,16 @@
 <div class="row">
     <div class="col s1 m1 l1 xl1"></div>
-    <form *ngIf="employee | async as employee" class="col s10 m10 l10 xl10" (ngSubmit)="updateEmployee()" #form="ngForm">
+    <form *ngIf="employee" class="col s10 m10 l10 xl10" (ngSubmit)="updateEmployee()" #form="ngForm">
         <div class="row">
             <div class="input-field col s6">
-                <i class="material-icons prefix">account_box</i>
-                <input id="login" name="login" type="text" [(ngModel)]="employee.empLogin" required #login="ngModel"
-                    minlength="2" maxlength="255" />
-                <label for="login" class="active">Login</label>
-                <ng-container *ngIf="login.invalid && (login.dirty || login.touched)">
-                    <span class="red-text text-lighten-1" *ngIf="login.errors?.['required']">Field is required</span>
-                    <span class="red-text text-lighten-1" *ngIf="login.errors?.['minlength']">Text is too short</span>
-                    <span class="red-text text-lighten-1" *ngIf="login.errors?.['maxlength']">Text is too long</span>
-                </ng-container>
-            </div>
-            <div class="input-field col s6">
-                <i class="material-icons prefix">account_circle</i>
-                <input id="name" name="name" type="text" [(ngModel)]="employee.empName" required #name="ngModel"
-                    minlength="2" maxlength="50" />
-                <label for="name" class="active">Name</label>
-                <ng-container *ngIf="name.invalid && (name.dirty || name.touched)">
-                    <span class="red-text text-lighten-1" *ngIf="name.errors?.['required']">Field is required</span>
-                    <span class="red-text text-lighten-1" *ngIf="name.errors?.['minlength']">Text is too short</span>
-                    <span class="red-text text-lighten-1" *ngIf="name.errors?.['maxlength']">Text is too long</span>
-                </ng-container>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s6">
-                <i class="material-icons prefix">account_circle</i>
-                <input id="surname" name="surname" type="text" [(ngModel)]="employee.empSurname" required
-                    #surname="ngModel" minlength="1" maxlength="50" />
-                <label for="surname" class="active">Surname</label>
-                <ng-container *ngIf="surname.invalid && (surname.dirty || surname.touched)">
-                    <span class="red-text text-lighten-1" *ngIf="surname.errors?.['required']">Field is required</span>
-                    <span class="red-text text-lighten-1" *ngIf="surname.errors?.['minlength']">Text is too short</span>
-                    <span class="red-text text-lighten-1" *ngIf="surname.errors?.['maxlength']">Text is too long</span>
+                <i class="material-icons prefix">alternate_email</i>
+                <input id="email" name="email" type="text" [(ngModel)]="employee.empEmail" #email="ngModel"
+                    minlength="5" maxlength="255" />
+                <label for="email" class="active">Email</label>
+                <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
+                    <span class="red-text text-lighten-1" *ngIf="email.errors?.['required']">Field is required</span>
+                    <span class="red-text text-lighten-1" *ngIf="email.errors?.['minlength']">Text is too short</span>
+                    <span class="red-text text-lighten-1" *ngIf="email.errors?.['maxlength']">Text is too long</span>
                 </ng-container>
             </div>
             <div class="input-field col s6">
@@ -50,50 +26,53 @@
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <i class="material-icons prefix">alternate_email</i>
-                <input id="email" name="email" type="text" [(ngModel)]="employee.empEmail" #email="ngModel"
-                    minlength="5" maxlength="255" />
-                <label for="email" class="active">Email</label>
-                <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
-                    <span class="red-text text-lighten-1" *ngIf="email.errors?.['required']">Field is required</span>
-                    <span class="red-text text-lighten-1" *ngIf="email.errors?.['minlength']">Text is too short</span>
-                    <span class="red-text text-lighten-1" *ngIf="email.errors?.['maxlength']">Text is too long</span>
+                <i class="material-icons prefix">account_circle</i>
+                <input id="name" name="name" type="text" [(ngModel)]="employee.empName" required #name="ngModel"
+                    minlength="2" maxlength="50" />
+                <label for="name" class="active">Name</label>
+                <ng-container *ngIf="name.invalid && (name.dirty || name.touched)">
+                    <span class="red-text text-lighten-1" *ngIf="name.errors?.['required']">Field is required</span>
+                    <span class="red-text text-lighten-1" *ngIf="name.errors?.['minlength']">Text is too short</span>
+                    <span class="red-text text-lighten-1" *ngIf="name.errors?.['maxlength']">Text is too long</span>
                 </ng-container>
             </div>
-            <!-- <div class="input-field col s6">
-                <i class="material-icons prefix">lock</i>
-                <select multiple id="privileges" name="privileges" [(ngModel)]="employee.empPrivileges" required
-                    #privileges="ngModel" (ngModelChange)="print(privileges)">
-                    <option *ngFor="let privilege of privilegeList" [ngValue]="privilege.id" selected >
-                        {{ privilege.name }}
-                    </option>
-                </select>
-                <label>Privileges</label>
-                <ng-container *ngIf="privileges.invalid && (privileges.dirty || privileges.touched)">
-                    <span class="red-text text-lighten-1" *ngIf="privileges.errors?.['required']">Field is
-                        required</span>
-                </ng-container>
-            </div> -->
             <div class="input-field col s6">
-                <label>
-                    <input id="test" name="test" type="checkbox" [checked]="isAdmin()" (change)="adminChange()"/>
-                    <span><i class="material-icons">lock</i>Administrator</span>
-                  </label>
+                <i class="material-icons prefix">account_circle</i>
+                <input id="surname" name="surname" type="text" [(ngModel)]="employee.empSurname" required
+                    #surname="ngModel" minlength="1" maxlength="50" />
+                <label for="surname" class="active">Surname</label>
+                <ng-container *ngIf="surname.invalid && (surname.dirty || surname.touched)">
+                    <span class="red-text text-lighten-1" *ngIf="surname.errors?.['required']">Field is required</span>
+                    <span class="red-text text-lighten-1" *ngIf="surname.errors?.['minlength']">Text is too short</span>
+                    <span class="red-text text-lighten-1" *ngIf="surname.errors?.['maxlength']">Text is too long</span>
+                </ng-container>
             </div>
+
         </div>
         <div class="row">
-            <button class="waves-effect waves-yellow btn-large btn-submit" type="submit" [disabled]="form.invalid">
-                Submit
-            </button>
-
-            <button class="waves-effect waves-yellow btn-large btn-submit center" type="submit" (click)="resetPassword()">
-                Reset password
-            </button>
-
-            <button class="waves-effect waves-yellow btn-large btn-submit right" type="submit"
-                (click)="returnButtonClick()">
-                Return
-            </button>
+            <app-employee-edit-select [privilegeList]="privilegeList" [currentPrivileges]="empPrivileges"
+                (addPrivilege)="employeePrivilegesAdd($event)" (removePrivilege)="employeePrivilegesRemove($event)">
+            </app-employee-edit-select>
+        </div>
+        <div class="row">
+            <div class="col s12 m12 l4 xl4">
+                <button class="waves-effect waves-yellow btn-large btn-submit" type="button"
+                    (click)="returnButtonClick()">
+                    Return
+                </button>
+            </div>
+            <div class="col s12 m12 l4 xl4">
+                <button class="waves-effect waves-yellow btn-large btn-submit" type="button"
+                    (click)="resetPassword()">
+                    Reset password
+                </button>
+            </div>
+            <div class="col s12 m12 l4 xl4">
+                <button class="waves-effect waves-yellow btn-large btn-submit" type="submit"
+                    [disabled]="form.invalid">
+                    Submit
+                </button>
+            </div>
         </div>
     </form>
     <div class="col s1 m1 l1 xl1"></div>

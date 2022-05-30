@@ -1,11 +1,9 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { EmployeePrivilege } from 'src/app/models/employeePrivilege';
+import { last, map } from 'rxjs';
+import { EmployeePrivilege } from 'src/app/models/employee';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { Location } from '@angular/common';
-import { FormSelect } from 'materialize-css';
-import { EmployeeSend } from 'src/app/models/employee';
-import { NgModel } from '@angular/forms';
+import { EmployeeNew } from 'src/app/models/employee';
 declare const M: any;
 
 @Component({
@@ -14,12 +12,13 @@ declare const M: any;
   styleUrls: ['./employee-form.component.scss'],
 })
 export class EmployeeFormComponent implements OnInit, AfterViewInit {
-  employee: EmployeeSend = {empLogin: '', empEmail: '', empName: '', empPrivileges: [], empSurname: '', empPassword: '',empPhoneNumber:''};
-
-  privilegeList: EmployeePrivilege[] = [];
+  employee: EmployeeNew = {empEmail: '', empName: '', empSurname: '', empPassword: '',empPhoneNumber:''};
+  privilegeList!: EmployeePrivilege[];
+  employeePrivileges: number[] = [];
 
   constructor(private http: EmployeeService, private location: Location) {}
   ngAfterViewInit(): void {
+    
     var options = {
       isMultiple: true,
     };
@@ -28,8 +27,7 @@ export class EmployeeFormComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    //this.privilegeList = this.http.getPriveleges();
-    this.http.getPriveleges().subscribe((prv) => (this.privilegeList = prv));
+    this.http.getPriveleges().pipe(last()).subscribe((prv) => (this.privilegeList = prv));
   }
 
   returnButtonClick() {
@@ -37,13 +35,22 @@ export class EmployeeFormComponent implements OnInit, AfterViewInit {
   }
 
   addEmployee() {
-    console.log(this.employee);
-    //this.http.postEmployee(this.employee as unknown as EmployeeSend);
+    this.http.postEmployee(this.employee).pipe(
+      map(res => {
+          if(res.statusCode == 200){
+            this.http.postEmployeePrivileges(res.objectId,this.employeePrivileges).subscribe();
+            this.returnButtonClick();
+          }})).subscribe();
   }
 
-  print(any: NgModel) {
-    console.log(any);
+  employeePrivilegesAdd(id: number) {
+    this.employeePrivileges.push(id);
   }
+
+  employeePrivilegesRemove(id: number) {
+    this.employeePrivileges = this.employeePrivileges.filter(a => a != id);
+  }
+
 }
 
 //regexy na hasła

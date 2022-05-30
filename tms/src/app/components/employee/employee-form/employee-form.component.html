@@ -2,31 +2,15 @@
   <div class="col s1 m1 l1 xl1"></div>
   <form class="col s10 m10 l10 xl10" (ngSubmit)="addEmployee()" #form="ngForm">
     <div class="row">
-      <div class="input-field col s6">
-        <i class="material-icons prefix">account_box</i>
-        <input id="login" name="login" type="text" [(ngModel)]="employee.empLogin" required #login="ngModel"
-          minlength="2" maxlength="255" />
-        <label for="login">Login</label>
-        <ng-container *ngIf="login.invalid && (login.dirty || login.touched)">
-          <span class="red-text text-lighten-1" *ngIf="login.errors?.['required']">Field is required</span>
-          <span class="red-text text-lighten-1" *ngIf="login.errors?.['minlength']">Text is too short</span>
-          <span class="red-text text-lighten-1" *ngIf="login.errors?.['maxlength']">Text is too long</span>
-        </ng-container>
-      </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">vpn_key</i>
-        <input id="password" name="password" type="password" [(ngModel)]="employee.empPassword" required
-          #password="ngModel" minlength="4" maxlength="255"
-          pattern="^(?=.*?[a-zA-Z])(?=(.*?[\d]){0,})(?=(.*?[\W]){0,})(?!.*\s).{8,}$" />
-        <label for="password">Password</label>
-        <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
-          <span class="red-text text-lighten-1" *ngIf="password.errors?.['required']">Field is required </span>
-          <span class="red-text text-lighten-1" *ngIf="password.errors?.['minlength']">Text is too short </span>
-          <span class="red-text text-lighten-1" *ngIf="password.errors?.['maxlength']">Text is too long </span>
-          <span class="red-text text-lighten-1" *ngIf="password.errors?.['pattern']">Password must have at least 8
-            characters including 1 special
-            character, 1 number, 1 upper case letter and 1 lower case
-            letter </span>
+      <div class="input-field col s12">
+        <i class="material-icons prefix">alternate_email</i>
+        <input id="email" name="email" type="text" [(ngModel)]="employee.empEmail" #email="ngModel" minlength="5"
+          maxlength="255" />
+        <label for="email">Email</label>
+        <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
+          <span class="red-text text-lighten-1" *ngIf="email.errors?.['required']">Field is required</span>
+          <span class="red-text text-lighten-1" *ngIf="email.errors?.['minlength']">Text is too short</span>
+          <span class="red-text text-lighten-1" *ngIf="email.errors?.['maxlength']">Text is too long</span>
         </ng-container>
       </div>
     </div>
@@ -66,39 +50,37 @@
         </ng-container>
       </div>
       <div class="input-field col s6">
-        <i class="material-icons prefix">alternate_email</i>
-        <input id="email" name="email" type="text" [(ngModel)]="employee.empEmail" #email="ngModel" minlength="5"
-          maxlength="255" />
-        <label for="email">Email</label>
-        <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
-          <span class="red-text text-lighten-1" *ngIf="email.errors?.['required']">Field is required</span>
-          <span class="red-text text-lighten-1" *ngIf="email.errors?.['minlength']">Text is too short</span>
-          <span class="red-text text-lighten-1" *ngIf="email.errors?.['maxlength']">Text is too long</span>
+        <i class="material-icons prefix">vpn_key</i>
+        <input id="password" name="password" type="password" [(ngModel)]="employee.empPassword" required
+          #password="ngModel" minlength="4" maxlength="255"
+          pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$" />
+        <label for="password">Password</label>
+        <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
+          <span class="red-text text-lighten-1" *ngIf="password.errors?.['required']">Field is required </span>
+          <span class="red-text text-lighten-1" *ngIf="password.errors?.['minlength']">Text is too short </span>
+          <span class="red-text text-lighten-1" *ngIf="password.errors?.['maxlength']">Text is too long </span>
+          <span class="red-text text-lighten-1" *ngIf="password.errors?.['pattern']">Password must have at least 8
+            characters including 1 special
+            character, 1 number, 1 upper case letter and 1 lower case
+            letter </span>
         </ng-container>
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s6">
-        <i class="material-icons prefix">lock</i>
-        <select multiple id="privileges" name="privileges" [(ngModel)]="employee.empPrivileges" required
-          #privileges="ngModel" (ngModelChange)="print(privileges)">
-          <option *ngFor="let privilege of privilegeList" [ngValue]="privilege.id">
-            {{ privilege.name }}
-          </option>
-        </select>
-        <label>Privileges</label>
-        <ng-container *ngIf="privileges.invalid && (privileges.dirty || privileges.touched)">
-          <span class="red-text text-lighten-1" *ngIf="privileges.errors?.['required']">Field is required</span>
-        </ng-container>
-      </div>
+      <app-employee-form-select [privilegeList]="privilegeList" (addPrivilege)="employeePrivilegesAdd($event)"
+        (removePrivilege)="employeePrivilegesRemove($event)"></app-employee-form-select>
     </div>
     <div class="row">
-      <button class="waves-effect waves-yellow btn-large btn-submit" type="submit" [disabled]="form.invalid">
-        Submit
-      </button>
-      <button class="waves-effect waves-yellow btn-large btn-submit right" type="submit" (click)="returnButtonClick()">
-        Return
-      </button>
+      <div class="col s12 m12 l6 xl6">
+        <button class="waves-effect waves-yellow btn-large btn-submit" type="button" (click)="returnButtonClick()">
+          Return
+        </button>
+      </div>
+      <div class="col s12 m12 l6 xl6">
+        <button class="waves-effect waves-yellow btn-large btn-submit" type="submit" [disabled]="form.invalid">
+          Submit
+        </button>
+      </div>
     </div>
   </form>
   <div class="col s1 m1 l1 xl1"></div>

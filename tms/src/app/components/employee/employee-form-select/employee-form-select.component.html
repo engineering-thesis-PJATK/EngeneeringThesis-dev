@@ -1,0 +1,21 @@
+<ul class="collapsible popout">
+  <li>
+    <div class="collapsible-header"><i class="material-icons prefix">lock</i>Privileges</div>
+    <div class="collapsible-body">
+      <table class="highlight centered">
+        <tbody>
+          <tr *ngFor="let privilege of privilegeList">
+            <th>
+              <label>
+                <input type="checkbox" (change)="privilegeChecked(privilege.epvId,$event)" />
+                <span></span>
+              </label>
+            </th>
+            <th>{{privilege.epvName}}</th>
+            <th>{{privilege.epvDescription}}</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </li>
+</ul>
