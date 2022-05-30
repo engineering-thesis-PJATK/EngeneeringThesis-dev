@@ -30,7 +30,6 @@ export class EmployeeService {
 
   getForgotPassword(email : string) {
     email = email.replace("@","%40");
-    console.log(email);
     return this.http.get<any>(this.url+ApiPaths.ForgotPassword+`?emailAddress=${email}`).pipe(tap(console.log),catchError(this.handler.handleError));
   }
 
