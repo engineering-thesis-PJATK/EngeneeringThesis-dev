@@ -40,7 +40,7 @@
 </p>
 <ul class="collection" id="ticketList">
     <li class="collection-item avatar" *ngFor="let customTicket of (tickets) | async">
-        <a class="a-headers" href="tickets/details/{{customTicket.ticId}}">
+        <a class="a-headers" routerLink="details/{{customTicket.ticId}}">
             <i class="material-icons circle">folder</i>
             <span class="title">{{customTicket.ticTopic}}</span>
         </a>

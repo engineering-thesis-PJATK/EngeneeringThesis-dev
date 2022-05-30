@@ -55,6 +55,7 @@ import { ReportComponent } from './components/report/report.component';
 import { DetailsPartComponent } from './components/report/details-part/details-part.component';
 import { EmployeeFormSelectComponent } from './components/employee/employee-form-select/employee-form-select.component';
 import { EmployeeEditSelectComponent } from './components/employee/employee-edit-select/employee-edit-select.component';
+import { TicketDetailsComponent } from './components/ticket/ticket-details/ticket-details/ticket-details.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { EmployeeEditSelectComponent } from './components/employee/employee-edit
     DetailsPartComponent,
     EmployeeFormSelectComponent,
     EmployeeEditSelectComponent,
+    TicketDetailsComponent,
   ],
   imports: [
     BrowserModule,

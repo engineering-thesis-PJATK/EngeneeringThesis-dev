@@ -49,6 +49,7 @@ const routes: Routes = [
 
   {path: 'tickets', component: TicketListComponent},
   {path: 'tickets/create', component: CreateTicketComponent},
+  {path: 'tickets/details/:id', component: CreateTicketComponent},
 
   {path: 'settings', component: SettingListComponent},
   {path: 'settings/edit', component: SettingListComponent},
