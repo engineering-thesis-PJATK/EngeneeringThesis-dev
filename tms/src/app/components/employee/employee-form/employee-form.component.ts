@@ -1,12 +1,9 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { last, map, Observable } from 'rxjs';
+import { last, map } from 'rxjs';
 import { EmployeePrivilege } from 'src/app/models/employee';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { Location } from '@angular/common';
-import { FormSelect } from 'materialize-css';
 import { EmployeeNew } from 'src/app/models/employee';
-import { NgModel } from '@angular/forms';
-import { ReponseModel } from 'src/app/models/reponse';
 declare const M: any;
 
 @Component({
@@ -31,7 +28,6 @@ export class EmployeeFormComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.http.getPriveleges().pipe(last()).subscribe((prv) => (this.privilegeList = prv));
-    //this.privilegeList = this.http.getPriveleges();
   }
 
   returnButtonClick() {
@@ -39,8 +35,6 @@ export class EmployeeFormComponent implements OnInit, AfterViewInit {
   }
 
   addEmployee() {
-    console.log(this.employee);
-    //let result = this.http.postEmployee(this.employee).subscribe();
     this.http.postEmployee(this.employee).pipe(
       map(res => {
           if(res.statusCode == 200){
