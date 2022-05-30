@@ -5,7 +5,7 @@
             <div class="input-field col s6">
                 <i class="material-icons prefix">alternate_email</i>
                 <input id="email" name="email" type="text" [(ngModel)]="employee.empEmail" #email="ngModel"
-                minlength="5" maxlength="255" />
+                    minlength="5" maxlength="255" />
                 <label for="email" class="active">Email</label>
                 <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
                     <span class="red-text text-lighten-1" *ngIf="email.errors?.['required']">Field is required</span>
@@ -47,24 +47,32 @@
                     <span class="red-text text-lighten-1" *ngIf="surname.errors?.['maxlength']">Text is too long</span>
                 </ng-container>
             </div>
-           
+
         </div>
         <div class="row">
-                <app-employee-edit-select [privilegeList]="privilegeList" [currentPrivileges]="empPrivileges" (addPrivilege)="employeePrivilegesAdd($event)"
-                (removePrivilege)="employeePrivilegesRemove($event)"></app-employee-edit-select>
+            <app-employee-edit-select [privilegeList]="privilegeList" [currentPrivileges]="empPrivileges"
+                (addPrivilege)="employeePrivilegesAdd($event)" (removePrivilege)="employeePrivilegesRemove($event)">
+            </app-employee-edit-select>
         </div>
         <div class="row">
-            <button class="waves-effect waves-yellow btn-large btn-submit" type="button" (click)="returnButtonClick()">
-                Return
-            </button>
-            <button class="waves-effect waves-yellow btn-large btn-submit center" type="button"
-                (click)="resetPassword()">
-                Reset password
-            </button>
-            <button class="waves-effect waves-yellow btn-large btn-submit right" type="submit"
-                [disabled]="form.invalid">
-                Submit
-            </button>
+            <div class="col s12 m12 l4 xl4">
+                <button class="waves-effect waves-yellow btn-large btn-submit" type="button"
+                    (click)="returnButtonClick()">
+                    Return
+                </button>
+            </div>
+            <div class="col s12 m12 l4 xl4">
+                <button class="waves-effect waves-yellow btn-large btn-submit" type="button"
+                    (click)="resetPassword()">
+                    Reset password
+                </button>
+            </div>
+            <div class="col s12 m12 l4 xl4">
+                <button class="waves-effect waves-yellow btn-large btn-submit" type="submit"
+                    [disabled]="form.invalid">
+                    Submit
+                </button>
+            </div>
         </div>
     </form>
     <div class="col s1 m1 l1 xl1"></div>
