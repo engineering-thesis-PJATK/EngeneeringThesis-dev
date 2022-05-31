@@ -1,5 +1,5 @@
 export const Environment = {
-    baseUrl: 'https://localhost:44330/api',
+    baseUrl: 'https://localhost:5001/api',
     production: false
 };
 
@@ -18,4 +18,5 @@ export enum ApiPaths {
   CustomTicket= "/Ticket/CustomTicket",
   Kanban = '/kanban',
   ForgotPassword = '/Auth/ForgotPassword',
+  RemindPassword ='/Auth/RemindPassword'
 }
