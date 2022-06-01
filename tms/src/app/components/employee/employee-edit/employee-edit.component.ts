@@ -23,7 +23,7 @@ export class EmployeeEditComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     var options = {
       isMultiple: true,
-    };
+    };//
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems, options);
   }
