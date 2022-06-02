@@ -53,6 +53,7 @@ import { TeamEditComponent } from './components/team/team-edit/team-edit.compone
 import { CustomerEditComponent } from './components/customer/customer-edit/customer-edit.component';
 import { EmployeeFormSelectComponent } from './components/employee/employee-form-select/employee-form-select.component';
 import { EmployeeEditSelectComponent } from './components/employee/employee-edit-select/employee-edit-select.component';
+import { CustomerFormSelectComponent } from './components/customer/customer-form-select/customer-form-select.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { EmployeeEditSelectComponent } from './components/employee/employee-edit
     CustomerEditComponent,
     EmployeeFormSelectComponent,
     EmployeeEditSelectComponent,
+    CustomerFormSelectComponent,
   ],
   imports: [
     BrowserModule,
