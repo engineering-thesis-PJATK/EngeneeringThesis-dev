@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
-import { Team, TeamSelect } from 'src/app/models/team';
+import { Team } from 'src/app/models/team';
 import { ApiPaths, Environment } from '../environment';
 
 @Injectable({
@@ -16,19 +16,19 @@ export class TeamService {
     return this.http.post<any>(this.url+ApiPaths.Team,team).pipe(tap(console.log));
   }
 
-  getTeams(): Observable<TeamSelect[]> {
+  getTeams(): Observable<Team[]> {
     //return this.http.get<TeamSimple[]>(this.url+ApiPaths.Team).pipe(tap(console.log));
-    let teas: TeamSelect[] = [
-      {id: 1, Name: 'Team 1'},
-      {id: 2, Name: '.NET Team'},
-      {id: 3, Name: 'bla bla'},
-      {id: 4, Name: 'test123'},
+    let teas: Team[] = [
+      {temId: 1, temName: 'Team 1'},
+      {temId: 2, temName: '.NET Team'},
+      {temId: 3, temName: 'bla bla'},
+      {temId: 4, temName: 'test123'},
     ];
     return of(teas);
   }
 
-  getTeam(id: string): Observable<TeamSelect> {
-    let team = {id: 1, Name: 'Team 1'};
+  getTeam(temId: string): Observable<Team> {
+    let team = {temId: 1, temName: 'Team 1'};
     return of(team);
   }
   

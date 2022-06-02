@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Team, TeamSelect } from 'src/app/models/team';
+import { Team } from 'src/app/models/team';
 
 @Component({
   selector: 'app-team-card',
@@ -8,7 +8,7 @@ import { Team, TeamSelect } from 'src/app/models/team';
 })
 export class TeamCardComponent implements OnInit {
 
-  @Input() team!: TeamSelect;
+  @Input() team!: Team;
   constructor() { }
 
   ngOnInit(): void {

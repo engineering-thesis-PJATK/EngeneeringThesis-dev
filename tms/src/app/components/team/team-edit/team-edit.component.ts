@@ -3,7 +3,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { firstValueFrom, Observable, switchMap } from 'rxjs';
 import { Employee, TeamEmployee, TeamRole, TempMember } from 'src/app/models/employee';
-import { TeamSelect } from 'src/app/models/team';
+import { Team } from 'src/app/models/team';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { TeamService } from 'src/app/services/team/team.service';
 import Swal from 'sweetalert2';
@@ -17,7 +17,7 @@ export class TeamEditComponent implements OnInit, AfterViewInit {
   @ViewChild('editEmp') editEmp!: ElementRef;
   @ViewChild('roleEdit') roleEdit!: ElementRef;
   
-  teamDetails!: Observable<TeamSelect>;
+  teamDetails!: Observable<Team>;
   teamMembers!: Observable<TeamEmployee[]>;
   employees!: Employee[];
   roles!: Partial<TeamRole[]>;
@@ -63,13 +63,13 @@ export class TeamEditComponent implements OnInit, AfterViewInit {
   
   async updateMember(): Promise<void> {
     let team = await firstValueFrom(this.teamDetails);
-    this.empHttp.putTeamMember(this.editedMember,team.id)
+    this.empHttp.putTeamMember(this.editedMember,team.temId)
     this.getMembers();
   }
 
   async deleteMember(member: TeamEmployee): Promise<void> {
     let team = await firstValueFrom(this.teamDetails);
-    this.empHttp.deleteTeamMember(member,team.id);
+    this.empHttp.deleteTeamMember(member,team.temId);
     this.getMembers();
   }
 
@@ -119,7 +119,7 @@ export class TeamEditComponent implements OnInit, AfterViewInit {
       empRole: role
     };
     let team = await firstValueFrom(this.teamDetails);
-    this.empHttp.postTeamMember(tempEmp,team.id);
+    this.empHttp.postTeamMember(tempEmp,team.temId);
     this.getMembers();
   }
 }
