@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of, tap } from 'rxjs';
-import { CompanyCard,CompanySelect,CompanySend } from 'src/app/models/company';
+import { Company,CompanySelect,CompanySend } from 'src/app/models/company';
+import { CompanyAddress } from 'src/app/models/companyAddress';
 import { Environment } from '../environment';
 import { ApiPaths } from '../environment';
 import { HandlerService } from '../handler/handler.service';
@@ -16,18 +17,22 @@ export class CompanyService {
 
    }
 
-   getCompanies(): Observable<CompanyCard[]> {
+   getCompanies(): Observable<Company[]> {
       // return this.http.get<CompanyCard[]>(this.url+ApiPaths.Company,{observe: 'response'}).pipe(map(data => {
         
       //   //console.log("Here will be return response code Ex :200", data.status)
       //   //return data.status
       //   console.log(data);
       // }), catchError(this.handler.handleError));
-      return this.http.get<CompanyCard[]>(this.url+ApiPaths.Company).pipe();///*map(data=>{}),*/catchError(this.handler.handleError));
+      return this.http.get<Company[]>(this.url+ApiPaths.Company).pipe(catchError(this.handler.handleError));///*map(data=>{}),*/catchError(this.handler.handleError));
    }
 
    postCompany(company: CompanySend): Observable<any> {
      return this.http.post<any>(this.url+ApiPaths.Company,company).pipe(tap(console.log),catchError(this.handler.handleError));
+   }
+
+   postCompanyAddress(companyId: number, address: CompanyAddress): Observable<any> {
+    return this.http.post<any>(this.url+ApiPaths.Company+'/'+companyId+ApiPaths.Address,address).pipe(tap(console.log),catchError(this.handler.handleError));
    }
 
    getCompaniesSelect(): Observable<CompanySelect[]> {
