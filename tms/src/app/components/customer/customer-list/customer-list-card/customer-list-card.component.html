@@ -5,22 +5,22 @@
     </div>
     <div class="card-stacked">
       <div class="card-content card-divider-vertical">
-        <h2 class="header">{{ customer.cur_name + customer.cur_surname }}</h2>
-        <p>{{ customer.cur_phoneNumber }}</p>
+        <h2 class="header">{{ customer.curName + customer.curSurname }}</h2>
+        <p>{{ customer.curPhoneNumber }}</p>
         <br />
-        <p>{{ customer.cur_email }}</p>
+        <p>{{ customer.curEmail }}</p>
       </div>
       <div class="card-action">
         <li class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
-          routerLink="/tasks?customer={{ customer.cur_id }}">
+          routerLink="/tasks?customer={{ customer.curId }}">
           <i class="material-icons">assignment</i>
         </li>
         <li class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
-          routerLink="/employees?employee={{ customer.cur_id }}">
+          routerLink="/employees?employee={{ customer.curId }}">
           <i class="material-icons">toc</i>
         </li>
         <li class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
-          routerLink="/customers/edit/{{ customer.cur_id }}">
+          routerLink="/customers/edit/{{ customer.curId }}">
           <i class="material-icons">edit</i>
         </li>
         <li class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"

@@ -35,7 +35,7 @@ export class CustomerListCardComponent implements OnInit {
   }
 
   handleDelete() {
-    let response = this.http.deleteCustomer(this.customer.cur_id);
+    let response = this.http.deleteCustomer(this.customer.curId);
     if(response == 'ok') {
       this.getCustomers.emit();
     }
