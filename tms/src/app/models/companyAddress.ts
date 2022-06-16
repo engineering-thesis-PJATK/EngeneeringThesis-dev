@@ -1,7 +1,18 @@
 export interface CompanyAddress {
-    city: string;
-    street: string;
-    streetNumber: string;
-    postalCode: string;
-    country: string;
+  adrTown: string;
+  adrStreet: string;
+  adrStreetNumber: string;
+  adrPostCode: string;
+  adrCountry: string;
 }
+
+
+/*
+{
+  "adrTown": "string",
+  "adrStreet": "string",
+  "adrStreetNumber": "string",
+  "adrPostCode": "string",
+  "adrCountry": "string"
+}
+*/
