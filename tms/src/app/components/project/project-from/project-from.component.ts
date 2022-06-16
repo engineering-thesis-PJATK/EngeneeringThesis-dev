@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CompanySelect } from 'src/app/models/company';
 import { ProjectSending } from 'src/app/models/project';
-import { Team, TeamSelect } from 'src/app/models/team';
+import { Team } from 'src/app/models/team';
 import { CompanyService } from 'src/app/services/company/company.service';
 import { ProjectService } from 'src/app/services/project/project.service';
 import { TeamService } from 'src/app/services/team/team.service';
@@ -19,7 +19,7 @@ declare const M: any;
 export class ProjectFromComponent implements OnInit, AfterViewInit {
   project: Partial<ProjectSending> = {};
   companies: CompanySelect[] = [];
-  teams: TeamSelect[] = [];
+  teams: Team[] = [];
 
   test=false;
 
@@ -57,7 +57,7 @@ export class ProjectFromComponent implements OnInit, AfterViewInit {
 
   addProject(): void {
     var company = this.companies.find(i => i.cmpId == this.project.companyId);
-    var team = this.teams.find(i => i.id == this.project.teamId);
+    var team = this.teams.find(i => i.temId == this.project.teamId);
 
     if(company === undefined)
     {
