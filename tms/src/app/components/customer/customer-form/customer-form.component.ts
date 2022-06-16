@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { last, Observable } from 'rxjs';
+import { last, map, Observable } from 'rxjs';
 import { Company,test } from 'src/app/models/company';
 import { CompanyService } from 'src/app/services/company/company.service';
 import { CustomerService } from 'src/app/services/customer/customer.service';
@@ -55,6 +55,11 @@ export class CustomerFormComponent implements OnInit, AfterViewInit {
       });
       return;
     }
-    this.httpCustomer.postCustomer(this.customer as CustomerSend, this.companyId).subscribe();
+    this.httpCustomer.postCustomer(this.customer as CustomerSend, this.companyId).pipe(
+      map(res => {
+        if (res.statusCode == 200) {
+          this.returnButtonClick();
+        }
+      })).subscribe();
   }
 }
