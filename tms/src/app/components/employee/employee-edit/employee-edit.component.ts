@@ -67,11 +67,11 @@ export class EmployeeEditComponent implements OnInit, AfterViewInit {
     this.location.back();
   }
 
-  employeePrivilegesAdd(id: number) {
+  employeePrivilegesAdd(id: number): void {
     this.empPrivileges.push(id);
   }
 
-  employeePrivilegesRemove(id: number) {
+  employeePrivilegesRemove(id: number): void {
     this.empPrivileges = this.empPrivileges.filter(a => a != id);
   }
 }
