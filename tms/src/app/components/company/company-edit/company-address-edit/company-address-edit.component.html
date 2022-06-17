@@ -1,0 +1,181 @@
+<form class="col s12" name="form" #form="ngForm">
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">pin_drop</i>
+        <input
+          id="city"
+          name="city"
+          type="text"
+          [(ngModel)]="address.adrTown"
+          required
+          #city="ngModel"
+          minlength="2"
+          maxlength="100"
+        />
+        <label for="city">City</label>
+        <ng-container *ngIf="city.invalid && (city.dirty || city.touched)">
+          <span class="red-text text-lighten-1" *ngIf="city.errors?.['required'] "
+            >Field is required</span
+          >
+          <span class="red-text text-lighten-1" *ngIf="city.errors?.['minlength'] "
+            >Text is too short</span
+          >
+          <span class="red-text text-lighten-1" *ngIf="city.errors?.['maxlength'] "
+            >Text is too long</span
+          >
+        </ng-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 m8 l8 xl8">
+        <i class="material-icons prefix">directions</i>
+        <input
+          id="street"
+          name="street"
+          type="text"
+          [(ngModel)]="address.adrStreet"
+          required
+          #street="ngModel"
+          minlength="2"
+          maxlength="250"
+        />
+        <label for="street">Street</label>
+        <ng-container *ngIf="street.invalid && (street.dirty || street.touched)">
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="street.errors?.['required']"
+            >Field is required</span
+          >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="street.errors?.['minlength']"
+            >Text is too short</span
+          >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="street.errors?.['maxlength']"
+            >Text is too long</span
+          >
+        </ng-container>
+      </div>
+      <div class="input-field col s12 m4 l4 xl4">
+        <i class="material-icons prefix">place</i>
+        <input
+          id="building_number"
+          type="text"
+          name="building_number"
+          [(ngModel)]="address.adrStreetNumber"
+          required
+          #building_number="ngModel"
+          minlength="1"
+          maxlength="10"
+        />
+        <label for="building_number">Building no.</label>
+        <ng-container
+          *ngIf="
+            building_number.invalid &&
+            (building_number.dirty || building_number.touched)
+          "
+        >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="building_number.errors?.['required']"
+            >Field is required</span
+          >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="building_number.errors?.['minlength']"
+            >Text is too short</span
+          >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="building_number.errors?.['maxlength']"
+            >Text is too long</span
+          >
+        </ng-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">my_location</i>
+        <input
+          id="postal_code"
+          name="postal_code"
+          type="text"
+          [(ngModel)]="address.adrPostCode"
+          required
+          #postal_code="ngModel"
+          minlength="2"
+          maxlength="10"
+        />
+        <label for="postal_code">Postal code</label>
+        <ng-container
+          *ngIf="
+            postal_code.invalid && (postal_code.dirty || postal_code.touched)
+          "
+        >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="postal_code.errors?.['required']"
+            >Field is required</span
+          >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="postal_code.errors?.['minlength']"
+            >Text is too short</span
+          >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="postal_code.errors?.['maxlength']"
+            >Text is too long</span
+          >
+        </ng-container>
+      </div>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">map</i>
+        <input
+          id="country"
+          name="country"
+          type="text"
+          [(ngModel)]="address.adrCountry"
+          required
+          #country="ngModel"
+          minlength="2"
+          maxlength="50"
+        />
+        <label for="country">Country</label>
+        <ng-container
+          *ngIf="country.invalid && (country.dirty || country.touched)"
+        >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="country.errors?.['required']"
+            >Field is required</span
+          >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="country.errors?.['minlength']"
+            >Text is too short</span
+          >
+          <span
+            class="red-text text-lighten-1"
+            *ngIf="country.errors?.['maxlength']"
+            >Text is too long</span
+          >
+        </ng-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <button
+          class="waves-effect waves-yellow btn-large btn-submit"
+          type="submit"
+          (click)="addAddress(); form.resetForm()"
+          [disabled]="form.invalid"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+  </form>
+  
