@@ -31,7 +31,7 @@
                                     <td>{{ member.empName }}</td>
                                     <td>{{ member.empRole?.etrName }}</td>
                                     <td>
-                                        <a data-target="edit" class="sidenav-trigger a-fix"
+                                        <a data-target="edit" class="a-fix"
                                             (click)="setMember(member)"><i
                                                 class="material-icons prefix edit">edit</i></a>
                                         <a (click)="deleteMember(member)" class="a-fix"><i
@@ -40,7 +40,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <ul class="collapsible emp-edit" disabled>
+                        <ul class="collapsible emp-edit">
                             <li>
                                 <div class="collapsible-header"><i class="material-icons">person</i>Employee edit area</div>
                                 <div class="collapsible-body">

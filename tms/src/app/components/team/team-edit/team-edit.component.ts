@@ -63,7 +63,7 @@ export class TeamEditComponent implements OnInit, AfterViewInit {
     this.empHttp.getTeamMembers(this.route.snapshot.paramMap.get('id') || '0').subscribe(members => this.teamMembers = members);
   }
 
-  async setMember(member: TeamEmployee): Promise<void> {
+  setMember(member: TeamEmployee): void {
     var elem = document.querySelector('.emp-edit');
     var instance = M.Collapsible.getInstance(elem);
     instance.close(0);
@@ -94,6 +94,9 @@ export class TeamEditComponent implements OnInit, AfterViewInit {
   updateMember(): void {
     this.empHttp.putTeamMember(this.editedMember,this.teamDetails.temId);//.subscribe();
     this.getMembers();
+    var elem = document.querySelector('.emp-edit');
+    var instance = M.Collapsible.getInstance(elem);
+    instance.close(0);
   }
 
   deleteMember(member: TeamEmployee): void {
