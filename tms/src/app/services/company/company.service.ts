@@ -27,6 +27,14 @@ export class CompanyService {
       return this.http.get<Company[]>(this.url+ApiPaths.Company).pipe(catchError(this.handler.handleError));///*map(data=>{}),*/catchError(this.handler.handleError));
    }
 
+   getCompany(id: string): Observable<Company> {
+    return this.http.get<Company>(this.url+ApiPaths.Company+'/'+id).pipe(tap(console.log),catchError(this.handler.handleError));
+   }
+
+   getCompanyAddresses(id: string): Observable<CompanyAddress[]> {
+    return this.http.get<CompanyAddress[]>(this.url+ApiPaths.Company+'/'+id+ApiPaths.Address).pipe(tap(console.log),catchError(this.handler.handleError));
+   }
+
    postCompany(company: CompanySend): Observable<any> {
      return this.http.post<any>(this.url+ApiPaths.Company,company).pipe(tap(console.log),catchError(this.handler.handleError));
    }
