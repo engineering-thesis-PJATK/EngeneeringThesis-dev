@@ -1,39 +1,7 @@
-<ul id="edit" class="sidenav width-400px">
-    <li><a class="subheader">Edit member</a></li>
-    <li>
-        <div class="divider"></div>
-    </li>
-    <li>
-        <div class="input-field col s12">
-            <i class="material-icons prefix">person</i>
-            <input disabled id="emName" name="emName" required #editEmp class="disabled" />
-        </div>
-    </li>
 
-    <li>
-        <i class="material-icons prefix">flag</i>
-        <select id="roleEdit" name="roleEdit" class="test" required #roleEdit="ngModel" [(ngModel)]="sendingEmployee.empRole">
-            <option value="" disabled>Pick one</option>
-            <option *ngFor="let role of roles" [value]="role?.etrId">
-                {{ role?.etrName }}
-            </option>
-        </select>
-        <label>Role</label>
-    </li>
-    <li>
-        <div class="ml-20px bottom-margin-20px">
-            <button class="waves-effect waves-yellow btn-large btn-submit" (click)="updateMember()" [disabled]="!roleEdit.valid">Save</button>
-        </div>
-    </li>
-    <li>
-        <div class="ml-20px bottom-margin-20px">
-            <button class="waves-effect waves-yellow btn-large btn-submit sidenav-close">Cancel</button>
-        </div>
-    </li>
-</ul>
 
 <div class="grid">
-    <div class="row" *ngIf="teamDetails | async as team">
+    <div class="row" *ngIf="teamDetails as team">
         <div class="col s12 m12 l2 xl2">
             <div class="row">
                 <div class="s12 card-panel">
@@ -59,7 +27,7 @@
                             </thead>
 
                             <tbody>
-                                <tr *ngFor="let member of teamMembers | async" class="centered-table-tr">
+                                <tr *ngFor="let member of teamMembers" class="centered-table-tr">
                                     <td>{{ member.empName }}</td>
                                     <td>{{ member.empRole?.etrName }}</td>
                                     <td>
@@ -72,6 +40,33 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <ul class="collapsible emp-edit" disabled>
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">person</i>Employee edit area</div>
+                                <div class="collapsible-body">
+                                    <div  class="row">
+                                        <div class="input-field col s6">
+                                            <i class="material-icons prefix">person</i>
+                                            <input disabled id="emName" name="emName" required #editEmp class="disabled" />
+                                        </div>
+                                        <div class="input-field col s6">
+                                        <i class="material-icons prefix">flag</i>
+                                        <select id="roleEdit" name="roleEdit" class="test" required #roleEdit="ngModel" [(ngModel)]="sendingEmployee.empRole">
+                                            <option value="" disabled>Pick one</option>
+                                            <option *ngFor="let role of roles" [value]="role?.etrId">
+                                                {{ role?.etrName }}
+                                            </option>
+                                        </select>
+                                        <label>Role</label>
+                                    </div>
+                                        <div class="col s12">
+                                            <button class="waves-effect waves-yellow btn btn-submit" (click)="cancelEdit()">Cancel</button>
+                                            <button class="waves-effect waves-yellow btn btn-submit right" (click)="updateMember()" [disabled]="!roleEdit.valid">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                              </li>
+                        </ul>
                     </div>
                 </li>
                 <li>
