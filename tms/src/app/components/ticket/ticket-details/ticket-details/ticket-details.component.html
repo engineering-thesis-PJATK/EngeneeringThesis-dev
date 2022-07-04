@@ -1,6 +1,6 @@
 <script src="/assets/jQuery.min.js"></script>
 <div class="row">
-  <form class="col s12">
+  <form class="col s12" *ngIf="ticket | async as ticket">
 
     <div class="row">
       <div class="input-field col s6">
@@ -20,9 +20,9 @@
         <input type="text" class="datepicker" placeholder="Due date" required>
       </div>
 
-      <div class="input-field col s6">
+      <div class="input-field col s6"  >
         <i class="material-icons prefix">schedule</i>
-        <select>
+        <select >
           <option value="" disabled selected>Choose aproppriate status</option>
           <option value="1">In Progress</option>
           <option value="2">Finished</option>
@@ -63,21 +63,26 @@
         <label>Assigned Employee</label>
       </div>
       <div class="input-field col s6">
-        <i class="material-icons prefix">new_releases</i>
+        <div >
+        <i class="material-icons prefix">new_releases</i>        
         <select>
-          <option value="" disabled selected>Choose ticket type</option>
+          <!-- <option value="" disabled selected>Choose ticket type</option>
           <option value="1">Budget</option>
           <option value="2">Analysis</option>
-          <option value="3">Own Cost</option>
+          <option value="3">Own Cost</option> -->
+          <option *ngFor="let type of ticket.ticketTypes" [value]="type.ttpId">
+            {{type.ttpName}} 
+          </option>
         </select>
         <label>Ticket type</label>
+      </div>
       </div>
     </div>
 
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix"> description </i>
-        <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+        <textarea id="textarea2" class="materialize-textarea" data-length="120">{{ ticket.ticName }}</textarea>
         <label for="textarea2">Description</label>
       </div>
     </div>

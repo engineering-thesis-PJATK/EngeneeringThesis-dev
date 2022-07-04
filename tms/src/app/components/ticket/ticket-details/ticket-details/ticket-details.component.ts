@@ -39,15 +39,20 @@ export class TicketDetailsComponent implements OnInit {
     {value: 3, viewValue: "Not Important"},
   ]
    
-  tickets!: Observable<SingleTicketJoined>;
-  constructor(private httpTicketSvc: TicketService, private route: ActivatedRoute) {
-    this.tickets = this.httpTicketSvc.getCustomJoinedSingleTicket(this.route.snapshot.paramMap.get('id') || '0');
-  }
+  ticket!: Observable<SingleTicketJoined>;
+  constructor(private httpTicketSvc: TicketService, private route: ActivatedRoute) {   
+    let param1 = this.route.snapshot.paramMap.get('id') || '0';        
+    this.ticket =this.httpTicketSvc.getCustomJoinedSingleTicket(param1);  
+
+  }  
+
+
   ngAfterViewInit(): void {
       var elems = document.querySelectorAll('select');
       var instances = M.FormSelect.init(elems, {});
        elems = document.querySelectorAll('.datepicker');
-      instances = M.Datepicker.init(elems, {});
+      instances = M.Datepicker.init(elems, {});      
   }
   ngOnInit(): void {}
+  
 }
