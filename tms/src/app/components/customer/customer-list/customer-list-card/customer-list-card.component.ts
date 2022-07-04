@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { map } from 'rxjs';
 import { CustomerCompany } from 'src/app/models/customer';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 import Swal from 'sweetalert2';
@@ -26,21 +27,21 @@ export class CustomerListCardComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.handleDelete();
-        //this.getCustomers.emit();
-      } else if (result.isDenied) {
-        // ...
-      }
+      } 
+      // else if (result.isDenied) {
+      //   // ...
+      // }
     })
     
   }
 
   handleDelete() {
-    let response = this.http.deleteCustomer(this.customer.curId);
-    if(response == 'ok') {
-      this.getCustomers.emit();
-    }
-    else {
-      console.error(response);
-    }
+    this.http.deleteCustomer(this.customer.curId).pipe(
+      map(res => {
+        if(res.statusCode = 200) {
+          this.getCustomers.emit();
+        }
+      })
+    ).subscribe();
   }
 }
