@@ -28,6 +28,7 @@ export class CompanyEditComponent implements OnInit, AfterViewInit {
     this.initCollapsible();
   }
 
+  //TODO: coś jest nie tak z collapsiblem - do weryfikacji
   initCollapsible() {
     var elems = document.querySelectorAll('.collapsible');
     var options = {
