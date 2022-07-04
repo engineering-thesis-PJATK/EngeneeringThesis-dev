@@ -23,13 +23,6 @@ export class NavbarComponent implements AfterViewInit {
      var elems = document.querySelectorAll('.sidenav');
      var instances = M.Sidenav.init(elems, options);
   }
-  //TODO: double inclusion of materialize library causes visual errors (waves-errors), find another way on dropdown menu
-  // ngAfterViewInit() {
-  //   setTimeout(() => {
-  //       var elems = document.querySelectorAll('.dropdown-trigger');
-  //       var instances = M.Dropdown.init(elems, {});
-  //       }, 0 );
-  //     }
 
 }
 

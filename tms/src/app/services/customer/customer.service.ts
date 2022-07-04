@@ -20,8 +20,6 @@ export class CustomerService {
 
   getCustomer(id: string): Observable<CustomerCompany> {
     return this.http.get<CustomerCompany>(this.url+ApiPaths.CustomerCompanyName+'/'+id).pipe(tap(console.log));
-    //let customer: Partial<Customer> = {cur_id: 1, cur_name: 'Adam',cur_surname:'Kowalski', cur_email:'ddd', cur_position:"xxx", cur_comments:'hkdsjhskjfhskjfhdfsdfsdff', cur_idCompany:1, cmp_name: 'FirmaX', cur_phoneNumber:'344239842'}
-    //return of(customer);
   }
 
   putCustomer(customer: CustomerSend, customerId: number) {
@@ -34,8 +32,7 @@ export class CustomerService {
     //return this.http.post<object>(this.url+ApiPaths.Customer,customer).pipe(tap(console.log));
   }
 
-  deleteCustomer(id: number): string {
-    //return this.http.delete<object>(this.url+ApiPaths.Customer+'/'+id).pipe(tap(console.log));
-    return 'ok';
+  deleteCustomer(id: number) {
+    return this.http.delete<any>(this.url+ApiPaths.Customer+'/'+id).pipe(tap(console.log),catchError(this.handler.handleError));
   }
 }
