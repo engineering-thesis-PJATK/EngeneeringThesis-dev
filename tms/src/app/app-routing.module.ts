@@ -29,6 +29,7 @@ import { SettingListComponent } from './components/settings/setting-list/setting
 import { EmployeeEditComponent } from './components/employee/employee-edit/employee-edit.component';
 import { TeamEditComponent } from './components/team/team-edit/team-edit.component';
 import { CustomerEditComponent } from './components/customer/customer-edit/customer-edit.component';
+import { CompanyEditComponent } from './components/company/company-edit/company-edit.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
@@ -43,6 +44,7 @@ const routes: Routes = [
     //children: [{ path: 'add', component: CompanyComponent }],
   },  
   { path: 'companies/add', component: CompanyFormComponent },
+  { path: 'companies/edit/:id', component: CompanyEditComponent},
 
   {path: 'tickets', component: TicketListComponent},
   {path: 'tickets/create', component: CreateTicketComponent},
