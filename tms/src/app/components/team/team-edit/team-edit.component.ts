@@ -1,7 +1,6 @@
 import { Location } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { delay, firstValueFrom, Observable, switchMap } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 import { Employee, TeamEmployee, TeamRole, TempMember } from 'src/app/models/employee';
 import { Team } from 'src/app/models/team';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
