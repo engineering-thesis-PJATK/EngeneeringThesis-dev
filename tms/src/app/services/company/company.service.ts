@@ -43,6 +43,14 @@ export class CompanyService {
     return this.http.post<any>(this.url+ApiPaths.Company+'/'+companyId+ApiPaths.Address,address).pipe(tap(console.log),catchError(this.handler.handleError));
    }
 
+   putCompanyAddress(address: CompanyAddress) {
+    return this.http.put<any>(this.url+ApiPaths.Company+ApiPaths.Address+'/'+address.adrId,address).pipe(tap(console.log),catchError(this.handler.handleError));
+   }
+
+   deleteCompanyAddress(addressId: number) {
+    return this.http.delete<any>(this.url+ApiPaths.Company+ApiPaths.Address+'/'+addressId).pipe(tap(console.log),catchError(this.handler.handleError));
+   }
+
    getCompaniesSelect(): Observable<CompanySelect[]> {
      //return this.http.get<CompanySelect[]>(this.url+ApiPaths.CustomerSelect).pipe(tap(console.log));
      let cmps: CompanySelect[] = [
