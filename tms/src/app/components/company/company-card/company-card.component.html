@@ -5,11 +5,11 @@
     </div>
     <div class="card-stacked">
       <div class="card-content card-divider-vertical">
-        <h2 class="header">{{ company.cmpName }}</h2>
+        <h2 class="header">{{ company.cmpName.length > 25 ?  company.cmpName.slice(0,25)+"..." : company.cmpName }}</h2>
         <p>{{company.cmpNipPrefix}}</p>
         <!-- <p>Kraj</p> -->
         <br />
-        <p>{{company.cmpLandline}}</p>
+        <p>{{company.cmpLandline == "" ? "unfilled" : company.cmpLandline }} </p>
         <!-- <p>Miasto</p> -->
       </div>
       <div class="card-action">
@@ -43,6 +43,12 @@
         >
           <i class="material-icons">edit</i>
         </li>
+        <li
+        class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
+        routerLink="/companies/edit/addresses/{{ company.cmpId }}"
+      >
+        <i class="material-icons">edit_location</i>
+      </li>
       </div>
     </div>
   </div>
