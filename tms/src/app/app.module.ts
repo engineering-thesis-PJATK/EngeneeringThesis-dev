@@ -55,7 +55,7 @@ import { EmployeeFormSelectComponent } from './components/employee/employee-form
 import { EmployeeEditSelectComponent } from './components/employee/employee-edit-select/employee-edit-select.component';
 import { CustomerFormSelectComponent } from './components/customer/customer-form-select/customer-form-select.component';
 import { CompanyEditComponent } from './components/company/company-edit/company-edit.component';
-import { CompanyAddressEditComponent } from './components/company/company-edit/company-address-edit/company-address-edit.component';
+import { CompanyAddressEditComponent } from './components/company/company-address-edit/company-address-edit.component';
 
 @NgModule({
   declarations: [
