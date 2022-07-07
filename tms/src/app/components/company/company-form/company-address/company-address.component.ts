@@ -9,7 +9,11 @@ import { CompanyAddress } from 'src/app/models/companyAddress';
 export class CompanyAddressComponent implements OnInit {
   @Output() newAddress = new EventEmitter<CompanyAddress>();
 
-  address: CompanyAddress = { adrTown: '', adrStreet: '', adrStreetNumber: '', adrPostCode: '', adrCountry: '' };
+  address: CompanyAddress = {
+    adrTown: '', adrStreet: '', adrStreetNumber: '', adrPostCode: '', adrCountry: '',
+    adrId: 0,
+    adrIdCompany: 0
+  };
   constructor() { }
 
   ngOnInit(): void {
@@ -17,6 +21,8 @@ export class CompanyAddressComponent implements OnInit {
 
   addAddress() {
     this.newAddress.emit(this.address);
-    this.address = { adrTown: '', adrStreet: '', adrStreetNumber: '', adrPostCode: '', adrCountry: '' };
+    this.address = { adrTown: '', adrStreet: '', adrStreetNumber: '', adrPostCode: '', adrCountry: '',
+    adrId: 0,
+    adrIdCompany: 0 };
   }
 }
