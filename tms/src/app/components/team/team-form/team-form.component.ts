@@ -58,9 +58,9 @@ export class TeamFormComponent implements OnInit, AfterViewInit {
   }
 
   addTeam(): void {
-    // this.teamHttp.postTeam(this.sendingTeam as Team).subscribe(
+     this.teamHttp.postTeam(this.sendingTeamName).subscribe(
     //   //
-    // );
+     );
     console.log(this.sendingTeamName);
   }
 
