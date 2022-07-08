@@ -5,10 +5,10 @@
     </div>
     <div class="card-stacked">
       <div class="card-content card-divider-vertical">
-        <h2 class="header">{{ customer.curName + customer.curSurname }}</h2>
-        <p>{{ customer.curPhoneNumber }}</p>
+        <h2 class="header">{{ customer.curName + ' ' + customer.curSurname }}</h2>
+        <p><i class="material-icons">local_phone</i> {{ customer.curPhoneNumber }}</p>
         <br />
-        <p>{{ customer.curEmail }}</p>
+        <p><i class="material-icons">mail_outline</i> {{ customer.curEmail }}</p>
       </div>
       <div class="card-action">
         <li class="btn btn-block waves-effect waves-light btn-medium z-depth-0 btn-flat small-button"
