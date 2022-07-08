@@ -84,9 +84,9 @@ export class EmployeeService {
     return this.http.post<any>(this.url+ApiPaths.Employee+`/${id}/roles`,privileges).pipe(catchError(this.handler.handleError));
   }
 
-  putEmployeePrivileges(id: number, privileges: number[]) {
-    return this.http.put<any>(this.url+ApiPaths.Employee+`/${id}/roles`,privileges).pipe(catchError(this.handler.handleError));
-  }
+  // putEmployeePrivileges(id: number, privileges: number[]) {
+  //   return this.http.put<any>(this.url+ApiPaths.Employee+`/${id}/roles`,privileges).pipe(catchError(this.handler.handleError));
+  // }
 
   putEmployee(id: number, employee: EmployeeEdit) {
     return this.http.put<any>(this.url+ApiPaths.Employee+`/${id}`,employee).pipe(catchError(this.handler.handleError));
