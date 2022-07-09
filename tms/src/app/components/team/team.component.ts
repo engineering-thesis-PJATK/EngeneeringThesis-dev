@@ -10,11 +10,12 @@ import { TeamService } from 'src/app/services/team/team.service';
 })
 export class TeamComponent implements OnInit {
 
-  teams!: Observable<Team[]>;
+  teams!: Team[];
   constructor(private http: TeamService) { }
 
   ngOnInit(): void {
-    this.teams = this.http.getTeams();
+    //this.teams = this.http.getTeams();
+    this.http.getTeams().subscribe(t => this.teams = t);
   }
 
 }
