@@ -2,9 +2,22 @@
   <div class="row">
     <h1 class="header">Companies</h1>
   </div>
-  <div class="row">
+  <div class="row center-align" *ngIf="!companies">
+    <div class="preloader-wrapper bigger active">
+      <div class="spinner-layer spinner-teal-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="companies">
     <app-company-card
-      *ngFor="let company of companies | async"
+      *ngFor="let company of companies"
       [company]="company"
     ></app-company-card>
   </div>
