@@ -2,9 +2,22 @@
   <div class="row">
     <h1 class="header">Employees</h1>
   </div>
-  <div class="row">
+  <div class="row center-align" *ngIf="!employees">
+    <div class="preloader-wrapper bigger active">
+      <div class="spinner-layer spinner-teal-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="employees">
     <app-employee-card
-      *ngFor="let employee of employees | async"
+      *ngFor="let employee of employees"
       [employee]="employee"
       (getEmployees)="reloadEmployees()"
     ></app-employee-card>

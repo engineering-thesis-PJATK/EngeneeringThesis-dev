@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Employee } from 'src/app/models/employee';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 
@@ -10,14 +9,14 @@ import { EmployeeService } from 'src/app/services/employee/employee.service';
 })
 export class EmployeeComponent implements OnInit {
 
-  employees!: Observable<Employee[]>;
+  employees!: Employee[];
   constructor(private http: EmployeeService) { }
 
   ngOnInit(): void {
-    this.employees = this.http.getEmployees();
+    this.http.getEmployees().subscribe(emps => this.employees = emps);
   }
 
   reloadEmployees() {
-    this.employees = this.http.getEmployees();
+    this.http.getEmployees().subscribe(emps => this.employees = emps);
   }
 }
