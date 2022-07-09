@@ -10,15 +10,17 @@ import { CustomerService } from 'src/app/services/customer/customer.service';
 })
 export class CustomerListComponent implements OnInit {
 
-  customers!: Observable<CustomerCompany[]>
+  customers!: CustomerCompany[];
   constructor(private http: CustomerService) { }
 
   ngOnInit(): void {
-    this.customers = this.http.getCustomers();
+    //this.customers = this.http.getCustomers();
+    this.http.getCustomers().subscribe(c => this.customers = c);
   }
 
   reloadCustomers() {
-    this.customers = this.http.getCustomers();
+    //this.customers = this.http.getCustomers();
+    this.http.getCustomers().subscribe(c => this.customers = c);
   }
 
 }
