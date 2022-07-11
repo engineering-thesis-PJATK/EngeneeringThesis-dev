@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 import { Location } from '@angular/common';
 import { CompanyService } from 'src/app/services/company/company.service';
-import { CompanySelect } from 'src/app/models/company';
+import { Company } from 'src/app/models/company';
 import { CustomerCompany, CustomerSend } from 'src/app/models/customer';
 import { map } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
@@ -15,7 +15,7 @@ declare const M: any;
 })
 export class CustomerEditComponent implements OnInit, AfterViewInit {
 
-  companyList!: CompanySelect[];
+  companyList!: Company[];
   customer!: CustomerCompany;
   
   constructor( private http: CustomerService,

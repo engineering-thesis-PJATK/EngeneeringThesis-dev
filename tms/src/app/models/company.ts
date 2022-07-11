@@ -23,13 +23,13 @@ export interface CompanySend {
     cmpLandLine: string;
 }
 
-export interface CompanySelect {
-    cmpId: number;
-    cmpName: string;
-}
+// export interface CompanySelect {
+//     cmpId: number;
+//     cmpName: string;
+// }
 
 
-export interface test {
+export interface CompanySelection {
     selected: boolean;
     company: Company;
   };

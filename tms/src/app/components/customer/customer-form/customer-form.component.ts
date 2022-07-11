@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { last, map, Observable } from 'rxjs';
-import { Company,test } from 'src/app/models/company';
+import { Company, CompanySelection } from 'src/app/models/company';
 import { CompanyService } from 'src/app/services/company/company.service';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 import { Location } from '@angular/common';
@@ -16,7 +16,7 @@ declare const M: any;
 })
 export class CustomerFormComponent implements OnInit, AfterViewInit {
   companyList: Company[] = [];
-  companyTest: test[] = [];
+  companyTest: CompanySelection[] = [];
   customer: Partial<CustomerSend> = {};
   companyId : number = 0;
   constructor(

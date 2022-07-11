@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Company, test } from 'src/app/models/company';
+import { Company, CompanySelection } from 'src/app/models/company';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { Company, test } from 'src/app/models/company';
   styleUrls: ['./customer-form-select.component.scss']
 })
 export class CustomerFormSelectComponent implements OnInit, AfterViewInit {
-  @Input() companyList: test[] = [];
+  @Input() companyList: CompanySelection[] = [];
   @Output() selectedCompanyId = new EventEmitter<number>();
   //lista: test[] = [];
   constructor() {
