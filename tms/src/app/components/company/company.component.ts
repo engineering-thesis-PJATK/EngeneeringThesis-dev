@@ -18,4 +18,8 @@ export class CompanyComponent implements OnInit {
     this.http.getCompanies().subscribe(cmps => this.companies = cmps);
   }
 
+  getCompanies() {
+    this.http.getCompanies().subscribe(cmps => this.companies = cmps);
+  }
+
 }
