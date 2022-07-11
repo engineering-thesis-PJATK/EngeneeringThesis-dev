@@ -1,0 +1,20 @@
+<ul class="collapsible popout">
+    <li>
+        <div class="collapsible-header"><i class="material-icons">account_balance</i>Company</div>
+        <div class="collapsible-body">
+            <table class="highlight centered">
+                <tbody>
+                    <tr *ngFor="let company of companyList">
+                        <th>
+                            <label>
+                                <input type="checkbox" (change)="onChange(company.company.cmpId || 0,$event)" [(ngModel)]="company.selected" name="sel" id="sel" />
+                                <span></span>
+                            </label>
+                        </th>
+                        <th>{{company.company.cmpName}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </li>
+</ul>

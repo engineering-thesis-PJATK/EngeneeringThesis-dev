@@ -6,7 +6,7 @@
         id="city"
         name="city"
         type="text"
-        [(ngModel)]="address.city"
+        [(ngModel)]="address.adrTown"
         required
         #city="ngModel"
         minlength="2"
@@ -33,7 +33,7 @@
         id="street"
         name="street"
         type="text"
-        [(ngModel)]="address.street"
+        [(ngModel)]="address.adrStreet"
         required
         #street="ngModel"
         minlength="2"
@@ -64,7 +64,7 @@
         id="building_number"
         type="text"
         name="building_number"
-        [(ngModel)]="address.streetNumber"
+        [(ngModel)]="address.adrStreetNumber"
         required
         #building_number="ngModel"
         minlength="1"
@@ -102,7 +102,7 @@
         id="postal_code"
         name="postal_code"
         type="text"
-        [(ngModel)]="address.postalCode"
+        [(ngModel)]="address.adrPostCode"
         required
         #postal_code="ngModel"
         minlength="2"
@@ -137,7 +137,7 @@
         id="country"
         name="country"
         type="text"
-        [(ngModel)]="address.country"
+        [(ngModel)]="address.adrCountry"
         required
         #country="ngModel"
         minlength="2"

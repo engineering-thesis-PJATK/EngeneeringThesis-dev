@@ -90,8 +90,8 @@
             <i class="material-icons prefix">group</i>
             <select  id="team" name="team" class="test"  required #team="ngModel" [(ngModel)]="project.teamId">
               <option value="" disabled>Pick one</option>
-              <option *ngFor="let team of teams" [value]="team.id">
-                {{ team.Name }}
+              <option *ngFor="let team of teams" [value]="team.temId">
+                {{ team.temName }}
               </option>
             </select>
             <label for="team">Team</label>

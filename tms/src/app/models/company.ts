@@ -1,16 +1,6 @@
 import { CompanyAddress } from "./companyAddress";
 
-export interface CompanyCard {
-    // cmpId?: number;
-    // cmpName: string;
-    // cmpNip?: string;
-    // cmpNipPrefix?: string;
-    // cmpRegon?: string;
-    // cmpKrsNumber?: string;
-    // cmpLandLine?: string;
-    // cmpIdAddress?: number;
-    // cmpCity: string;
-    // cmpCountry: string;
+export interface Company {
     cmpId?: number,
     cmpName: string,
     cmpNip?: string,
@@ -18,10 +8,10 @@ export interface CompanyCard {
     cmpRegon?: string,
     cmpKrsNumber?: string,
     cmpLandline?: string,
-    addresses?: [],
-    companyNotes?: [],
-    customers?: [],
-    projects?: []
+    // addresses?: [],
+    // companyNotes?: [],
+    // customers?: [],
+    // projects?: []
 }
 
 export interface CompanySend {
@@ -31,10 +21,15 @@ export interface CompanySend {
     cmpRegon?: string;
     cmpKrsNumber?: string;
     cmpLandLine: string;
-    companyAddresses: CompanyAddress[];
 }
 
-export interface CompanySelect {
-    cmpId: number;
-    cmpName: string;
-}
+// export interface CompanySelect {
+//     cmpId: number;
+//     cmpName: string;
+// }
+
+
+export interface CompanySelection {
+    selected: boolean;
+    company: Company;
+  };

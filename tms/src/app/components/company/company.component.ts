@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CompanyCard } from 'src/app/models/company';
+import { Company } from 'src/app/models/company';
 import { CompanyService } from 'src/app/services/company/company.service';
 
 @Component({
@@ -10,11 +10,16 @@ import { CompanyService } from 'src/app/services/company/company.service';
 })
 export class CompanyComponent implements OnInit {
 
-  companies!: Observable<CompanyCard[]>;
+  companies!: Company[];
   constructor(private http: CompanyService) { }
 
   ngOnInit(): void {
-    this.companies = this.http.getCompanies();
+    //this.companies = this.http.getCompanies();
+    this.http.getCompanies().subscribe(cmps => this.companies = cmps);
+  }
+
+  getCompanies() {
+    this.http.getCompanies().subscribe(cmps => this.companies = cmps);
   }
 
 }

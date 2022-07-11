@@ -9,7 +9,7 @@
           name="Name"
           type="text"
           required
-          [(ngModel)]="sendingTeam.Name"
+          [(ngModel)]="sendingTeamName"
           #Name="ngModel"
           minlength="2"
           maxlength="50"
@@ -32,9 +32,9 @@
         <div class="col s12">
           <h1 class="header addres-header">Add team members</h1>
         </div>
-        <app-team-member-list
+        <!-- <app-team-member-list
           [members]="sendingTeam.members"
-        ></app-team-member-list>
+        ></app-team-member-list> -->
       </div>
     </div>
     <div class="row mt-100">
@@ -58,8 +58,8 @@
       </div>
       <div class="col s6 m3 l3 xl3">
         <button
-          class="waves-effect waves-yellow btn-large btn-submit "
-          type="submit"
+          class="waves-effect waves-yellow btn-large btn-submit right"
+          type="button"
           (click)="returnButtonClick()"
         >
           Return

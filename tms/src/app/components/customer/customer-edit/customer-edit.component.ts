@@ -2,10 +2,10 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 import { Location } from '@angular/common';
 import { CompanyService } from 'src/app/services/company/company.service';
-import { CompanySelect } from 'src/app/models/company';
-import { Customer } from 'src/app/models/customer';
-import { firstValueFrom, Observable, switchMap } from 'rxjs';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Company } from 'src/app/models/company';
+import { CustomerCompany, CustomerSend } from 'src/app/models/customer';
+import { map } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 declare const M: any;
 
 @Component({
@@ -15,8 +15,8 @@ declare const M: any;
 })
 export class CustomerEditComponent implements OnInit, AfterViewInit {
 
-  companyList!: Observable<CompanySelect[]>;
-  customer!: Observable<Partial<Customer>>;
+  companyList!: Company[];
+  customer!: CustomerCompany;
   
   constructor( private http: CustomerService,
     private httpCompany: CompanyService,
@@ -29,18 +29,34 @@ export class CustomerEditComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.customer = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) => this.http.getCustomer(params.get('id') || '0'))
-    );
-    this.companyList = this.httpCompany.getCompaniesSelect();
+    this.http.getCustomer(this.route.snapshot.paramMap.get('id') || '0').pipe(
+      map(res => {
+        this.customer = res;
+      })
+      ).subscribe();
+    this.httpCompany.getCompaniesSelect().subscribe((cmps) => (this.companyList = cmps));
   }
 
-  returnButtonClick() {
+  returnButtonClick(): void {
     this.location.back();
   }
 
-  async updateCustomer() {
-    let customer = await firstValueFrom(this.customer);
-    this.http.putCustomer(customer);
+  updateCustomer(): void {
+    let updatingCustomer = this.customer as unknown as CustomerSend;
+    // console.log('customer as customersend');
+    // let sending = {} as CustomerSend;
+    // sending.curName = this.customer.curName;
+    // sending.curSurname = this.customer.curSurname;
+    // sending.curEmail = this.customer.curEmail;
+    // sending.curPhoneNumber = this.customer.curPhoneNumber;
+    // sending.curPosition = this.customer.curPosition;
+    // sending.curComments = this.customer.curComments;
+    this.http.putCustomer(updatingCustomer,this.customer.curId).pipe(
+      map(res => {
+        if(res.statusCode == 200) {
+          this.returnButtonClick();
+        }
+      })
+    ).subscribe();
   }
 }

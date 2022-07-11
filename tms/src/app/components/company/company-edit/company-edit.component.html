@@ -1,0 +1,196 @@
+<div class="row">
+    <!-- <div class="col s8 offset-s2"> -->
+    <div class="col s1 m1 l1 xl1"></div>
+    <form class="col s10 m10 l10 xl10" (ngSubmit)="updateCompany()" #form="ngForm" *ngIf="company">
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">account_balance</i>
+          <input
+            id="company_name"
+            name="company_name"
+            type="text"
+            [(ngModel)]="company.cmpName"
+            required
+            #company_name="ngModel"
+            minlength="2"
+            maxlength="50"
+          />
+          <label for="company_name" class="active">Company name</label>
+          <ng-container *ngIf="company_name.invalid && (company_name.dirty || company_name.touched)">
+            <span
+              class="red-text text-lighten-1"
+              *ngIf="company_name.errors?.['required']"
+              >Field is required</span
+            >
+            <span
+              class="red-text text-lighten-1"
+              *ngIf="company_name.errors?.['minlength']"
+              >Text is too short</span
+            >
+            <span
+              class="red-text text-lighten-1"
+              *ngIf="company_name.errors?.['maxlength']"
+              >Text is too long</span
+            >
+          </ng-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m4 l4 xl4">
+          <i class="material-icons prefix">description</i>
+          <input
+            id="nip_prefix"
+            name="nip_prefix"
+            type="text"
+            [(ngModel)]="company.cmpNipPrefix"
+            required
+            #nip_prefix="ngModel"
+            minlength="2"
+            maxlength="2"
+          />
+          <label for="nip_prefix" class="active">NIP Prefix</label>
+          <ng-container *ngIf="nip_prefix.invalid && (nip_prefix.dirty || nip_prefix.touched)">
+            <span
+              class="red-text text-lighten-1"
+              *ngIf="nip_prefix.errors?.['required']"
+              >Field is required</span
+            >
+            <span
+              class="red-text text-lighten-1"
+              *ngIf="nip_prefix.errors?.['minlength']"
+              >The text should consist of 2 characters</span
+            >
+          </ng-container>
+        </div>
+        <div class="input-field col s12 m8 s8 xl8">
+          <i class="material-icons prefix">description</i>
+          <input
+            id="nip"
+            name="nip"
+            type="text"
+            [(ngModel)]="company.cmpNip"
+            required
+            #nip="ngModel"
+            minlength="10"
+            maxlength="20"
+          />
+          <label for="nip" class="active">NIP</label>
+          <ng-container *ngIf="nip.invalid && (nip.dirty || nip.touched)">
+            <span
+              class="red-text text-lighten-1"
+              *ngIf="nip.errors?.['required']"
+              >Field is required</span
+            >
+            <span
+              class="red-text text-lighten-1"
+              *ngIf="nip.errors?.['minlength']"
+              >Text is too short</span
+            >
+            <span
+              class="red-text text-lighten-1"
+              *ngIf="nip.errors?.['maxlength']"
+              >Text is too long</span
+            >
+          </ng-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m6 s6 xl6">
+          <i class="material-icons prefix">description</i>
+          <input
+            id="regon"
+            name="regon"
+            type="text"
+            [(ngModel)]="company.cmpRegon"
+            #regon="ngModel"
+            minlength="9"
+            manlength="20"
+          />
+          <label for="regon" class="active">REGON</label>
+          <ng-container *ngIf="regon.invalid && (regon.dirty || regon.touched)">
+            <span
+              class="red-text text-lighten-1"
+              *ngIf="regon.errors?.['minlength']"
+              >Text is too short</span
+            >
+            <span
+              class="red-text text-lighten-1"
+              *ngIf="regon.errors?.['maxlength']"
+              >Text is too long</span
+            >
+          </ng-container>
+        </div>
+        <div class="input-field col s12 m6 l6 xl6">
+          <i class="material-icons prefix">description</i>
+          <input
+            id="krs"
+            name="krs"
+            type="text"
+            [(ngModel)]="company.cmpKrsNumber"
+            #krs="ngModel"
+            minlength="10"
+            maxlength="25"
+          />
+          <label for="krs" class="active">KRS</label>
+          <ng-container *ngIf="krs.invalid && (krs.dirty || krs.touched)">
+            <span
+              class="red-text text-lighten-1"
+              *ngIf="krs.errors?.['minlength']"
+              >Text is too short</span
+            >
+            <span
+              class="red-text text-lighten-1"
+              *ngIf="krs.errors?.['maxlength']"
+              >Text is too long</span
+            >
+          </ng-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">phone</i>
+          <input
+            id="phone"
+            name="phone"
+            type="text"
+            [(ngModel)]="company.cmpLandline"
+            #phone="ngModel"
+            minlength="5"
+            maxlength="25"
+          />
+          <label for="phone" class="active">Phone number</label>
+          <ng-container *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+            <span
+              class="red-text text-lighten-1"
+              *ngIf="phone.errors?.['minlength']"
+              >Text is too short</span
+            >
+            <span
+              class="red-text text-lighten-1"
+              *ngIf="phone.errors?.['maxlength']"
+              >Text is too long</span
+            >
+          </ng-container>
+        </div>
+      </div>
+      
+      <div class="row">
+        <button
+        class="waves-effect waves-yellow btn-large btn-submit"
+        type="button"
+        (click)="returnButtonClick()"
+        >
+        Return
+      </button>
+      <button
+        class="waves-effect waves-yellow btn-large btn-submit right"
+        type="submit"
+        [disabled]="form.invalid"
+        >
+        Submit
+      </button>
+    </div>
+  </form>
+    <div class="col s1 m1 l1 xl1"></div>
+  </div>
+  

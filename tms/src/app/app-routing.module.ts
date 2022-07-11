@@ -32,6 +32,8 @@ import { CustomerEditComponent } from './components/customer/customer-edit/custo
 import { ReportComponent } from './components/report/report.component';
 import { PasswordReminderComponent } from './components/account/password-reminder/password-reminder.component';
 import { TicketDetailsComponent } from './components/ticket/ticket-details/ticket-details/ticket-details.component';
+import { CompanyEditComponent } from './components/company/company-edit/company-edit.component';
+import { CompanyAddressEditComponent } from './components/company/company-address-edit/company-address-edit.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
@@ -47,6 +49,8 @@ const routes: Routes = [
     //children: [{ path: 'add', component: CompanyComponent }],
   },  
   { path: 'companies/add', component: CompanyFormComponent },
+  { path: 'companies/edit/:id', component: CompanyEditComponent},
+  { path: 'companies/edit/addresses/:id', component: CompanyAddressEditComponent},
 
   {path: 'tickets', component: TicketListComponent},
   {path: 'tickets/create', component: CreateTicketComponent},
