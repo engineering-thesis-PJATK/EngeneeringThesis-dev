@@ -39,13 +39,7 @@ export class CompanyFormComponent implements OnInit {
             console.log(res.objectId);
               this.companyAddresses.forEach(address => {
                 console.log(address);
-                this.companyService.postCompanyAddress(res.objectId,address).pipe(
-                  map(res => {
-                    if(res.statusCode != 200) {
-                      console.log('error' + res.statusCode);
-                    }
-                  })
-                  ).subscribe();
+                this.companyService.postCompanyAddress(res.objectId,address).subscribe();
                 });
                 this.returnButtonClick();
           }})).subscribe();
