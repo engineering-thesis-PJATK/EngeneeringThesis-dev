@@ -14,6 +14,7 @@ export enum ApiPaths {
   EmployeePrivilege = '/employee/privilege',
   Team = '/employee/team',
   Project = '/project',
+  ProjectExtended = '/project/companyteamnames',
   ProjectTasks = '/project/task',
   Ticket = "/ticket",
   CustomTicket= "/Ticket/CustomTicket",
