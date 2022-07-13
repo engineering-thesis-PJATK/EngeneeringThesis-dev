@@ -67,8 +67,13 @@ export class CompanyAddressEditComponent implements OnInit, AfterViewInit {
   }
   
   removeAddress(address: CompanyAddress) {
-    this.http.deleteCompanyAddress(address.adrId).subscribe();
-    this.getAddresses();
+    this.http.deleteCompanyAddress(address.adrId).pipe(
+      map(res => {
+        if(res.statusCode == 200) {
+          this.getAddresses();
+        }
+      })
+    ).subscribe();
   }
 
   updateAddress() {
