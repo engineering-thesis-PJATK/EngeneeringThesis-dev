@@ -51,11 +51,11 @@ import { ProjectTaskComponent } from './components/project/project-details/proje
 import { EmployeeEditComponent } from './components/employee/employee-edit/employee-edit.component';
 import { TeamEditComponent } from './components/team/team-edit/team-edit.component';
 import { CustomerEditComponent } from './components/customer/customer-edit/customer-edit.component';
-import { ReportComponent } from './components/report/report.component';
-import { DetailsPartComponent } from './components/report/details-part/details-part.component';
 import { EmployeeFormSelectComponent } from './components/employee/employee-form-select/employee-form-select.component';
 import { EmployeeEditSelectComponent } from './components/employee/employee-edit-select/employee-edit-select.component';
-import { TicketDetailsComponent } from './components/ticket/ticket-details/ticket-details/ticket-details.component';
+import { CustomerFormSelectComponent } from './components/customer/customer-form-select/customer-form-select.component';
+import { CompanyEditComponent } from './components/company/company-edit/company-edit.component';
+import { CompanyAddressEditComponent } from './components/company/company-address-edit/company-address-edit.component';
 
 @NgModule({
   declarations: [
@@ -95,11 +95,11 @@ import { TicketDetailsComponent } from './components/ticket/ticket-details/ticke
     EmployeeEditComponent,
     TeamEditComponent,
     CustomerEditComponent,
-    ReportComponent,
-    DetailsPartComponent,
     EmployeeFormSelectComponent,
     EmployeeEditSelectComponent,
-    TicketDetailsComponent,
+    CustomerFormSelectComponent,
+    CompanyEditComponent,
+    CompanyAddressEditComponent,
   ],
   imports: [
     BrowserModule,

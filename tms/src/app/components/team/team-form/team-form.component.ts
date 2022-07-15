@@ -15,7 +15,8 @@ export class TeamFormComponent implements OnInit, AfterViewInit {
   showList = false;
   buttonShowListText: string = 'Next';
   
-  sendingTeam: Team = {Name: '',members: []};
+  //sendingTeam: Team = {temName: ''};
+  sendingTeamName: string = '';
 
   constructor(private empHttp: EmployeeService, private teamHttp: TeamService,private location: Location) { }
 
@@ -49,18 +50,18 @@ export class TeamFormComponent implements OnInit, AfterViewInit {
 
   onNewMember(member: TeamEmployee)
   {
-    this.sendingTeam.members?.push(member);
+    //this.sendingTeam.members?.push(member);
   }
 
   onDeleteMember(member: TeamEmployee) {
-    this.sendingTeam.members = this.sendingTeam.members?.filter(item => item !== member);
+    //this.sendingTeam.members = this.sendingTeam.members?.filter(item => item !== member);
   }
 
   addTeam(): void {
-    // this.teamHttp.postTeam(this.sendingTeam as Team).subscribe(
+     this.teamHttp.postTeam(this.sendingTeamName).subscribe(
     //   //
-    // );
-    console.log(this.sendingTeam);
+     );
+    console.log(this.sendingTeamName);
   }
 
   returnButtonClick() {

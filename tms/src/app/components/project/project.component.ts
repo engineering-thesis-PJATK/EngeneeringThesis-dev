@@ -9,11 +9,11 @@ import { ProjectService } from 'src/app/services/project/project.service';
   styleUrls: ['./project.component.scss']
 })
 export class ProjectComponent implements OnInit {
-  projects!: Observable<Project[]>;
+  projects!: Project[];
   constructor(private http: ProjectService) { }
 
   ngOnInit(): void {
-    this.projects = this.http.getProjects();
+    this.http.getProjectsExtended().subscribe(p => this.projects = p);
   }
 
 }

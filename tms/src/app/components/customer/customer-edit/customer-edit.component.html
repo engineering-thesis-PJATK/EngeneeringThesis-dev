@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col s1 m1 l1 xl1"></div>
-    <form class="col s10 m10 l10 xl10" (ngSubmit)="updateCustomer()" #form="ngForm" *ngIf="customer | async as customer">
+    <form class="col s10 m10 l10 xl10" (ngSubmit)="updateCustomer()" #form="ngForm" *ngIf="customer">
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
@@ -8,7 +8,7 @@
             id="name"
             name="name"
             type="text"
-            [(ngModel)]="customer.cur_name"
+            [(ngModel)]="customer.curName"
             required
             #name="ngModel"
             minlength="2"
@@ -39,7 +39,7 @@
             id="surname"
             name="surname"
             type="text"
-            [(ngModel)]="customer.cur_surname"
+            [(ngModel)]="customer.curSurname"
             required
             #surname="ngModel"
             minlength="1"
@@ -74,7 +74,7 @@
             id="email"
             name="email"
             type="text"
-            [(ngModel)]="customer.cur_email"
+            [(ngModel)]="customer.curEmail"
             required
             #email="ngModel"
             minlength="5"
@@ -105,7 +105,7 @@
             id="phone"
             name="phone"
             type="text"
-            [(ngModel)]="customer.cur_phoneNumber"
+            [(ngModel)]="customer.curPhoneNumber"
             #phone="ngModel"
             minlength="9"
             maxlength="20"
@@ -132,7 +132,7 @@
             id="position"
             name="position"
             type="text"
-            [(ngModel)]="customer.cur_position"
+            [(ngModel)]="customer.curPosition"
             required
             #position="ngModel"
             minlength="1"
@@ -140,40 +140,13 @@
           />
           <label for="position" class="active">Position</label>
         </div>
-        <div class="input-field col s6">
-          <!-- <i class="material-icons prefix">account_balance</i>
-          <select
-            id="company"
-            name="company"
-            [(ngModel)]="customer.cur_idCompany"
-            required
-            #company="ngModel"
-          >
-            <option
-              *ngFor="let company of companyList | async"
-              [selected]="test(company.cmpId, (customer.cur_idCompany || 0))"
-              [value]="company.cmpId"
-            >
-              {{ company.cmpName }}
-            </option>
-          </select>
-          <label>Company</label>
-          <ng-container
-            *ngIf="company.invalid && (company.dirty || company.touched)"
-          >
-            <span
-              class="red-text text-lighten-1"
-              *ngIf="company.errors?.['required']"
-              >Field is required</span
-            >
-          </ng-container> -->
           <div class="input-field col s6">
             <i class="material-icons prefix">account_balance</i>
             <input
               id="company"
               name="company"
               type="text"
-              [(ngModel)]="customer.cmp_name"
+              [(ngModel)]="customer.curCompanyName"
               required
               #company="ngModel"
               minlength="1"
@@ -182,7 +155,6 @@
             />
             <label for="company" class="active">Company</label>
           </div>
-        </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
@@ -191,28 +163,28 @@
             id="comments"
             name="comments"
             type="text"
-            [(ngModel)]="customer.cur_comments"
-            required
-            minlength="0"
+            [(ngModel)]="customer.curComments"
+            
             maxlength="255"
           />
           <label for="comments" class="active">Comments</label>
         </div>
       </div>
       <div class="row">
+        
         <button
           class="waves-effect waves-yellow btn-large btn-submit"
-          type="submit"
-          [disabled]="form.invalid"
+          type="button"
+          (click)="returnButtonClick()"
         >
-          Submit
+          Return
         </button>
         <button
           class="waves-effect waves-yellow btn-large btn-submit right"
           type="submit"
-          (click)="returnButtonClick()"
+          [disabled]="form.invalid"
         >
-          Return
+          Submit
         </button>
       </div>
     </form>

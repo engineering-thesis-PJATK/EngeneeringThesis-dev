@@ -13,10 +13,10 @@
     
             <tbody>
               <tr *ngFor = "let address of addresses" class="centered-table-tr">
-                <td>{{address.city}}</td>
-                <td>{{ address.street + ' ' + address.streetNumber }}</td>
-                <td>{{ address.postalCode }}</td>
-                <td>{{ address.country }}</td>
+                <td>{{address.adrTown}}</td>
+                <td>{{ address.adrStreet + ' ' + address.adrStreetNumber }}</td>
+                <td>{{ address.adrPostCode }}</td>
+                <td>{{ address.adrCountry }}</td>
                 <td><i class="material-icons prefix bin" (click)="removeAddress.emit(address)">delete</i></td>
               </tr>
             </tbody>

@@ -16,8 +16,6 @@ export class PasswordService {
     headers.append('Content-Type', 'application/json');
     headers.append('emailAddress', emailAddress);
     let params = new HttpParams().set('emailAddress', emailAddress);
-    console.log(this.url+ApiPaths.ForgotPassword);
-    console.log(params);
-    return this.http.get(this.url+ApiPaths.ForgotPassword, {params: params}).pipe(tap(console.log));
+    return this.http.post(this.url+ApiPaths.ForgotPassword, {params: params}).pipe(tap(console.log));
   }
 }

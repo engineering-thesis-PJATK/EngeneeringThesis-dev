@@ -183,29 +183,29 @@
             (newAddress)="onNewAddress($event)"
           ></app-company-address>
         </div>
-        <div class="col s12 m6 l6 xl6" *ngIf="company.companyAddresses?.length">
+        <div class="col s12 m6 l6 xl6" *ngIf="companyAddresses?.length">
           <app-company-address-list
             (removeAddress)="onDeleteAddress($event)"
-            [addresses]="company.companyAddresses"
+            [addresses]="companyAddresses"
           ></app-company-address-list>
         </div>
       </div>
     </div>
     <div class="row">
       <button
-        class="waves-effect waves-yellow btn-large btn-submit"
-        type="submit"
-        [disabled]="form.invalid"
+      class="waves-effect waves-yellow btn-large btn-submit"
+      type="button"
+      (click)="returnButtonClick()"
       >
-        Submit
-      </button>
-      <button
-        class="waves-effect waves-yellow btn-large btn-submit right"
-        type="button"
-        (click)="returnButtonClick()"
-      >
-        Return
-      </button>
+      Return
+    </button>
+    <button
+      class="waves-effect waves-yellow btn-large btn-submit right"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Submit
+    </button>
     </div>
   </form>
   <div class="col s1 m1 l1 xl1"></div>

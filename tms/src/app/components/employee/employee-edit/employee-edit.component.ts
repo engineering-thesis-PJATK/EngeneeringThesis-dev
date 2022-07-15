@@ -16,6 +16,7 @@ declare const M: any;
 export class EmployeeEditComponent implements OnInit, AfterViewInit {
   employee!: Employee;
   privilegeList: EmployeePrivilege[] = [];
+  originalPrivilegeList: EmployeePrivilege[] = [];
   empPrivileges: number[] = [];
 
   constructor(private http: EmployeeService, private location: Location, private route: ActivatedRoute) { }
@@ -29,7 +30,7 @@ export class EmployeeEditComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.http.getPriveleges().subscribe((prv) => (this.privilegeList = prv));
+    this.http.getPriveleges().subscribe((prv) => (this.privilegeList = prv, this.originalPrivilegeList = prv));
     this.http.getEmployee(this.route.snapshot.paramMap.get('id') || '0').pipe(
       map(res => {
         this.employee = res;
@@ -56,7 +57,9 @@ export class EmployeeEditComponent implements OnInit, AfterViewInit {
     this.http.putEmployee(this.employee.empId, sending).pipe(
       map(res => {
         if (res.statusCode == 200) {
-          this.http.putEmployeePrivileges(this.employee.empId, this.empPrivileges).subscribe();
+          console.log(this.empPrivileges);
+          console.log(this.originalPrivilegeList);
+          this.http.postEmployeePrivileges(this.employee.empId, this.empPrivileges).subscribe();
           this.returnButtonClick();
         }
       })
@@ -67,11 +70,11 @@ export class EmployeeEditComponent implements OnInit, AfterViewInit {
     this.location.back();
   }
 
-  employeePrivilegesAdd(id: number) {
+  employeePrivilegesAdd(id: number): void {
     this.empPrivileges.push(id);
   }
 
-  employeePrivilegesRemove(id: number) {
+  employeePrivilegesRemove(id: number): void {
     this.empPrivileges = this.empPrivileges.filter(a => a != id);
   }
 }
