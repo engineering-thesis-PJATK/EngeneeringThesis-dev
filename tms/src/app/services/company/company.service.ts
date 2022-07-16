@@ -62,7 +62,4 @@ export class CompanyService {
     //  ];
     //  return of(cmps);
    }
-   getCompanyById(cmpId: number): Observable<CompanyCard> {
-     return this.http.get<CompanyCard>(this.url+ApiPaths.Company+'/' + cmpId).pipe(tap(console.log));
-   }
 }
