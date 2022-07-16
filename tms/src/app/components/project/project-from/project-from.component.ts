@@ -1,6 +1,5 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { CompanySelect } from 'src/app/models/company';
+import { Component, OnInit } from '@angular/core';
+import { map, Observable } from 'rxjs';
 import { ProjectSending } from 'src/app/models/project';
 import { Team } from 'src/app/models/team';
 import { CompanyService } from 'src/app/services/company/company.service';
@@ -9,6 +8,7 @@ import { TeamService } from 'src/app/services/team/team.service';
 import { Location } from '@angular/common';
 import Swal from 'sweetalert2';
 import { Dropdown } from 'materialize-css';
+import { Company } from 'src/app/models/company';
 declare const M: any;
 
 @Component({
@@ -16,9 +16,14 @@ declare const M: any;
   templateUrl: './project-from.component.html',
   styleUrls: ['./project-from.component.scss'],
 })
-export class ProjectFromComponent implements OnInit, AfterViewInit {
-  project: Partial<ProjectSending> = {};
-  companies: CompanySelect[] = [];
+export class ProjectFromComponent implements OnInit {
+  project: ProjectSending = {
+    prjName: '',
+    prjDescription: '',
+    companyId: 0,
+    teamId: 0
+  };
+  companies: Company[] = [];
   teams: Team[] = [];
 
   test=false;
@@ -34,25 +39,36 @@ export class ProjectFromComponent implements OnInit, AfterViewInit {
     this.test = !this.test;
   }
 
-  ngAfterViewInit(): void {
-    //throw new Error('Method not implemented.');
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems, {});
+  ngOnInit(): void {
+    this.companyHttp.getCompaniesSelect().subscribe(c => this.companies = c);
+    this.teamHttp.getTeams().subscribe(t => this.teams = t);
+    this.loadSelects2();
+
+    // Maybe It not work, but the components are also not loading
+    // this.companyHttp.getCompaniesSelect().subscribe((response) => {
+    //   this.companies = response;
+    //   this.teamHttp.getTeams().subscribe((response) => {
+    //     this.teams = response;
+    //     this.loadSelects();
+    //   })
+
+    // });
   }
 
-  ngOnInit(): void {
-    //this.companies = this.companyHttp.getCompaniesSelect().subscribe(c => this.companies = c);
-    //this.teams = this.teamHttp.getTeams();
-    this.companyHttp
-      .getCompaniesSelect()
-      .subscribe((c) => (this.companies = c));
-    this.teamHttp.getTeams().subscribe((t) => (this.teams = t));
+  loadSelects() {
+    var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems, {});
+  }
 
-    var options = {
-      edge: 'left'//'right' //niestety nie działa poprawnie na dwa sidenavy:c
+  loadSelects2() {
+    if(this.companies.length >= 1 || this.teams.length >= 1) {
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems, {});
+    } else {
+      setTimeout(() => {
+        this.loadSelects();
+      }, 100);
     }
-     var elems = document.querySelectorAll('.sidenav');
-     var instances = M.Sidenav.init(elems, options);
   }
 
   addProject(): void {
@@ -65,7 +81,6 @@ export class ProjectFromComponent implements OnInit, AfterViewInit {
         icon: 'error',
         title: 'Oops...',
         text: 'You have to choose company!',
-        // footer: '<a href="">Why do I have this issue?</a>'
       });
       return;
     }
@@ -76,7 +91,6 @@ export class ProjectFromComponent implements OnInit, AfterViewInit {
         icon: 'error',
         title: 'Oops...',
         text: 'You have to choose team!',
-        // footer: '<a href="">Why do I have this issue?</a>'
       });
       return;
     }
@@ -88,11 +102,3 @@ export class ProjectFromComponent implements OnInit, AfterViewInit {
     this.location.back();
   }
 }
-
-// document.addEventListener('DOMContentLoaded', function() {
-//   var options = {
-//     edge: 'right'
-//   }
-//    var elems = document.querySelectorAll('.sidenav');
-//    var instances = M.Sidenav.init(elems, options);
-//  });

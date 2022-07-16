@@ -13,8 +13,7 @@ export class ProjectComponent implements OnInit {
   constructor(private http: ProjectService) { }
 
   ngOnInit(): void {
-    // this.projects = this.http.getProjects();
-    this.http.getProjects().subscribe(p => this.projects = p);
+    this.http.getProjectsExtended().subscribe(p => this.projects = p);
   }
 
 }
