@@ -24,26 +24,12 @@ interface Priority{
   styleUrls: ['./ticket-details.component.scss']
 })
 export class TicketDetailsComponent implements OnInit {
-  employees: Employee[] = [
-    {value: 0, viewValue: 'Krzysztof Jurkowski'},
-    {value: 1, viewValue: 'Piotr Łojko'},
-    {value: 2, viewValue: 'Tomasz Krasieńko'},
-    {value: 3, viewValue: 'Jakub Michalak'},
-    {value: 4, viewValue: 'Paweł Lenkiewicz'}
-  ];
-
-  priorities: Priority[] = [
-    {value: 0, viewValue: "Urgent"},
-    {value: 1, viewValue: "Important"},
-    {value: 2, viewValue: "Basic"},
-    {value: 3, viewValue: "Not Important"},
-  ]
    
   ticket!: Observable<SingleTicketJoined>;
   constructor(private httpTicketSvc: TicketService, private route: ActivatedRoute) {   
     let param1 = this.route.snapshot.paramMap.get('id') || '0';        
     this.ticket =this.httpTicketSvc.getCustomJoinedSingleTicket(param1);  
-
+    M.updateTextFields(); // not working
   }  
 
 
@@ -51,8 +37,11 @@ export class TicketDetailsComponent implements OnInit {
       var elems = document.querySelectorAll('select');
       var instances = M.FormSelect.init(elems, {});
        elems = document.querySelectorAll('.datepicker');
-      instances = M.Datepicker.init(elems, {});      
+      instances = M.Datepicker.init(elems, {});  
+      M.updateTextFields();    //not working
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(document.readyState + ' debug message');
+  }
   
 }

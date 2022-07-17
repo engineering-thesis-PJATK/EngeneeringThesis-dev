@@ -1,75 +1,77 @@
 <script src="/assets/jQuery.min.js"></script>
+
 <div class="row">
   <form class="col s12" *ngIf="ticket | async as ticket">
 
     <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix">contacts</i>
-        <input id="client_name" type="text" class="validate" required>
-        <label for="client_name">Client</label>
+        <input id="client_name" type="text" class="validate" required value="{{  ticket.singleCustomer.curName}} {{ticket.singleCustomer.curSurname}}">
+        <label for="client_name" class="active">Client</label>
       </div>
       <div class="input-field col s6">
         <i class="material-icons prefix">announcement</i>
-        <input id="ticket_topic" type="text" class="validate" required>
-        <label for="ticket_topic">Topic</label>
+        <input id="ticket_topic" type="text" class="validate" required value ="{{ ticket.ticName }}">
+        <label for="ticket_topic" class="active">Topic</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix">date_range</i>
-        <input type="text" class="datepicker" placeholder="Due date" required>
+        <input type="text" class="datepicker" placeholder="Due date" required value="{{ticket.ticDueDate}}">
       </div>
 
       <div class="input-field col s6"  >
         <i class="material-icons prefix">schedule</i>
-        <select >
+        <!-- <select >
           <option value="" disabled selected>Choose aproppriate status</option>
           <option value="1">In Progress</option>
           <option value="2">Finished</option>
           <option value="3">Created</option>
           <option value="4">Waiting for customer</option>
           <option value="5">Waiting for third party</option>
+        </select> -->
+        <select class="browser-default active" >
+          <option *ngFor="let status of ticket.ticketStatuses" [value]="status.tstId">
+            {{status.tstName}} 
+          </option>
         </select>
-        <label>Status</label>
+        <label class="active">Status</label>
       </div>
     </div>
 
     <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix">star</i>
-        <select>
-          <option *ngFor="let priority of priorities" [value]="priority.value">
-            {{priority.viewValue}}
+        <select class="browser-default active" >
+          <option *ngFor="let priority of ticket.ticketPriorities" [value]="priority.tpiId">
+            {{priority.tpiDescription}}
           </option>
         </select>
-        <label>Priority</label>
+        <label class="active">Priority</label>
       </div>
 
       <div class="input-field col s6">
         <i class="material-icons prefix">av_timer</i>
-        <input type="number" name="amount" id="amount" class="validate" min=0 step=0.1>
-        <label for="amount" data-error="Invalid number (eg. 1200)">Estimated time</label>
+        <input type="number" name="amount" id="amount" class="validate" min=0 step=0.1 value="{{ticket.ticEstimatedCost}}">
+        <label for="amount" data-error="Invalid number (eg. 1200)" class="active">Estimated time</label>
       </div>
     </div>
 
     <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix">person</i>
-        <select>
-          <option *ngFor="let employee of employees" [value]="employee.value">
-            {{employee.viewValue}}
+        <select class="browser-default">
+          <option *ngFor="let employee of ticket.employees" [value]="ticket.employeeAssignedToTicket">
+            {{employee.empName}} {{employee.empSurname}}
           </option>
         </select>
-        <label>Assigned Employee</label>
+        <label class="active">Assigned Employee</label>
       </div>
       <div class="input-field col s6">
         <div >
         <i class="material-icons prefix">new_releases</i>        
-        <select>
-          <!-- <option value="" disabled selected>Choose ticket type</option>
-          <option value="1">Budget</option>
-          <option value="2">Analysis</option>
-          <option value="3">Own Cost</option> -->
+        <select class="browser-default active" >
           <option *ngFor="let type of ticket.ticketTypes" [value]="type.ttpId">
             {{type.ttpName}} 
           </option>
@@ -83,7 +85,7 @@
       <div class="input-field col s12">
         <i class="material-icons prefix"> description </i>
         <textarea id="textarea2" class="materialize-textarea" data-length="120">{{ ticket.ticName }}</textarea>
-        <label for="textarea2">Description</label>
+        <label for="textarea2" class="active">Description</label>
       </div>
     </div>
     <div class="row">

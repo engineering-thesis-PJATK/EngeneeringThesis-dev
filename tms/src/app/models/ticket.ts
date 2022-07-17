@@ -65,6 +65,21 @@ export interface TicketList {
         tpiWeight: number;
         tpiDescription: string;
     }
+    export interface EmployeesForCustomTicket{
+        empId: number;
+        empLogin: string;
+        empPassword: string;
+        empName: string;
+        empSurname: string;
+        empEmail: string;
+        empPhoneNumber: string;
+        empCreatedAt: Date;
+        employeePrivilegeEmployees: any[];
+        employeeTeams: any[];
+        employeeTickets: any[];
+        organizationalTasks: any[];
+        timeEntries: any[];
+    }
 
     export interface SingleTicketJoined {
         singleCustomer: SingleCustomer;
@@ -72,6 +87,7 @@ export interface TicketList {
         ticketStatuses: TicketStatus[];
         ticketTypes: TicketType[];
         ticketPriorities: TicketPriority[];
+        employees: EmployeesForCustomTicket[];
         ticId: number;
         ticName: string;
         ticTopic: string;
@@ -84,4 +100,5 @@ export interface TicketList {
         ticCustomerId: number;
         ticTicketTypeId: number;
         ticTicketPriorityId: number;
+        employeeAssignedToTicket: number;
     }

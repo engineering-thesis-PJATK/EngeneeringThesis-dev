@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { SingleTicket, TicketList } from 'src/app/models/ticket';
 import { TicketService } from 'src/app/services/ticket/ticket.service';
 import { CompanyService } from 'src/app/services/company/company.service'
-import { CompanyCard } from 'src/app/models/company';
 import { Customer } from 'src/app/models/customer';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 
