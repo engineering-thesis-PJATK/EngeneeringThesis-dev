@@ -1,0 +1,28 @@
+.padding-right{
+    padding-right: 520px;
+}
+.padding-left{
+    padding-left: 0px;
+}
+.form-field-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .form-field-label {
+      white-space: nowrap;
+    }
+    .form-field-label + mat-form-field {
+     margin-left: 10px;
+    }
+    mat-form-field {
+      width:100%;
+    }
+  }
+  .prefix{
+      padding-right: 220px;
+  }
+mat-form-field{
+    margin-left: 3rem;
+        width: 92%;
+        width: calc(100% - 3rem);
+}

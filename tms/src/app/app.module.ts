@@ -60,6 +60,10 @@ import { CustomerFormSelectComponent } from './components/customer/customer-form
 import { CompanyEditComponent } from './components/company/company-edit/company-edit.component';
 import { CompanyAddressEditComponent } from './components/company/company-address-edit/company-address-edit.component';
 
+import { MaterialAngularSelectModule } from 'material-angular-select';
+import { MatSelectModule } from '@angular/material/select';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -106,6 +110,7 @@ import { CompanyAddressEditComponent } from './components/company/company-addres
     CustomerFormSelectComponent,
     CompanyEditComponent,
     CompanyAddressEditComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -122,6 +127,11 @@ import { CompanyAddressEditComponent } from './components/company/company-addres
     MatIconModule,
     BrowserAnimationsModule,
     DragDropModule,
+    MaterialAngularSelectModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,    
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

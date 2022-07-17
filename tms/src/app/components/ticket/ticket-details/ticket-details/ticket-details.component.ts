@@ -3,18 +3,14 @@ import { Datepicker } from "materialize-css";
 import { ActivatedRoute } from '@angular/router';
 import { TicketService } from 'src/app/services/ticket/ticket.service';
 import { Location } from '@angular/common';
-import { SingleTicketJoined } from 'src/app/models/ticket';
+import { SingleTicketJoined, TicketStatus } from 'src/app/models/ticket';
 import Swal from 'sweetalert2';
 import { map, Observable } from 'rxjs';
 
 declare const M: any;
 
-interface Employee {
-  value: number;
-  viewValue: string;
-}
-interface Priority{
-  value: number;
+interface Food {
+  value: string;
   viewValue: string;
 }
 
@@ -23,8 +19,18 @@ interface Priority{
   templateUrl: './ticket-details.component.html',
   styleUrls: ['./ticket-details.component.scss']
 })
+
 export class TicketDetailsComponent implements OnInit {
-   
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'},
+  ];
+  defaultItem: TicketStatus = {
+    tstId: 1,
+    tstName:"tst",
+    tstDescription:"tst2"
+};
   ticket!: Observable<SingleTicketJoined>;
   constructor(private httpTicketSvc: TicketService, private route: ActivatedRoute) {   
     let param1 = this.route.snapshot.paramMap.get('id') || '0';        

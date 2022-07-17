@@ -6,12 +6,13 @@
     <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix">contacts</i>
-        <input id="client_name" type="text" class="validate" required value="{{  ticket.singleCustomer.curName}} {{ticket.singleCustomer.curSurname}}">
+        <input id="client_name" type="text" class="validate" required
+          value="{{  ticket.singleCustomer.curName}} {{ticket.singleCustomer.curSurname}}">
         <label for="client_name" class="active">Client</label>
       </div>
       <div class="input-field col s6">
         <i class="material-icons prefix">announcement</i>
-        <input id="ticket_topic" type="text" class="validate" required value ="{{ ticket.ticName }}">
+        <input id="ticket_topic" type="text" class="validate" required value="{{ ticket.ticName }}">
         <label for="ticket_topic" class="active">Topic</label>
       </div>
     </div>
@@ -21,63 +22,80 @@
         <input type="text" class="datepicker" placeholder="Due date" required value="{{ticket.ticDueDate}}">
       </div>
 
-      <div class="input-field col s6"  >
-        <i class="material-icons prefix">schedule</i>
-        <!-- <select >
-          <option value="" disabled selected>Choose aproppriate status</option>
-          <option value="1">In Progress</option>
-          <option value="2">Finished</option>
-          <option value="3">Created</option>
-          <option value="4">Waiting for customer</option>
-          <option value="5">Waiting for third party</option>
-        </select> -->
-        <select class="browser-default active" >
-          <option *ngFor="let status of ticket.ticketStatuses" [value]="status.tstId">
-            {{status.tstName}} 
-          </option>
-        </select>
-        <label class="active">Status</label>
+      <div class="padding-left input-field col s6">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" class="prefix">schedule</mat-icon>
+
+        <div class="form-field-group">
+          <mat-form-field>
+            <mat-label>Status</mat-label>
+            <mat-select value="{{ticket.ticTicketStatusId}}">
+              <mat-option *ngFor="let status of ticket.ticketStatuses" value="{{status.tstId}}">
+                {{status.tstName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
       </div>
     </div>
 
     <div class="row">
       <div class="input-field col s6">
-        <i class="material-icons prefix">star</i>
-        <select class="browser-default active" >
-          <option *ngFor="let priority of ticket.ticketPriorities" [value]="priority.tpiId">
-            {{priority.tpiDescription}}
-          </option>
-        </select>
-        <label class="active">Priority</label>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" class="prefix">star</mat-icon>
+        <div class="form-field-group">
+          <mat-form-field>
+            <mat-label>Priority</mat-label>
+            <mat-select value="{{ticket.ticTicketPriorityId}}">
+              <mat-option *ngFor="let priority of ticket.ticketPriorities" value="{{priority.tpiId}}">
+                {{priority.tpiDescription}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
       </div>
 
       <div class="input-field col s6">
         <i class="material-icons prefix">av_timer</i>
-        <input type="number" name="amount" id="amount" class="validate" min=0 step=0.1 value="{{ticket.ticEstimatedCost}}">
+        <input type="number" name="amount" id="amount" class="validate" min=0 step=0.1
+          value="{{ticket.ticEstimatedCost}}">
         <label for="amount" data-error="Invalid number (eg. 1200)" class="active">Estimated time</label>
       </div>
     </div>
 
     <div class="row">
       <div class="input-field col s6">
-        <i class="material-icons prefix">person</i>
-        <select class="browser-default">
-          <option *ngFor="let employee of ticket.employees" [value]="ticket.employeeAssignedToTicket">
-            {{employee.empName}} {{employee.empSurname}}
-          </option>
-        </select>
-        <label class="active">Assigned Employee</label>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" class="prefix">person</mat-icon>
+        <div class="form-field-group">
+          <mat-form-field>
+            <mat-label>Assigned Employee</mat-label>
+            <mat-select value="{{ticket.employeeAssignedToTicket}}">
+              <mat-option *ngFor="let employee of ticket.employees" value="{{ticket.employeeAssignedToTicket}}">
+                {{employee.empName}} {{employee.empSurname}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
       </div>
       <div class="input-field col s6">
-        <div >
-        <i class="material-icons prefix">new_releases</i>        
-        <select class="browser-default active" >
-          <option *ngFor="let type of ticket.ticketTypes" [value]="type.ttpId">
-            {{type.ttpName}} 
-          </option>
-        </select>
-        <label>Ticket type</label>
-      </div>
+        <!-- <div>
+          <i class="material-icons prefix">new_releases</i>
+          <select class="browser-default active">
+            <option *ngFor="let type of ticket.ticketTypes" [value]="type.ttpId">
+              {{type.ttpName}}
+            </option>
+          </select>
+          <label>Ticket type</label>
+        </div> -->
+        <mat-icon aria-hidden="false" aria-label="Example home icon" class="prefix">person</mat-icon>
+        <div class="form-field-group">
+          <mat-form-field>
+            <mat-label>Ticket Type</mat-label>
+            <mat-select value="{{ticket.ticTicketTypeId}}">
+              <mat-option *ngFor="let type of ticket.ticketTypes" value="{{type.ttpId}}">
+                {{type.ttpName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
       </div>
     </div>
 
